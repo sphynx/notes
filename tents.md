@@ -10,7 +10,7 @@ description: An overview of lightweight backpacking tents in 2019
 | :--- | :--- | :--- | :--- | :--- |
 | MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 385 |
 | Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 420 |
-| Trimm HimLite DSL | 1590 | 2.36 | 0.65 | 370 € |
+| Trimm HimLite DSL | 1600 | 2.5 | 0.65 | 370 € |
 | Hilleberg Niak | 1700 | 2.6 | 0.75 | 790 |
 | Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 715 |
 | Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 827 |
@@ -70,7 +70,7 @@ description: An overview of lightweight backpacking tents in 2019
 
 ![](https://i.sportisimo.com/products/images/830/830588/450x450/trimm-44118-himlite-dsl_0.jpg)
 
-![The lower side of the tent is 95 cm](.gitbook/assets/trimm-himlite-plan.png)
+![The lower side of the tent is 107 cm \(as measured\)](.gitbook/assets/trimm-himlite-plan.png)
 
 [official link](https://www.trimm.cz/en/catalog/himlite-dsl-c1247.htm)
 
