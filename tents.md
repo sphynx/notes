@@ -26,12 +26,12 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data
 
-* floor area: 2.7 m2 (29 sq ft)
-* vestibule area: 1.62 m2 (17 sq ft)
+* floor area: 2.7 m2 \(29 sq ft\)
+* vestibule area: 1.62 m2 \(17 sq ft\)
 * weight: 1720 g
-* rain fly: 20D nylon ripstop, PU coating (1200mm)
+* rain fly: 20D nylon ripstop, PU coating \(1200mm\)
 * inner tent: 20D nylon ripstop, 15D nylon mesh
-* floor: 30D ripstop nylon, PU coating (3000mm), DWR coating
+* floor: 30D ripstop nylon, PU coating \(3000mm\), DWR coating
 
 ## Nemo Dragonfly 2p
 
@@ -48,8 +48,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data
 
-* floor area: 2.7 m2 (29 sq ft)
-* vestibule area: 1.8 m2 (20 sq ft) = (0.9 m2 \* 2)
+* floor area: 2.7 m2 \(29 sq ft\)
+* vestibule area: 1.8 m2 \(20 sq ft\) = \(0.9 m2 \* 2\)
 * weight: 1410 g
 * rain fly: 15D nylon ripstop
 * inner tent: 10D nylon ripstop
@@ -66,14 +66,16 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data:
 
-* floor area: 2.12 m2 (calculated it myself based on the drawing from the official site)
-* vestibule area: 0.65 m2 (calculated it myself based on the drawing from the official site)
-* weight: ~1600 g (my version).
+* floor area: 2.12 m2 \(calculated it myself based on the drawing from the official site\)
+* vestibule area: 0.65 m2 \(calculated it myself based on the drawing from the official site\)
+* weight: ~1600 g \(my version\).
 * floor: 10,000 mm H2O
 * rain fly: 4000 mm H2O, nylon PU
 * poles: 8.5mm
 
 ## Hilleberg Niak
+
+![](https://www.tauntonleisure.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/i/hilleberg-niakgrn-srgbtag.jpg)
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
@@ -97,7 +99,7 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data
 
-* floor area: 2.6 m2 (28 sq ft)
+* floor area: 2.6 m2 \(28 sq ft\)
 * vestibule area: 1.2 m2
 * weight: 1800 g
 
@@ -105,3 +107,4 @@ description: An overview of lightweight backpacking tents in 2019
 
 * MSR Access 2
 * and others...
+
