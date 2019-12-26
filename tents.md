@@ -99,6 +99,14 @@ description: An overview of lightweight backpacking tents in 2019
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
+### Notes
+
+Niak and other Hilleberg tents are apparently better equipped for bad weather: strong wind and long rain and since we are usually traveling to more challenging destinations \(like Iceland, Scotland, Patagonia, Lake District, etc.\), it might have more sense to invest in something more robust.
+
+In particular, Hilleberg tents are set up "outer tent first", i.e.inner tent is connected to outer tent and you start pitching by just putting poles into sleeves of an outer tent, which make much more sense in rainy weather. Other tents in this list \(including our current one\) are "inner tent goes first", hence one either has to pitch the tent super quickly in the rain to minimise amount of rain getting into the tent or just wait until the rain stops or becomes less intense. The same goes about packing the tent.
+
+Details about the fabric used in Hilleberg tents: [https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/\#kerlon1000r](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+
 ### Reviews
 
 [switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak)
