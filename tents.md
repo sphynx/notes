@@ -6,12 +6,12 @@ description: An overview of lightweight backpacking tents in 2019
 
 ## Overview table
 
-| Name | Weight, g | Floor area, m² | Vestibule area, m² | Materials \(floor/outer/inner\), D | Price, £ |
+| Name | Weight, g | Floor, m² | Vestibule, m² | Materials \(floor/outer/inner\), D | Price, £ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 30/20/20+15\(mesh\) | 385 |
 | Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 20/15/10 | 420 |
-| Trimm HimLite DSL | 1600 | 2.5 | 0.65 | ?D\(10k H2O\)/?D\(4k H20\)/? | 370 € |
-| Hilleberg Niak | 1700 | 2.6 | 0.75 | 50\(12k H2O\)/20/10 | 790 |
+| Trimm HimLite DSL | 1600 | 2.5 | 0.65 | 10k H₂O / 4k H₂O | 370 € |
+| Hilleberg Niak | 1700 | 2.6 | 0.75 | 50\(12k H₂O\)/20/10 | 790 |
 | Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 50/20/10 | 715 |
 | Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 50/20/10 | 827 |
 | Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 50/20/20 | 835 |
@@ -36,8 +36,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data
 
-* floor area: 2.7 m2 \(29 sq ft\)
-* vestibule area: 1.62 m2 \(17 sq ft\)
+* floor area: 2.7 m² \(29 sq ft\)
+* vestibule area: 1.62 m² \(17 sq ft\)
 * weight: 1720 g
 * rain fly: 20D nylon ripstop, PU coating \(1200mm\)
 * inner tent: 20D nylon ripstop, 15D nylon mesh
@@ -62,8 +62,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data
 
-* floor area: 2.7 m2 \(29 sq ft\)
-* vestibule area: 1.8 m2 \(20 sq ft\) = \(0.9 m2 \* 2\)
+* floor area: 2.7 m² \(29 sq ft\)
+* vestibule area: 1.8 m² \(20 sq ft\) = \(0.9 m² x 2\)
 * weight: 1410 g
 * rain fly: 15D nylon ripstop
 * inner tent: 10D nylon ripstop
@@ -84,12 +84,13 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Data:
 
-* floor area: 2.12 m2 \(calculated it myself based on the drawing from the official site\)
-* vestibule area: 0.65 m2 \(calculated it myself based on the drawing from the official site\)
+* floor area: 2.5 m²
+* vestibule area: 0.65 m² 
 * weight: ~1600 g \(my version\).
-* floor: 10,000 mm H2O
-* rain fly: 4000 mm H2O, nylon PU
+* floor: 10,000 mm H₂O
+* rain fly: 4000 mm H₂O, nylon PU
 * poles: 8.5mm
+* height: 95 cm
 
 ## Hilleberg Niak
 
@@ -120,12 +121,12 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ### Data:
 
-* floor area: 2.6 m2
-* vestibule area: 0.75 m2
+* floor area: 2.6 m²
+* vestibule area: 0.75 m²
 * weight: 1700 g
-* outer tent: 20D ripstop nylon, 5000 H20, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+* outer tent: 20D ripstop nylon, 5000 H₂O, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
 * inner tent: 10D ripstop nylon, DWR
-* floor: 50D, 12 000 mm H2O
+* floor: 50D, 12 000 mm H₂O
 * poles: 9mm
 
 ## Hilleberg Anjan 2
@@ -142,12 +143,12 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ### Data
 
-* floor area: 2.6 m2 \(28 sq ft\)
-* vestibule area: 1.2 m2
+* floor area: 2.6 m² \(28 sq ft\)
+* vestibule area: 1.2 m²
 * weight: 1800 g
-* outer tent: 20D ripstop nylon, 5000 H20, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+* outer tent: 20D ripstop nylon, 5000 H₂O, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
 * inner tent: 10D ripstop nylon, DWR
-* floor: 50D, PU, 12 000 mm H2O
+* floor: 50D, PU, 12 000 mm H₂O
 
 ## Hilleberg Anjan 2 GT
 
@@ -167,12 +168,12 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ### Data
 
-* floor area: 2.6 m2 \(28 sq ft\)
-* vestibule area: 2.5 m2
+* floor area: 2.6 m² \(28 sq ft\)
+* vestibule area: 2.5 m²
 * weight: 2100 g
-* outer tent: 20D ripstop nylon, 5000 H20, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+* outer tent: 20D ripstop nylon, 5000 H₂O, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
 * inner tent: 10D ripstop nylon, DWR
-* floor: 50D, PU, 12 000 mm H2O
+* floor: 50D, PU, 12 000 mm H₂O
 
 ## Hilleberg Rogen
 
@@ -188,12 +189,12 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ### Data
 
-* floor area: 2.8 m2 \(28 sq ft\)
-* vestibule area: 2.0 m2 = 1.0 x 2
+* floor area: 2.8 m² \(28 sq ft\)
+* vestibule area: 2.0 m² = 1.0 x 2
 * weight: 2100 g
-* outer tent: 20D ripstop nylon, 5000 H20, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+* outer tent: 20D ripstop nylon, 5000 H₂O, [Kerlon 1000](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
 * inner tent: 20D ripstop nylon, DWR
-* floor: 50D, PU, 12 000 mm H2O
+* floor: 50D, PU, 12 000 mm H₂O
 
 ## Other reviews and comparisons
 
