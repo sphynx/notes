@@ -6,15 +6,15 @@ description: An overview of lightweight backpacking tents in 2019
 
 ## Overview table
 
-| Name | Weight, g | Floor area, m² | Vestibule area, m² | Price, £ |
-| :--- | :--- | :--- | :--- | :--- |
-| MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 385 |
-| Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 420 |
-| Trimm HimLite DSL | 1600 | 2.5 | 0.65 | 370 € |
-| Hilleberg Niak | 1700 | 2.6 | 0.75 | 790 |
-| Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 715 |
-| Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 827 |
-| Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 835 |
+| Name | Weight, g | Floor area, m² | Vestibule area, m² | Materials \(floor/outer/inner\), D | Price, £ |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 30/20/20+15\(mesh\) | 385 |
+| Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 20/15/10 | 420 |
+| Trimm HimLite DSL | 1600 | 2.5 | 0.65 | ?D\(10k H2O\)/?D\(4k H20\)/? | 370 € |
+| Hilleberg Niak | 1700 | 2.6 | 0.75 | 50\(12k H2O\)/20/10 | 790 |
+| Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 50/20/10 | 715 |
+| Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 50/20/10 | 827 |
+| Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 50/20/20 | 835 |
 
 ## MSR Hubba Hubba NX
 
