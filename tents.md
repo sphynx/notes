@@ -20,6 +20,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ![](https://www.msrgear.com/on/demandware.static/-/Sites-msr-master-catalog/default/dw7b52d374/images/large/10316_msr_hubba_hubba_nx_tent_rainfly_open.jpg)
 
+![](.gitbook/assets/msr-hubba-hubba-nx-2-plan.png)
+
 [official link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
 
 ### Reviews
@@ -44,6 +46,8 @@ description: An overview of lightweight backpacking tents in 2019
 ## Nemo Dragonfly 2p
 
 ![](https://www.nemoequipment.com/wp-content/uploads/idvtqxawf4kyizdwtvyu-1768x1496.jpg)
+
+![](.gitbook/assets/nemo-dragonfly-plan.png)
 
 [official link](https://www.nemoequipment.com/product/dragonfly/)
 
@@ -91,6 +95,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ![](https://www.tauntonleisure.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/i/hilleberg-niakgrn-srgbtag.jpg)
 
+![](.gitbook/assets/hilleberg-niak-plan.png)
+
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
 ### Reviews
@@ -114,7 +120,9 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ## Hilleberg Anjan 2
 
-![anjan2](https://images.hilleberg.net/products/Anjan/AnjanGrn-2017.jpg)
+![](https://images.hilleberg.net/products/Anjan/AnjanGrn-2017.jpg)
+
+![](.gitbook/assets/hilleberg-anjan-2-plan.png)
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2/)
 
@@ -130,7 +138,9 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 ## Hilleberg Anjan 2 GT
 
-![anjan2-gt](https://images.hilleberg.net/products/Anjan/AnjanGTGrn-2017.jpg)
+![](https://images.hilleberg.net/products/Anjan/AnjanGTGrn-2017.jpg)
+
+![](.gitbook/assets/hilleberg-anjan-2-gt-plan.png)
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
 
@@ -151,6 +161,8 @@ It comes with a free footprint \(but you have to order it separately, it will be
 ## Hilleberg Rogen
 
 ![](https://images.hilleberg.net/products/Rogen/RogenGrn-2018.jpg)
+
+![](.gitbook/assets/hilleberg-rogen-plan.png)
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
 
