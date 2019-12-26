@@ -91,6 +91,10 @@ description: An overview of lightweight backpacking tents in 2019
 
 [official link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
+### Reviews
+
+[switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak)
+
 ### Buy
 
 It comes with a free footprint \(but you have to order it separately, it will be discounted from the price\).
@@ -132,6 +136,10 @@ It comes with a free footprint \(but you have to order it separately, it will be
 
 [827 GBP](https://www.alpinetrek.co.uk/hilleberg-anjan-2-gt-2-man-tent/)
 
+### Reviews
+
+[outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt)
+
 ### Data
 
 * floor area: 2.6 m2 \(28 sq ft\)
@@ -154,7 +162,7 @@ It comes with a free footprint \(but you have to order it separately, it will be
 * vestibule area: 2.0 m2 = 1.0 x 2
 * weight: 2100 g
 
-## Reviews and comparisons
+## Other reviews and comparisons
 
 * [generate a new one on outdoorgearlab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
 * [switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
