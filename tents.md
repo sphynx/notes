@@ -11,6 +11,7 @@ description: An overview of lightweight backpacking tents in 2019
 | MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 30/20/20+15\(mesh\) | 385 |
 | Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 20/15/10 | 420 |
 | Trimm HimLite DSL | 1600 | 2.5 | 0.65 | 10k H₂O / 4k H₂O | 370 € |
+| Exped Mira II HL | 1500 | 2.7 | 1.3 | 20/20/15 | 380 |
 | Hilleberg Niak | 1700 | 2.6 | 0.75 | 50\(12k H₂O\)/20/10 | 790 |
 | Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 50/20/10 | 715 |
 | Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 50/20/10 | 827 |
@@ -82,15 +83,43 @@ description: An overview of lightweight backpacking tents in 2019
 
 * [propohody](https://propohody.com/trimm-himlite-dsl-review/)
 
-### Data:
+### Data
 
 * floor area: 2.5 m²
-* vestibule area: 0.65 m² 
+* vestibule area: 0.65 m²
 * weight: ~1600 g \(my version\).
 * floor: 10,000 mm H₂O
 * rain fly: 4000 mm H₂O, nylon PU
 * poles: 8.5mm
 * height: 95 cm
+
+## Exped Mira II HL
+
+![](.gitbook/assets/exped-mira-2-hl.png)
+
+![](.gitbook/assets/exped-mira-2-hl-plan.png)
+
+[official link](http://www.exped.com/italy/en/product-category/tents/mira-ii-hl)
+
+### Reviews
+
+* [propohody](https://propohody.com/exped-mira-ii-hl-review/)
+
+### Buy
+
+[380 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/two-person-tents-c26/mira-ii-hl-tent-p3894)
+
+### Data:
+
+* floor area: 2.7 m²
+* vestibule area: 1.3 m²
+* weight: 1500 g
+* floor: 20D ripstop nylon, 1500 mm H₂O
+* rain fly: 20D ripstop nylon
+* inner tent: 15D nylon / 15D mesh
+* poles: 8.5/9 mm
+* height: 118 cm
+
 
 ## Hilleberg Niak
 
