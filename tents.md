@@ -4,13 +4,9 @@ description: An overview of lightweight backpacking tents in 2019
 
 # Tents
 
-## Comparison tables
-
-* [generate a new one on outdoorgearlab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
-* [switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
-* [switchbacktravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
-
 ## MSR Hubba Hubba NX
+
+![](https://www.msrgear.com/on/demandware.static/-/Sites-msr-master-catalog/default/dw7b52d374/images/large/10316_msr_hubba_hubba_nx_tent_rainfly_open.jpg)
 
 [official link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
 
@@ -35,6 +31,8 @@ description: An overview of lightweight backpacking tents in 2019
 
 ## Nemo Dragonfly 2p
 
+![](https://www.nemoequipment.com/wp-content/uploads/idvtqxawf4kyizdwtvyu-1768x1496.jpg)
+
 [official link](https://www.nemoequipment.com/product/dragonfly/)
 
 ### Reviews
@@ -57,6 +55,8 @@ description: An overview of lightweight backpacking tents in 2019
 * poles: 8.7mm
 
 ## Trimm HimLite DSL
+
+![](https://i.sportisimo.com/products/images/830/830588/450x450/trimm-44118-himlite-dsl_0.jpg)
 
 [official link](https://www.trimm.cz/en/catalog/himlite-dsl-c1247.htm)
 
@@ -81,7 +81,13 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Buy
 
-[790 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/niak-2-person-tent-p10986)
+It comes with a free footprint (but you have to order it separately,
+it will be discounted from the price).
+
+- [790 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/niak-2-person-tent-p10986)
+
+- [790 GBP - Taunton](https://www.tauntonleisure.com/hilleberg-niak-tent-green.html) - has free DPD delivery (next working day).
+Have to call to ask for different colors.
 
 ### Data:
 
@@ -93,6 +99,10 @@ description: An overview of lightweight backpacking tents in 2019
 
 ## Hilleberg Anjan 2
 
+![anjan2](https://images.hilleberg.net/products/Anjan/AnjanGrn-2017.jpg)
+
+[official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2/)
+
 ### Buy
 
 [715 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/anjan-2-tent-p10499)
@@ -103,8 +113,25 @@ description: An overview of lightweight backpacking tents in 2019
 * vestibule area: 1.2 m2
 * weight: 1800 g
 
-## Other interesting tents
+## Hilleberg Rogen
 
-* MSR Access 2
-* and others...
+![](https://images.hilleberg.net/products/Rogen/RogenGrn-2018.jpg)
+
+[official link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
+
+### Buy
+
+[835 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/rogen-2-person-tent-p10987)
+
+### Data
+
+* floor area: 2.8 m2 \(28 sq ft\)
+* vestibule area: 2.0 m2 = 1.0 x 2
+* weight: 2100 g
+
+## Reviews and comparisons
+
+* [generate a new one on outdoorgearlab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
+* [switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
+* [switchbacktravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
 
