@@ -13,6 +13,7 @@ description: An overview of lightweight backpacking tents in 2019
 | Trimm HimLite DSL | 1590 | 2.12 | 0.65 | ~300? |
 | Hilleberg Niak | 1700 | 2.6 | 0.75 | 790 |
 | Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 715 |
+| Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 827 |
 | Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 835 |
 
 ## MSR Hubba Hubba NX
@@ -120,6 +121,22 @@ It comes with a free footprint \(but you have to order it separately, it will be
 * floor area: 2.6 m2 \(28 sq ft\)
 * vestibule area: 1.2 m2
 * weight: 1800 g
+
+## Hilleberg Anjan 2 GT
+
+![anjan2-gt](https://images.hilleberg.net/products/Anjan/AnjanGTGrn-2017.jpg)
+
+[official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
+
+### Buy
+
+[827 GBP](https://www.alpinetrek.co.uk/hilleberg-anjan-2-gt-2-man-tent/)
+
+### Data
+
+* floor area: 2.6 m2 \(28 sq ft\)
+* vestibule area: 2.5 m2
+* weight: 2100 g
 
 ## Hilleberg Rogen
 
