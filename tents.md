@@ -4,6 +4,17 @@ description: An overview of lightweight backpacking tents in 2019
 
 # Tents
 
+## Overview table
+
+| Name | Weight, g | Floor area, m² | Vestibule area, m² | Price, £ |
+| :--- | :--- | :--- | :--- | :--- |
+| MSR Hubba Hubba NX | 1720 | 2.7 | 1.62 = 0.81 x 2 | 385 |
+| Nemo Dragonfly 2P | 1410 | 2.7 | 1.8 = 0.9 x 2 | 420 |
+| Trimm HimLite DSL | 1590 | 2.12 | 0.65 | ~300? |
+| Hilleberg Niak | 1700 | 2.6 | 0.75 | 790 |
+| Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 715 |
+| Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 835 |
+
 ## MSR Hubba Hubba NX
 
 ![](https://www.msrgear.com/on/demandware.static/-/Sites-msr-master-catalog/default/dw7b52d374/images/large/10316_msr_hubba_hubba_nx_tent_rainfly_open.jpg)
@@ -81,13 +92,10 @@ description: An overview of lightweight backpacking tents in 2019
 
 ### Buy
 
-It comes with a free footprint (but you have to order it separately,
-it will be discounted from the price).
+It comes with a free footprint \(but you have to order it separately, it will be discounted from the price\).
 
-- [790 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/niak-2-person-tent-p10986)
-
-- [790 GBP - Taunton](https://www.tauntonleisure.com/hilleberg-niak-tent-green.html) - has free DPD delivery (next working day).
-Have to call to ask for different colors.
+* [790 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/niak-2-person-tent-p10986)
+* [790 GBP - Taunton](https://www.tauntonleisure.com/hilleberg-niak-tent-green.html) - has free DPD delivery \(next working day\). Have to call to ask for different colors.
 
 ### Data:
 
