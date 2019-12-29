@@ -49,7 +49,7 @@ In terms of materials it looks like this tent is in the middle between really li
 
 * [prophody](https://propohody.com/msr-hubba-hubba-nx-review/) \(in Russian\)
 * [propohody \#2](https://propohody.com/msr-hubba-hubba-nx-2016/) \(in Russian\)
-* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/msr-hubba-hubba-nx)
+* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/msr-hubba-hubba-nx) \(in English\)
 
 ### Buy
 
@@ -72,10 +72,18 @@ In terms of materials it looks like this tent is in the middle between really li
 
 [official link](https://www.nemoequipment.com/product/dragonfly/)
 
+This tent got some raving reviews both from ProPohody and OutdoorGearLab. It is super lightweight \(1410 g!\) which still being spacious and convenient. However, I was put off by delicate rain fly \(outer tent\), it is just 15D = 15 denier \(it's a measure of fabric density\) and by a weird cut in a rainfly on the side of the tent \(a screenshot from the [video review below](https://propohody.com/nemo-dragonfly-2p-review/)\):
+
+![](.gitbook/assets/dragonfly-cut.png)
+
+This cut is suspiciously never visible on pictures from Nemo official website. According to the reviewers it's completely fine, since the bathtub floor is high and completely waterproof, but still, I don't like the look of it and don't see much point of it except for saving the weight, but for that price?
+
+However, the comfort, area and attention to details of this tent almost persuaded me to buy it, but then I realised that it might not be the best for Iceland/Scotland and other not so weather-friendly places I tend to visit.
+
 ### Reviews
 
-* [propohody](https://propohody.com/nemo-dragonfly-2p-review/)
-* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/nemo-dragonfly-2)
+* [propohody](https://propohody.com/nemo-dragonfly-2p-review/) \(in Ukrainian, video review\)
+* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/nemo-dragonfly-2) \(in English\)
 
 ### Buy
 
