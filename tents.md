@@ -244,7 +244,7 @@ I am going to test the tent in Patagonia soon, hopefully I'll update this note w
 
 ![](.gitbook/assets/hilleberg-anjan-2-gt-plan.png)
 
-[official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
+[Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
 
 This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended vestibule. I decided that there we don't need that much space for 300 extra grams and £112. Also, the extra length of the vestibule requires more space to pitch the tent, thus limiting the number of suitable areas for pitching.
 
@@ -254,7 +254,7 @@ This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended
 
 ### Reviews
 
-[outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt)
+[OutdoorGearLab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt)
 
 ### Data
 
@@ -271,7 +271,7 @@ This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended
 
 ![](.gitbook/assets/hilleberg-rogen-plan.png)
 
-[official link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
+[Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
 
 The last out of four "Yellow Label" tents from Hilleberg, the heaviest and the only one with 20D inner tent \(others are 15D\), probably this explains the difference in weight. Since it's heavier than I was willing to accept, I decided not to consider it seriously, even though two entrances/vestibules looked quite attractive.
 
@@ -297,7 +297,7 @@ I've also looked at several other interesting tents, but decided to dismiss it q
 
 ## Other reviews and comparisons
 
-* [generate a new comparison on outdoorgearlab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
-* [switchbacktrave 5 tents comparison](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
-* [switchbacktravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
+* [Generate a new comparison on OutdoorGearLab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
+* [SwitchbackTravel 5 tents comparison](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
+* [Switchback](https://www.switchbacktravel.com/best-tents-backpacking)[ravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
 
