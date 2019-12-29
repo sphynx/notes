@@ -4,7 +4,10 @@ description: An overview of lightweight backpacking tents in 2019.
 
 # Tents
 
-In December 2019 I decided that it's time to replace my old and battered tent Trimm HimLite DSL \(its details [below](tents.md#trimm-himlite-dsl)\). We used it in many places for more than 5 years:
+In December 2019 I decided that it's time to replace my old and
+battered tent Trimm HimLite DSL \(its details
+[below](tents.md#trimm-himlite-dsl)\). We used it in many places for
+more than 5 years:
 
 * Iceland \(twice\) - strong winds, rain
 * Lake District \(UK\)
@@ -14,19 +17,25 @@ In December 2019 I decided that it's time to replace my old and battered tent Tr
 * King's Canyon National Park \(US\)
 * Carpathian mountains - Gorgany \(Ukraine\)
 
-It worked well most of the time and I still like it, it is a reliable tent, but since it was battered by winds and had a developed a small hole in the floor it was time to look at something new. 
+It worked well most of the time and I still like it, it is a reliable
+tent, but since it was battered by winds and had a developed a small
+hole in the floor it was time to look at something new.
 
-My main criteria were: 
+My main criteria were:
 
 * a three season tent, suitable for relatively difficult weather conditions \(think Iceland, Scotland, Patagonia in summer\)
 * within reasonable limits in terms of weight \(I've got spoiled by under 2kg tents\)
 * enough space for two skinny people of average height
 
-So I've created this note to help me with the choice and consolidate reviews/technical data about potential candidates here, in one place.
+So I've created this note to help me with the choice and consolidate
+reviews/technical data about potential candidates here, in one place.
 
-I think the choice was mostly influenced by many reviews I've read and personal experience of using my previous tents.
+I think the choice was mostly influenced by many reviews I've read and
+personal experience of using my previous tents.
 
-Spoiler: after all the research and several days of hesitation I bought Hilleberg Anjan 2 ****\(I managed to get the price down to 598 £ which is still quite a lot!\), hopefully I'll test it soon! ****
+Spoiler: after all the research and several days of hesitation I
+bought Hilleberg Anjan 2 \(I managed to get the price down to 598 £
+which is still quite a lot!\), hopefully I'll test it soon!
 
 ## Overview table
 
@@ -47,11 +56,21 @@ Spoiler: after all the research and several days of hesitation I bought Hilleber
 
 ![](.gitbook/assets/msr-hubba-hubba-nx-2-plan.png)
 
-[official link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
+[Official manufacturer link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
 
-I've kept this tent in the back of my mind all the time since reading a very favourable review on "ProPohody" site \(see below\). Then came the next review on the same website, which was  less favourable: it covered the changes made to this tent in a new version of this model. This tent is very popular, you can often see it outdoors, in campsites or in random hiking videos on YouTube, I think this tells something about it. Also, it's nice that it doesn't come with additional cost when sold in the UK as opposed to other American tents: for example Nemo tents can cost about 150 GBP more than in the US!
+I've kept this tent in the back of my mind all the time since reading
+a very favourable review on "ProPohody" site \(see below\). Then came
+the next review on the same website, which was less favourable: it
+covered the changes made to this tent in a new version of this model.
+This tent is very popular, you can often see it outdoors, in campsites
+or in random hiking videos on YouTube, I think this tells something
+about it. Also, it's nice that it doesn't come with additional cost
+when sold in the UK as opposed to other American tents: for example
+Nemo tents can cost about 150 GBP more than in the US!
 
-In terms of materials it looks like this tent is in the middle between really lightweight tents from Nemo and more "heavy duty" tents from Hilleberg.
+In terms of materials it looks like this tent is in the middle between
+really lightweight tents from Nemo and more "heavy duty" tents from
+Hilleberg.
 
 ### Reviews
 
@@ -78,15 +97,28 @@ In terms of materials it looks like this tent is in the middle between really li
 
 ![](.gitbook/assets/nemo-dragonfly-plan.png)
 
-[official link](https://www.nemoequipment.com/product/dragonfly/)
+[Official manufacturer link](https://www.nemoequipment.com/product/dragonfly/)
 
-This tent got seriously raving reviews both from ProPohody and OutdoorGearLab. It is super lightweight \(1410 g!\) which still being spacious and convenient. However, I was put off by a delicate rain fly \(outer tent\), it is just 15D = 15 denier \(it's a measure of fabric density\) and by a weird cut in a rainfly on the side of the tent \(a screenshot from the [video review below](https://propohody.com/nemo-dragonfly-2p-review/)\):
+This tent got seriously raving reviews both from ProPohody and
+OutdoorGearLab. It is super lightweight \(1410 g!\) which still being
+spacious and convenient. However, I was put off by a delicate rain fly
+\(outer tent\), it is just 15D = 15 denier \(it's a measure of fabric
+density\) and by a weird cut in a rainfly on the side of the tent \(a
+screenshot from the [video review
+below](https://propohody.com/nemo-dragonfly-2p-review/)\):
 
 ![](.gitbook/assets/dragonfly-cut.png)
 
-This cut is suspiciously never visible on pictures from Nemo official website. According to the reviewers it's completely fine, since the bathtub floor is high and completely waterproof, but still, I don't like the look of it and don't see much point of it except for saving the weight, but for that price?
+This cut is suspiciously never visible on pictures from Nemo official
+website. According to the reviewers it's completely fine, since the
+bathtub floor is high and completely waterproof, but still, I don't
+like the look of it and don't see much point of it except for saving
+the weight, but for that price?
 
-However, the comfort, total area and attention to details of this tent almost persuaded me to buy it, but then I realised that it might not be the best for Iceland/Scotland and other not so weather-friendly places I tend to visit.
+However, the comfort, total area and attention to details of this tent
+almost persuaded me to buy it, but then I realised that it might not
+be the best for Iceland/Scotland and other not so weather-friendly
+places I tend to visit.
 
 ### Reviews
 
@@ -113,9 +145,17 @@ However, the comfort, total area and attention to details of this tent almost pe
 
 ![The lower side of the tent is 107 cm \(as measured\)](.gitbook/assets/trimm-himlite-plan.png)
 
-[official link](https://www.trimm.cz/en/catalog/himlite-dsl-c1247.htm)
+[Official manufacturer link](https://www.trimm.cz/en/catalog/himlite-dsl-c1247.htm)
 
-This is my current tent: I bought it around 6 years ago and described its usage in the introduction to this note. I decided to buy it after reading the review on ProPohody web site \(it's a great website by the way, if you happen to read Russian or Ukrainian\) and it hasn't disappointed! The ventilation is great, it's stable and tolerated quite serious winds in the Isle of Skye \(one pole has been slightly bent though\), the size - not so great: it feels somewhat cramped, especially with the backpacks inside, the vestibule is also on the smallish side.
+This is my current tent: I bought it around 6 years ago and described
+its usage in the introduction to this note. I decided to buy it after
+reading the review on ProPohody web site \(it's a great website by the
+way, if you happen to read Russian or Ukrainian\) and it hasn't
+disappointed! The ventilation is great, it's stable and tolerated
+quite serious winds in the Isle of Skye \(one pole has been slightly
+bent though\), the size - not so great: it feels somewhat cramped,
+especially with the backpacks inside, the vestibule is also on the
+smallish side.
 
 ### Reviews
 
@@ -137,9 +177,16 @@ This is my current tent: I bought it around 6 years ago and described its usage 
 
 ![](.gitbook/assets/exped-mira-2-hl-plan.png)
 
-[official link](http://www.exped.com/italy/en/product-category/tents/mira-ii-hl)
+[Official manufacturer link](http://www.exped.com/italy/en/product-category/tents/mira-ii-hl)
 
-This Swiss tent is a relatively late addition to the list, it looks like it's in the same class as [Nemo Dragonfly](tents.md#nemo-dragonfly-2p) but without the "weird cut": attention to details, lightweight, roomy and somewhat delicate. I'm using a simple waterproof urban backpack from Exped and I quite like it, so I'm already feeling somewhat loyal to the brand. However, when I added it to the list, I was already looking forward towards something more windproof, i.e. no fully mesh inner tent.
+This Swiss tent is a relatively late addition to the list, it looks
+like it's in the same class as [Nemo
+Dragonfly](tents.md#nemo-dragonfly-2p) but without the "weird cut":
+attention to details, lightweight, roomy and somewhat delicate. I'm
+using a simple waterproof urban backpack from Exped and I quite like
+it, so I'm already feeling somewhat loyal to the brand. However, when
+I added it to the list, I was already looking forward towards
+something more windproof, i.e. no fully mesh inner tent.
 
 ### Reviews
 
@@ -166,19 +213,44 @@ This Swiss tent is a relatively late addition to the list, it looks like it's in
 
 ![](.gitbook/assets/hilleberg-niak-plan.png)
 
-[official link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
+[Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
 ### Notes
 
-Niak and other Hilleberg tents are apparently better equipped for bad weather: strong wind and long rain and since we are usually traveling to more challenging destinations \(like Iceland, Scotland, Patagonia, Lake District, etc.\), it might have more sense to invest in something more robust.
+Niak and other Hilleberg tents are apparently better equipped for bad
+weather: strong wind and long rain and since we are usually traveling
+to more challenging destinations \(like Iceland, Scotland, Patagonia,
+Lake District, etc.\), it might have more sense to invest in something
+more robust.
 
-In particular, Hilleberg tents are set up "outer tent first", i.e. inner tent is already connected to an outer tent and you start pitching by just putting poles into sleeves of an outer tent, which make much more sense in rainy weather. Other tents in this list \(including our current one\) are "inner tent goes first", hence one either has to pitch the tent super quickly in the rain to minimise amount of rain getting into the tent or just wait until the rain stops or becomes less intense. The same goes about packing the tent: in Hilleberg you can even go inside, completely remove the inner tent under protection of the outer tent, pack it in the bag and only then start to dismantle the outer tent.
+In particular, Hilleberg tents are set up "outer tent first", i.e.
+inner tent is already connected to an outer tent and you start
+pitching by just putting poles into sleeves of an outer tent, which
+make much more sense in rainy weather. Other tents in this list
+\(including our current one\) are "inner tent goes first", hence one
+either has to pitch the tent super quickly in the rain to minimise
+amount of rain getting into the tent or just wait until the rain stops
+or becomes less intense. The same goes about packing the tent: in
+Hilleberg you can even go inside, completely remove the inner tent
+under protection of the outer tent, pack it in the bag and only then
+start to dismantle the outer tent.
 
-Niak was the first Hilleberg tent I started looking at, since it's the lightest. It comes from their "Yellow label" series, which are positioned as lightweight 3-season tents. But what is lightweight for Hilleberg, is not necessarily that for other produces in this list :\) I think the extra weight mainly comes from the thicker floor \(50D and 12000 mm H2O waterproof\) and more reliable furniture \(for example metal/alloy strap fasteners\).
+Niak was the first Hilleberg tent I started looking at, since it's the
+lightest. It comes from their "Yellow label" series, which are
+positioned as lightweight 3-season tents. But what is lightweight for
+Hilleberg, is not necessarily that for other produces in this list :\)
+I think the extra weight mainly comes from the thicker floor \(50D and
+12000 mm H2O waterproof\) and more reliable furniture \(for example
+metal/alloy strap fasteners\).
 
-Details about the fabric used in Hilleberg tents: [https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/\#kerlon1000r](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
+Details about the fabric used in Hilleberg tents:
+[https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/\#kerlon1000r](https://hilleberg.com/eng/about-our-tents/materials-uncompromising-quality/#kerlon1000r)
 
-However, I was not very impressed by the area and width of this tent \(just 120 cm\). A single vestibule was also rather small. In the past it was even named Niak 1.5 to stress that it's not super comfortable for two people. So, after all I decided to pass on that and look at [Hilleberg Anjan](tents.md#hilleberg-anjan-2) which is more spacious.
+However, I was not very impressed by the area and width of this tent
+\(just 120 cm\). A single vestibule was also rather small. In the past
+it was even named Niak 1.5 to stress that it's not super comfortable
+for two people. So, after all I decided to pass on that and look at
+[Hilleberg Anjan](tents.md#hilleberg-anjan-2) which is more spacious.
 
 ### Reviews
 
@@ -207,9 +279,15 @@ In some shops it comes with a free footprint \(but you have to order it separate
 
 ![](.gitbook/assets/hilleberg-anjan-2-plan.png)
 
-[official link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2/)
+[Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2/)
 
-As you can see this tent has tunnel shape, I never used them before, so initially I was freaked out. However, after watching [pitching instructions video](https://www.youtube.com/watch?v=0HEP5jzXRBA) from Hilleberg and reading some articles "dome vs tunnel tents" I was fine. Even though dome-shaped tents are more popular now, there is nothing wrong with tunnel shaped tents, they both have pros and cons. Those pros and cons suspiciously vary from article to article though :\)
+As you can see this tent has tunnel shape, I never used them before,
+so initially I was freaked out. However, after watching [pitching
+instructions video](https://www.youtube.com/watch?v=0HEP5jzXRBA) from
+Hilleberg and reading some articles "dome vs tunnel tents" I was fine.
+Even though dome-shaped tents are more popular now, there is nothing
+wrong with tunnel shaped tents, they both have pros and cons. Those
+pros and cons suspiciously vary from article to article though :\)
 
 I've decided to buy this tent because of the following considerations:
 
@@ -219,9 +297,16 @@ I've decided to buy this tent because of the following considerations:
 * furniture looks amazing and reliable, allowing lots of adjustments
 * Hilleberg seems to be a serious brand in the tents world and I'm a sucker for respectable brands :\)
 
-It seems that there are several models of this tent, corresponding to different years. Amazingly \(and as opposed to the story with MSR Hubba Hubba NX\) Hilleberg has improved certain design shortcomings which were highlighted by older reviews: for example in my relatively new version of the tent they've seriously improved vestibule zipper protection against rain and replaced the pegs with better ones \(those two aspects were common weak points from older reviews\).
+It seems that there are several models of this tent, corresponding to
+different years. Amazingly \(and as opposed to the story with MSR
+Hubba Hubba NX\) Hilleberg has improved certain design shortcomings
+which were highlighted by older reviews: for example in my relatively
+new version of the tent they've seriously improved vestibule zipper
+protection against rain and replaced the pegs with better ones \(those
+two aspects were common weak points from older reviews\).
 
-I am going to test the tent in Patagonia soon, hopefully I'll update this note with my own positive experience.
+I am going to test the tent in Patagonia soon, hopefully I'll update
+this note with my own positive experience.
 
 ### Buy
 
@@ -246,7 +331,11 @@ I am going to test the tent in Patagonia soon, hopefully I'll update this note w
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
 
-This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended vestibule. I decided that there we don't need that much space for 300 extra grams and £112. Also, the extra length of the vestibule requires more space to pitch the tent, thus limiting the number of suitable areas for pitching.
+This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with
+an extended vestibule. I decided that there we don't need that much
+space for 300 extra grams and £112. Also, the extra length of the
+vestibule requires more space to pitch the tent, thus limiting the
+number of suitable areas for pitching.
 
 ### Buy
 
@@ -273,7 +362,11 @@ This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
 
-The last out of four "Yellow Label" tents from Hilleberg, the heaviest and the only one with 20D inner tent \(others are 15D\), probably this explains the difference in weight. Since it's heavier than I was willing to accept, I decided not to consider it seriously, even though two entrances/vestibules looked quite attractive.
+The last out of four "Yellow Label" tents from Hilleberg, the heaviest
+and the only one with 20D inner tent \(others are 15D\), probably this
+explains the difference in weight. Since it's heavier than I was
+willing to accept, I decided not to consider it seriously, even though
+two entrances/vestibules looked quite attractive.
 
 ### Buy
 
@@ -290,7 +383,8 @@ The last out of four "Yellow Label" tents from Hilleberg, the heaviest and the o
 
 ## Other tents
 
-I've also looked at several other interesting tents, but decided to dismiss it quickly due to various reasons:
+I've also looked at several other interesting tents, but decided to
+dismiss it quickly due to various reasons:
 
 * [Big Agnes Copper Spur HV UL 2](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/big-agnes-copper-spur-hv-ul2) - it is "Editor Choice" and seems to be popular, but they keep calling it "very delicate" and I don't want to be afraid to damage my tent by just mishandling it somewhat, so I decided to pass on that.
 * [Nordisk Telemark 2](https://nordisk.co.uk/telemark-2-ulw/forest-green/p/364?ccode=true) - super lightweight and windproof, but too cramped and experimental as to my taste.
