@@ -1,8 +1,24 @@
 ---
-description: An overview of lightweight backpacking tents in 2019
+description: An overview of lightweight backpacking tents in 2019.
 ---
 
 # Tents
+
+In December 2019 I decided that it's time to replace my old and battered tent _Trimm HimLite DSL_ \(its details [below](tents.md#trimm-himlite-dsl)\). We used it in many places for more than 5 years:
+
+* Iceland \(twice\) - strong winds, rain
+* Lake District \(UK\)
+* Isle of Skye \(Scotland\) - strong winds, rain
+* Burning Man festival \(Nevada, US\) - daily sandstorms, desert conditions
+* Yellowstone National Park \(US\)
+* King's Canyon National Park \(US\)
+* Carpathian mountains - Gorgany \(Ukraine\)
+
+It worked well most of the time and I still like it, it is a reliable tent, but I wanted to get something newer, more "weather proof". So I've created this note to help me with the choice and consolidate reviews/technical data about potential candidates here, in one place.
+
+I think the choice was mostly influenced by many reviews I've read and personal experience of using my previous tents.
+
+After all the research and days of hesitation I bought **Hilleberg Anjan 2** \(I managed to get the price down to 598 £ which is still quite a lot!\), hopefully I'll test it soon! ****
 
 ## Overview table
 
@@ -13,7 +29,7 @@ description: An overview of lightweight backpacking tents in 2019
 | Trimm HimLite DSL | 1600 | 2.5 | 0.65 | 10k H₂O / 4k H₂O | 370 € |
 | Exped Mira II HL | 1500 | 2.7 | 1.3 | 20/20/15 | 380 |
 | Hilleberg Niak | 1700 | 2.6 | 0.75 | 50\(12k H₂O\)/20/10 | 790 |
-| Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 50/20/10 | 715 |
+| ✅ Hilleberg Anjan 2 | 1800 | 2.6 | 1.2 | 50/20/10 | 715 |
 | Hilleberg Anjan 2 GT | 2100 | 2.6 | 2.5 | 50/20/10 | 827 |
 | Hilleberg Rogen | 2100 | 2.8 | 2.0 = 1.0 x 2 | 50/20/20 | 835 |
 
@@ -25,10 +41,14 @@ description: An overview of lightweight backpacking tents in 2019
 
 [official link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
 
+I've kept this tent in the back of my mind all the time since reading a very favourable review on "ProPohody" site \(see below\). Then came the next review on the same website, which was  less favourable: it covered the changes made to this tent in a new version of this model. This tent is very popular, you can often see it outdoors, in campings or on random hiking videos on YouTube, I think this tells something about it. Also, it's nice that it doesn't come with additional cost when sold in the UK as opposed to other American tents: for example Nemo tents can cost about 150 GBP more than in the US!
+
+In terms of materials it looks like this tent is in the middle between really lightweight tents from Nemo and more "heavy duty" tents from Hilleberg.
+
 ### Reviews
 
-* [prophody](https://propohody.com/msr-hubba-hubba-nx-review/)
-* [propohody \#2](https://propohody.com/msr-hubba-hubba-nx-2016/)
+* [prophody](https://propohody.com/msr-hubba-hubba-nx-review/) \(in Russian\)
+* [propohody \#2](https://propohody.com/msr-hubba-hubba-nx-2016/) \(in Russian\)
 * [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/msr-hubba-hubba-nx)
 
 ### Buy
@@ -109,7 +129,7 @@ description: An overview of lightweight backpacking tents in 2019
 
 [380 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/two-person-tents-c26/mira-ii-hl-tent-p3894)
 
-### Data:
+### Data
 
 * floor area: 2.7 m²
 * vestibule area: 1.3 m²
@@ -119,7 +139,6 @@ description: An overview of lightweight backpacking tents in 2019
 * inner tent: 15D nylon / 15D mesh
 * poles: 8.5/9 mm
 * height: 118 cm
-
 
 ## Hilleberg Niak
 
@@ -148,7 +167,7 @@ It comes with a free footprint \(but you have to order it separately, it will be
 * [790 GBP](https://www.ultralightoutdoorgear.co.uk/equipment-c3/tents-shelters-c25/all-tents-c148/niak-2-person-tent-p10986)
 * [790 GBP - Taunton](https://www.tauntonleisure.com/hilleberg-niak-tent-green.html) - has free DPD delivery \(next working day\). Have to call to ask for different colors.
 
-### Data:
+### Data
 
 * floor area: 2.6 m²
 * vestibule area: 0.75 m²
