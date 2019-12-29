@@ -74,9 +74,9 @@ Hilleberg.
 
 ### Reviews
 
-* [prophody](https://propohody.com/msr-hubba-hubba-nx-review/) \(in Russian\)
-* [propohody \#2](https://propohody.com/msr-hubba-hubba-nx-2016/) \(in Russian\)
-* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/msr-hubba-hubba-nx) \(in English\)
+* [ProPohody](https://propohody.com/msr-hubba-hubba-nx-review/) \(in Russian\)
+* [ProPohody \#2](https://propohody.com/msr-hubba-hubba-nx-2016/) \(in Russian\)
+* [OutdoorGearLab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/msr-hubba-hubba-nx) \(in English\)
 
 ### Buy
 
@@ -122,8 +122,8 @@ places I tend to visit.
 
 ### Reviews
 
-* [propohody](https://propohody.com/nemo-dragonfly-2p-review/) \(in Ukrainian, video review\)
-* [outdoorgearlab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/nemo-dragonfly-2) \(in English\)
+* [ProPohody](https://propohody.com/nemo-dragonfly-2p-review/) \(in Ukrainian, video review\)
+* [OutdoorGearLab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/nemo-dragonfly-2) \(in English\)
 
 ### Buy
 
@@ -159,7 +159,7 @@ smallish side.
 
 ### Reviews
 
-* [propohody](https://propohody.com/trimm-himlite-dsl-review/) \(in Russian\)
+* [ProPohody](https://propohody.com/trimm-himlite-dsl-review/) \(in Russian\)
 
 ### Data
 
@@ -190,7 +190,7 @@ something more windproof, i.e. no fully mesh inner tent.
 
 ### Reviews
 
-* [propohody](https://propohody.com/exped-mira-ii-hl-review/)
+* [ProPohody](https://propohody.com/exped-mira-ii-hl-review/) (in Russian)
 
 ### Buy
 
@@ -254,7 +254,7 @@ for two people. So, after all I decided to pass on that and look at
 
 ### Reviews
 
-[switchbacktravel](https://www.switchbacktravel.com/reviews/hilleberg-niak)
+[SwitchbackTravel](https://www.switchbacktravel.com/reviews/hilleberg-niak) (in English)
 
 ### Buy
 
@@ -343,7 +343,7 @@ number of suitable areas for pitching.
 
 ### Reviews
 
-[OutdoorGearLab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt)
+[OutdoorGearLab](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt) (in English)
 
 ### Data
 
@@ -393,5 +393,5 @@ dismiss it quickly due to various reasons:
 
 * [Generate a new comparison on OutdoorGearLab](https://www.outdoorgearlab.com/topics/camping-and-hiking/best-backpacking-tent/ratings?checkedid_array%5B%5D=54670)
 * [SwitchbackTravel 5 tents comparison](https://www.switchbacktravel.com/reviews/hilleberg-niak#table)
-* [Switchback](https://www.switchbacktravel.com/best-tents-backpacking)[ravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
+* [SwitchbackTravel backpacking tents](https://www.switchbacktravel.com/best-tents-backpacking)
 
