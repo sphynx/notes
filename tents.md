@@ -211,6 +211,18 @@ In some shops it comes with a free footprint \(but you have to order it separate
 
 As you can see this tent has tunnel shape, I never used them before, so initially I was freaked out. However, after watching [pitching instructions video](https://www.youtube.com/watch?v=0HEP5jzXRBA) from Hilleberg and reading some articles "dome vs tunnel tents" I was fine. Even though dome-shaped tents are more popular now, there is nothing wrong with tunnel shaped tents, they both have pros and cons. Those pros and cons suspiciously vary from article to article though :\)
 
+I've decided to buy this tent because of the following considerations:
+
+* almost all reviewers claimed that it was extremely weatherproof \(if you compare to other lightweight tents of course, not in absolute values\), OutdoorGearLab [gave it 10/10](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/hilleberg-anjan-2-gt#weather-resistance) for weather resistance
+* it is still well under two kilos \(1800 g\), lighter than a typical Hilleberg tent
+* it is pitched in "outer tent first" manner which looks very useful and reasonable in bad weather
+* furniture looks amazing and reliable, allowing lots of adjustments
+* Hilleberg seems to be a serious brand in the tents world and I'm a sucker for respectable brands :\)
+
+It seems that there are several models of this tent, corresponding to different years. Amazingly \(and as opposed to the story with MSR Hubba Hubba NX\) Hilleberg has improved certain design shortcomings which were highlighted by older reviews: for example in my relatively new version of the tent they've seriously improved vestibule zipper protection against rain and replaced the pegs with better ones \(those two aspects were common weak points from older reviews\).
+
+I am going to test the tent in Patagonia soon, hopefully I'll update this note with my own positive experience.
+
 ### Buy
 
 * [650 GBP](https://www.ellis-brigham.com/hilleberg-anjan-2-tent-256218) - I was able to find it cheaper on Ellis Brigham in their Covent Garden shop in London! Moreover, I've got 10% discount because of my BMC membership, it was a great deal!
@@ -278,9 +290,10 @@ The last out of four "Yellow Label" tents from Hilleberg, the heaviest and the o
 
 ## Other tents
 
-I've also looked at several other tents, but decided to dismiss it quickly due to various reasons:
+I've also looked at several other interesting tents, but decided to dismiss it quickly due to various reasons:
 
-* Big Agnes Copper Spur HV
+* [Big Agnes Copper Spur HV UL 2](https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/big-agnes-copper-spur-hv-ul2) - it is "Editor Choice" and seems to be popular, but they keep calling it "very delicate" and I don't want to be afraid to damage my tent by just mishandling it somewhat, so I decided to pass on that.
+* [Nordisk Telemark 2](https://nordisk.co.uk/telemark-2-ulw/forest-green/p/364?ccode=true) - super lightweight and windproof, but too cramped and experimental as to my taste.
 
 ## Other reviews and comparisons
 
