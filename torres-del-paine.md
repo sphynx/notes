@@ -58,5 +58,13 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ![Fantastico Sur campsites overview](.gitbook/assets/fantastico-sur-overview.jpg)
 
+## Stages of "O" route
+
+### Distances
+
+![](.gitbook/assets/timings-and-distances.png)
+
+
+
 
 
