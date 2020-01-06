@@ -48,7 +48,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ### Fantastico Sur
 
-[Link for reservations](http://www.fantasticosur.com/) -- it looks like the web site is down on weekends!
+[Link for reservations](http://int.fantasticosur.com/en/online) -- it looks like the web site is down on weekends!
 
 * Chileno
 * Frances
