@@ -48,7 +48,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ### Fantastico Sur
 
-[Link for reservations](http://www.fantasticosur.com/) -- currently their website is down!
+[Link for reservations](http://www.fantasticosur.com/) -- it looks like the web site is down on weekends!
 
 * Chileno
 * Frances
@@ -58,7 +58,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ![Fantastico Sur campsites overview](.gitbook/assets/fantastico-sur-overview.jpg)
 
-## Stages of "O" route
+## Routes, times and distances
 
 ### Distances
 
@@ -76,6 +76,8 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 * Day 8. Los Cuernos - Las Torres. 11km. 3 hr. 160m ascent. 100m descent.
 
 ### "W" route \(east to west\)
+
+![](.gitbook/assets/w-map.png)
 
 * Day 1. Las Torres - Torres Lookout - Las Torres \(4 hours x 2\)
 * Day 2. Las Torres - Los Cuernos. 11.6 km. 4:30. \(or camp Francese\). 100m ascent. 160m descent.
