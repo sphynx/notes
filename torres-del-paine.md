@@ -95,6 +95,16 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 * Night 5. Frances.
 * Night 6. Chileno.
 
+### "W" route \(StingyNomads version\) - 5 days version.
+
+{% embed url="https://stingynomads.com/the-w-trekking-torres-del-paine/" %}
+
+* Night 1. Grey. \(coming from Puerto Natales in the morning\).
+* Night 2. Paine Grande.
+* Night 3. Italiano/Frances.
+* Night 4. Chileno.
+* Night 5. Puerto Natales.
+
 
 
 

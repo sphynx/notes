@@ -3,4 +3,5 @@
 * [Introduction](README.md)
 * [Tents](tents.md)
 * [Torres del Paine](torres-del-paine.md)
+* [Newsletters](newsletters.md)
 
