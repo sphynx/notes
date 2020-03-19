@@ -4,7 +4,7 @@ description: Correspondence of common combinators
 
 # Cheatsheet: Option \(in Rust\) vs Maybe \(in Haskell\)
 
-This is meant to be for people coming from Haskell to Rust or vice versa who want to quickly find the name of corresponding function on optional values. For example, I keep forgetting the names of Rust combinators or which one I have to use in a particular situation \(is it `or_else`, `unwrap_or` or`unwrap_or_else`?\). I can imagine that other people may experience similar problems, hence the cheatsheet. You can find examples and more detailed description in the official documentation by clicking on function names.
+This is meant to be for people coming from Haskell to Rust or vice versa who want to quickly find the name of corresponding function on optional values. For example, I keep forgetting the names of Rust combinators. Which one I have to use in a particular situation? Is it `or_else`, `unwrap_or` or`unwrap_or_else`? I can imagine that other people may experience similar problems, hence the cheatsheet. You can find examples and more detailed description in the official documentation by clicking on function names.
 
 ### Cheatsheet
 
