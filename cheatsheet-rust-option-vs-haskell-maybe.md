@@ -27,11 +27,11 @@ This is meant to be for people coming from Haskell to Rust or vice versa. For ex
 
 In Rust, all combinators with `or` at the end have a variant with `or_else` at the end: `unwrap_or_else` or `or_else` etc. Those variants take a closure for the default value and are lazily evaluated. They are recommended when you have a function call returning default value. In Haskell there is no need for this, since it is a lazy language by default.
 
-In Rust there are several functions related to ownership of the value in the `Option`, like `take` and `replace`, they have no analogs in Haskell that does not have the ownership concept.
+In Rust there are several methods related to ownership of the value in the `Option`, like `take` and `replace`, they have no analogs in Haskell that does not have the ownership concept.
 
-In Rust we sometimes want to copy or clone values, it's possible to do so on optional references \(`Option<&T>`\) to get `Option<T>` from those by cloning or copying the referenced value. There are `copied` and `cloned` functions for this.
+In Rust we sometimes want to copy or clone values, it's possible to do so on optional references \(`Option<&T>`\) to get `Option<T>` from those by cloning or copying the referenced value. There are `copied` and `cloned` methods for this.
 
-It's possible to mutate optional values in Rust. For that we have `get_or_insert` and `get_or_insert_with` functions which allow to insert a new \(possibly computed\) value into `None` or just use the value which was there.
+It's possible to mutate optional values in Rust. For that we have `get_or_insert` and `get_or_insert_with` methods which allow to insert a new \(possibly computed\) value into `None` or just use the value which was there.
 
 In Rust there are many different ways extracting the optional value:  
 
@@ -43,5 +43,13 @@ In Rust there are many different ways extracting the optional value:
 * `expect` which is the same as `unwrap`, but takes a custom error message
 * `expect_none` which is the same as `unwrap_none` but takes a custom error message
 
+Another very useful method in Rust is `as_ref` which converts from `&Option<T>` to `Option<&T>` which is very handy for pattern matching. `as_mut` plays a similar role for mutable references.
+
+`transpose` method in Rust is interesting, since it reminds me of `sequence` from `Traversable` in Haskell. It basically transpose two layers: `Result` \(or `Either` in Haskell\) and `Option`. `sequence` in Haskell does approximately the same, but in a more generic fashion.
+
+In addition to `and` and `or` Rust has a method `xor`, perhaps just for the completeness. You've probably guessed that it returns `Some` if and only if there is only one `Some` in its arguments.
+
 Haskell has two functions `listToMaybe` and `maybeToList` that convert between trivial lists \(with 0 or 1 elements\) and `Maybe` values. Rust doesn't have those, since lists are not that ubiquitous.
+
+Rust has more functions to work with `Option` than Haskell because it has to support references, mutability and ownership. On the other hand Haskell outsources some of the combinators to its generic typeclasses: `Semigroup`, `Alternative`, `Monoid`etc. so its combinator library seems thinner.
 
