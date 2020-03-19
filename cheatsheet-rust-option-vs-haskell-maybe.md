@@ -6,28 +6,168 @@ description: Correspondence of common combinators
 
 This is meant to be for people coming from Haskell to Rust or vice versa who want to quickly find the name of corresponding function on optional values. For example, I keep forgetting the names of Rust combinators. Which one I have to use in a particular situation? Is it `or_else`, `unwrap_or` or`unwrap_or_else`? I can imagine that other people may experience similar problems, hence the cheatsheet. You can find examples and more detailed description in the official documentation by clicking on function names.
 
+**Update 1**: as [/u/jkachmar](https://www.reddit.com/user/jkachmar) points out on Reddit that there is a [`note`](https://hackage.haskell.org/package/errors-2.3.0/docs/Control-Error-Util.html#v:note) function in some of alternative Preludes in Haskell \(or in `errors` package\), which is an analog of `ok_or` in Rust. Added to the cheatsheet.
+
+**Update 2:** [/u/masklinn](https://www.reddit.com/user/masklinn) says that Haskell `listToMaybe` is akin to calling `next` on an `Iterator` and `maybeToList` is an `Option` implementing `IntoIterator`. I agree with that, since lists in Haskell, being lazy, more or less correspond to Rust iterators. Also, you can iterate over `Option` in Rust by calling `iter`.
+
 ### Cheatsheet
 
-| Haskell | Rust | Purpose | Type \(Haskell style\) |
-| :--- | :--- | :--- | :--- |
-| [Maybe](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#t:Maybe) | [Option](https://doc.rust-lang.org/std/option/enum.Option.html) | type name |  |
-| [Just](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:Just) | [Some](https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some) | constructor for value |  |
-| [Nothing](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:Nothing) | [None](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None) | constructor for no value |  |
-| [isJust](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:isJust) | [is\_some](https://doc.rust-lang.org/std/option/enum.Option.html#method.is_some) | check if has value | `Maybe a -> Bool` |
-| [isNothing](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:isNothing) | [is\_none](https://doc.rust-lang.org/std/option/enum.Option.html#method.is_none) | check if has no value | `Maybe a -> Bool` |
-| [fmap](https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Functor.html#v:fmap) | [map](https://doc.rust-lang.org/std/option/enum.Option.html#method.map) |  apply function to value inside | `(a -> b) -> Maybe a -> Maybe a` |
-| [fromJust](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:fromJust) | [unwrap](https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap) | extract a value, fail if there is none | `Maybe a -> a` |
-| [fromMaybe](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:fromMaybe) | [unwrap\_or](https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap_or) | extract a value or return a given default | `a -> Maybe a -> a` |
-| [\(&gt;&gt;=\)](https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62--61-) | [and\_then](https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then) | propagate "no value", apply a function to a value, function can return no value too | `Maybe a -> (a -> Maybe b) -> Maybe b` |
-| [\(&lt;\|&gt;\)](https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Applicative.html#v:-60--124--62-) | [or](https://doc.rust-lang.org/std/option/enum.Option.html#method.or) | return first value if present or ****second if not | `Maybe a -> Maybe a -> Maybe a` |
-| [\(&gt;&gt;\)](https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62-) | [and](https://doc.rust-lang.org/std/option/enum.Option.html#method.and) | return first value if none or second if not | `Maybe a -> Maybe a -> Maybe a` |
-| [maybe](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:maybe) | [map\_or](https://doc.rust-lang.org/std/option/enum.Option.html#method.map_or) | takes function and default. Apply function to the value or return default if there is no value | `b -> (a -> b) -> Maybe a -> b` |
-|  | [ok\_or](https://doc.rust-lang.org/std/option/enum.Option.html#method.ok_or) | transforms optional value to possible error | `b -> Maybe a -> Either b a` |
-| [mapMaybe](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:mapMaybe) | [filter\_map](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter_map) from Iterator | applies filter and map simultaneously | `(a -> Maybe b) -> [a] -> [b]` |
-| [catMaybe](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:catMaybe) |  | extracts only values from the list, drops no values | `[Maybe a] -> [a]` |
-| [join](https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:join) | [flatten](https://doc.rust-lang.org/std/option/enum.Option.html#method.flatten) | squashes two layers of optionality into one | `Maybe (Maybe a) -> Maybe a` |
-
-### Notes
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Haskell</th>
+      <th style="text-align:left">Rust</th>
+      <th style="text-align:left">Purpose</th>
+      <th style="text-align:left">Type (Haskell style)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#t:Maybe">Maybe</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html">Option</a>
+      </td>
+      <td style="text-align:left">type name</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:Just">Just</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some">Some</a>
+      </td>
+      <td style="text-align:left">constructor for value</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:Nothing">Nothing</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#variant.None">None</a>
+      </td>
+      <td style="text-align:left">constructor for no value</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:isJust">isJust</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.is_some">is_some</a>
+      </td>
+      <td style="text-align:left">check if has value</td>
+      <td style="text-align:left"><code>Maybe a -&gt; Bool</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:isNothing">isNothing</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.is_none">is_none</a>
+      </td>
+      <td style="text-align:left">check if has no value</td>
+      <td style="text-align:left"><code>Maybe a -&gt; Bool</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Functor.html#v:fmap">fmap</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map">map</a>
+      </td>
+      <td style="text-align:left">apply function to value inside</td>
+      <td style="text-align:left"><code>(a -&gt; b) -&gt; Maybe a -&gt; Maybe a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:fromJust">fromJust</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap">unwrap</a>
+      </td>
+      <td style="text-align:left">extract a value, fail if there is none</td>
+      <td style="text-align:left"><code>Maybe a -&gt; a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:fromMaybe">fromMaybe</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap_or">unwrap_or</a>
+      </td>
+      <td style="text-align:left">extract a value or return a given default</td>
+      <td style="text-align:left"><code>a -&gt; Maybe a -&gt; a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62--61-">(&gt;&gt;=)</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then">and_then</a>
+      </td>
+      <td style="text-align:left">propagate &quot;no value&quot;, apply a function to a value, function
+        can return no value too</td>
+      <td style="text-align:left"><code>Maybe a -&gt; (a -&gt; Maybe b) -&gt; Maybe b</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Applicative.html#v:-60--124--62-">(&lt;|&gt;)</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.or">or</a>
+      </td>
+      <td style="text-align:left">return first value if present or<b> </b>second if not</td>
+      <td style="text-align:left"><code>Maybe a -&gt; Maybe a -&gt; Maybe a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62-">(&gt;&gt;)</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and">and</a>
+      </td>
+      <td style="text-align:left">return first value if none or second if not</td>
+      <td style="text-align:left"><code>Maybe a -&gt; Maybe a -&gt; Maybe a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:maybe">maybe</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map_or">map_or</a>
+      </td>
+      <td style="text-align:left">takes function and default. Apply function to the value or return default
+        if there is no value</td>
+      <td style="text-align:left"><code>b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p><a href="https://hackage.haskell.org/package/errors-2.3.0/docs/Control-Error-Util.html#v:note">note</a> (non-</p>
+        <p>standard)</p>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.ok_or">ok_or</a>
+      </td>
+      <td style="text-align:left">transforms optional value to possible error</td>
+      <td style="text-align:left"><code>b -&gt; Maybe a -&gt; Either b a</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:mapMaybe">mapMaybe</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter_map">filter_map</a> from
+        Iterator</td>
+      <td style="text-align:left">applies filter and map simultaneously</td>
+      <td style="text-align:left"><code>(a -&gt; Maybe b) -&gt; [a] -&gt; [b]</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:catMaybe">catMaybe</a>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">extracts only values from the list, drops no values</td>
+      <td style="text-align:left"><code>[Maybe a] -&gt; [a]</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:join">join</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.flatten">flatten</a>
+      </td>
+      <td style="text-align:left">squashes two layers of optionality into one</td>
+      <td style="text-align:left"><code>Maybe (Maybe a) -&gt; Maybe a</code>
+      </td>
+    </tr>
+  </tbody>
+</table>### Notes
 
 In Rust, all combinators with `or` at the end have a variant with `or_else` at the end: `unwrap_or_else` or `or_else` etc. Those variants take a closure for the default value and are lazily evaluated. They are recommended when you have a function call returning default value. In Haskell there is no need for this, since it is a lazy language by default.
 
@@ -53,7 +193,7 @@ It's possible to mutate optional values in Rust. For that we have `get_or_insert
 
 In addition to `and` and `or` Rust has a method `xor`, perhaps just for the completeness. You've probably guessed that it returns `Some` if and only if there is only one `Some` in its arguments.
 
-Haskell has two functions `listToMaybe` and `maybeToList` that convert between trivial lists \(with 0 or 1 elements\) and `Maybe` values. Rust doesn't have those, since lists are not that ubiquitous.
+Haskell has two functions `listToMaybe` and `maybeToList` that convert between trivial lists \(with 0 or 1 elements\) and `Maybe` values. Rust doesn't have those, since lists are not that ubiquitous, but see the Update 2 above.
 
 ### Summary
 
