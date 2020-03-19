@@ -4,5 +4,5 @@
 * [Tents](tents.md)
 * [Torres del Paine](torres-del-paine.md)
 * [Newsletters](newsletters.md)
-* [Cheatsheet: Rust Option vs Haskell Maybe](cheatsheet-rust-option-vs-haskell-maybe.md)
+* [Cheatsheet: Option \(in Rust\) vs Maybe \(in Haskell\)](cheatsheet-rust-option-vs-haskell-maybe.md)
 
