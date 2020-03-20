@@ -10,6 +10,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
 
 **Update 2:** [/u/masklinn](https://www.reddit.com/user/masklinn) says that Haskell `listToMaybe` is akin to calling `next` on an `Iterator` and `maybeToList` is an `Option` implementing `IntoIterator`. I agree with that, since lists in Haskell, being lazy, more or less correspond to Rust iterators. Also, you can iterate over `Option` in Rust by calling `iter`.
 
+**Update 3:** fixed several typos and errors spotted by Reddit readers. Thank you [/u/jroller](https://www.reddit.com/user/jroller/), [/u/jlombera](https://www.reddit.com/user/jlombera/), [/u/gabedamien](https://www.reddit.com/user/gabedamien/)
+
 ### Cheatsheet
 
 <table>
@@ -36,7 +38,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some">Some</a>
       </td>
       <td style="text-align:left">constructor for value</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><code>a -&gt; Maybe a</code>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:Nothing">Nothing</a>
@@ -44,7 +47,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#variant.None">None</a>
       </td>
       <td style="text-align:left">constructor for no value</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><code>Maybe a</code>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:isJust">isJust</a>
@@ -70,7 +74,7 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map">map</a>
       </td>
       <td style="text-align:left">apply function to value inside</td>
-      <td style="text-align:left"><code>(a -&gt; b) -&gt; Maybe a -&gt; Maybe a</code>
+      <td style="text-align:left"><code>(a -&gt; b) -&gt; Maybe a -&gt; Maybe b</code>
       </td>
     </tr>
     <tr>
@@ -116,7 +120,7 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and">and</a>
       </td>
       <td style="text-align:left">return first value if none or second if not</td>
-      <td style="text-align:left"><code>Maybe a -&gt; Maybe a -&gt; Maybe a</code>
+      <td style="text-align:left"><code>Maybe a -&gt; Maybe b -&gt; Maybe b</code>
       </td>
     </tr>
     <tr>
