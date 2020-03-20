@@ -12,6 +12,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
 
 **Update 3:** fixed several typos and errors spotted by Reddit readers. Thank you [/u/jroller](https://www.reddit.com/user/jroller/), [/u/jlombera](https://www.reddit.com/user/jlombera/), [/u/gabedamien](https://www.reddit.com/user/gabedamien/), [/u/george\_\_\_\_t](https://www.reddit.com/user/george_____t/)
 
+**Update 4:** use `flatten` from Iterator to implement `catMaybe`, thanks to [/u/MysteryManEusine](https://www.reddit.com/user/MysteryManEusine/). 
+
 ### Cheatsheet
 
 <table>
@@ -158,7 +160,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
     <tr>
       <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html#v:catMaybe">catMaybe</a>
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.flatten">flatten</a> from
+        Iterator</td>
       <td style="text-align:left">extracts only values from the list, drops no values</td>
       <td style="text-align:left"><code>[Maybe a] -&gt; [a]</code>
       </td>
@@ -171,6 +174,16 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       <td style="text-align:left">squashes two layers of optionality into one</td>
       <td style="text-align:left"><code>Maybe (Maybe a) -&gt; Maybe a</code>
       </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Traversable.html#v:sequence">sequence</a>
+      </td>
+      <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.transpose">transpose</a>
+      </td>
+      <td style="text-align:left">transposes Option and Result layers (or Either and Maybe in Haskell terms)</td>
+      <td
+      style="text-align:left"><code>Maybe (Either e a) -&gt; Either e (Maybe a)</code>
+        </td>
     </tr>
   </tbody>
 </table>### Notes
