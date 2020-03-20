@@ -71,8 +71,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Functor.html#v:fmap">fmap</a>
-      </td>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Functor.html#v:fmap">fmap</a> from
+        Functor</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map">map</a>
       </td>
       <td style="text-align:left">apply function to value inside</td>
@@ -98,8 +98,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62--61-">(&gt;&gt;=)</a>
-      </td>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62--61-">(&gt;&gt;=)</a> from
+        Monad</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then">and_then</a>
       </td>
       <td style="text-align:left">propagate &quot;no value&quot;, apply a function to a value, function
@@ -108,8 +108,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Applicative.html#v:-60--124--62-">(&lt;|&gt;)</a>
-      </td>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Applicative.html#v:-60--124--62-">(&lt;|&gt;)</a> from
+        Alternative</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.or">or</a>
       </td>
       <td style="text-align:left">return first value if present or<b> </b>second if not</td>
@@ -117,8 +117,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62-">(&gt;&gt;)</a>
-      </td>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:-62--62-">(&gt;&gt;)</a> from
+        Monad</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and">and</a>
       </td>
       <td style="text-align:left">return first value if none or second if not</td>
@@ -167,8 +167,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:join">join</a>
-      </td>
+      <td style="text-align:left"><a href="https://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Monad.html#v:join">join</a> from
+        Monad</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.flatten">flatten</a>
       </td>
       <td style="text-align:left">squashes two layers of optionality into one</td>
@@ -176,8 +176,8 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Traversable.html#v:sequence">sequence</a>
-      </td>
+      <td style="text-align:left"><a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Traversable.html#v:sequence">sequence</a> from
+        Traversable</td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.transpose">transpose</a>
       </td>
       <td style="text-align:left">transposes Option and Result layers (or Either and Maybe in Haskell terms)</td>
