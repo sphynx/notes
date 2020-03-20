@@ -10,7 +10,7 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
 
 **Update 2:** [/u/masklinn](https://www.reddit.com/user/masklinn) says that Haskell `listToMaybe` is akin to calling `next` on an `Iterator` and `maybeToList` is an `Option` implementing `IntoIterator`. I agree with that, since lists in Haskell, being lazy, more or less correspond to Rust iterators. Also, you can iterate over `Option` in Rust by calling `iter`.
 
-**Update 3:** fixed several typos and errors spotted by Reddit readers. Thank you [/u/jroller](https://www.reddit.com/user/jroller/), [/u/jlombera](https://www.reddit.com/user/jlombera/), [/u/gabedamien](https://www.reddit.com/user/gabedamien/)
+**Update 3:** fixed several typos and errors spotted by Reddit readers. Thank you [/u/jroller](https://www.reddit.com/user/jroller/), [/u/jlombera](https://www.reddit.com/user/jlombera/), [/u/gabedamien](https://www.reddit.com/user/gabedamien/), [/u/george\_\_\_\_t](https://www.reddit.com/user/george_____t/)
 
 ### Cheatsheet
 
@@ -135,7 +135,9 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
     </tr>
     <tr>
       <td style="text-align:left">
-        <p><a href="https://hackage.haskell.org/package/errors-2.3.0/docs/Control-Error-Util.html#v:note">note</a> (non-</p>
+        <p><a href="https://hackage.haskell.org/package/errors-2.3.0/docs/Control-Error-Util.html#v:note">note</a>,
+          <a
+          href="https://hackage.haskell.org/package/either-5.0.1.1/docs/Data-Either-Combinators.html#v:maybeToRight">maybeToRight</a>(both non-</p>
         <p>standard)</p>
       </td>
       <td style="text-align:left"><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.ok_or">ok_or</a>
