@@ -51,7 +51,7 @@ I assume that you more or less know what a floating number is. As a quick remind
 * _Sign_ here can be either -1 or 1. 
 * _Significand_ \(also called _mantissa_\) always starts with '**1.**' \(note the dot at the end!\). Since it always starts with 1, there is no need to store that 1 in actual bit representation when we get to it.
 * _Base_ is 2 in our case. 
-* _Exponent_ is a scaling factor, it is the number of positions we have to move the dot "." to the right or to the left to get back to our number.
+* _Exponent_ is a scaling factor, it is the number of positions we have to move the point "." to the right or to the left to get back to our number.
 
 For example binary 101.1 can be represented as `1 * 1.011 * (base ^ 2)`, sign is 1, significand is 1.011 and we need to scale it two positions to the right, so exponent is `+2`. 
 
@@ -81,7 +81,7 @@ If the next bit after those 53 is `1` we should also add `1` to that large part 
 
 #### 3. Figure out what the exponent should be. 
 
-Our first `1` is 4 positions to the right from the dot. So in our case the exponent will be `-4`. However, in IEEE 754 exponents are stored with a particular bias which has to be added before we store it in bits. For double precision this bias is 1023, so we have to add that to -4 getting `1019` which we need to store as unsigned integer in 11 bits of exponent \(those numbers can also be taken from the table above\). Why to store the exponent with a bias and not as "sign + absolute value" or "two complement"? The main reason that with this way we can use integer comparator to compare floating-point numbers. Also, it leads to a nice zero representation with all 0 bits. See [here](https://en.wikipedia.org/wiki/Exponent_bias) for the details.
+Our first `1` is 4 positions to the right from the binary point. So in our case the exponent will be `-4`. However, in IEEE 754 exponents are stored with a particular bias which has to be added before we store it in bits. For double precision this bias is 1023, so we have to add that to -4 getting `1019` which we need to store as unsigned integer in 11 bits of exponent \(those numbers can also be taken from the table above\). Why to store the exponent with a bias and not as "sign + absolute value" or "two complement"? The main reason that with this way we can use integer comparator to compare floating-point numbers. Also, it leads to a nice zero representation with all 0 bits. See [here](https://en.wikipedia.org/wiki/Exponent_bias) for the details.
 
 #### 4. Combine the parts
 
@@ -130,7 +130,7 @@ Now let's see what happens with that `printf`. It takes all those bits we used f
 
 How long we can expect the decimal representation to be, i.e. how many digits does it have before starting the string of zeroes at the end?
 
-Originally I thought that since we have 53 binary digits in significand \(mantissa\) for numbers close in scale to 1 \(with exponent = 0\), the smallest number we can represent is about $$ 2^{-53} \approx 10^{-16}$$ And I thought that it should mean that we should have approximately 16 digits or slightly more in the decimal representation of those bits and if we ask for more we should get zeros. But that is not true. To get an idea why, we can just look at $$ 2^{-3} $$ which is 0.125. It has 3 digits after the dot in its decimal expansion, even though it's very close to $$ 10^{-1} $$ and by reasoning above should have about 1 or "slightly more" digits. 
+Originally I thought that since we have 53 binary digits in significand \(mantissa\) for numbers close in scale to 1 \(with exponent = 0\), the smallest number we can represent is about $$ 2^{-53} \approx 10^{-16}$$ And I thought that it should mean that we should have approximately 16 digits or slightly more in the decimal representation of those bits and if we ask for more we should get zeros. But that is not true. To get an idea why, we can just look at $$ 2^{-3} $$ which is 0.125. It has 3 digits after the point in its decimal expansion, even though it's very close to $$ 10^{-1} $$ and by reasoning above should have about 1 or "slightly more" digits. 
 
 Let's look at the table of decimal expansions for $$ 1 / 2^i $$ values for consecutive `i`s. This corresponds to the value of `i`-th bit in the significand.
 
@@ -145,7 +145,7 @@ Let's look at the table of decimal expansions for $$ 1 / 2^i $$ values for conse
 
 It looks like every new bit adds a new digit to the decimal! So, if we have 53 bits in the significand, we can have up to 53 digits in the decimal expansion! \(For now we disregard the exponent, which can be just zero for those examples\).
 
-Let's prove that $$1 / 2^n$$has n digits after the dot in its decimal representation. My friend [Igor](http://www.chornous.com/) suggested a nice and easy proof by induction! Basis is always easy: 1/2 = 0.5 and it has 1 digit. Then let's assume by induction hypothesis that $$1/2^n$$ has $$n$$ digits and let's see what happens with $$1/2^{n+1}$$. This is just $$1/2^n$$ divided by $$2$$, and so for every of n digits of the original number we'll have a corresponding digit in the new number \(divided by two with truncation and carry-over to the right\) plus an extra digit for the last "5" \(since it is odd and no carry-over will fix that\). Illustration:
+Let's prove that $$1 / 2^n$$has n digits after the point in its decimal representation. My friend [Igor](http://www.chornous.com/) suggested a nice and easy proof by induction! Basis is always easy: 1/2 = 0.5 and it has 1 digit. Then let's assume by induction hypothesis that $$1/2^n$$ has $$n$$ digits and let's see what happens with $$1/2^{n+1}$$. This is just $$1/2^n$$ divided by $$2$$, and so for every of n digits of the original number we'll have a corresponding digit in the new number \(divided by two with truncation and carry-over to the right\) plus an extra digit for the last "5" \(since it is odd and no carry-over will fix that\). Illustration:
 
 ```bash
 .125
@@ -157,7 +157,7 @@ Let's prove that $$1 / 2^n$$has n digits after the dot in its decimal representa
 
 And since $$1/2^n$$is the finest unit of precision for n-bit number we can be sure that other higher bits are "coarser", i.e. that they will have less decimal digits in their individual representation.
 
-So now we can see that it's completely fine to have so many digits from `printf` and we also have an upper bound on them. For example in our case we should expect no more than 53 + 4 digits after the dot. "+4" because we use `-4` exponent, which can add more digits. Indeed, if we add some more precision to our original program, we can see that decimal representation of our double has 56 digits \(and zeros after that\):
+So now we can see that it's completely fine to have so many digits from `printf` and we also have an upper bound on them. For example in our case we should expect no more than 53 + 4 digits after the point. "+4" because we use `-4` exponent, which can add more digits. Indeed, if we add some more precision to our original program, we can see that decimal representation of our double has 56 digits \(and zeros after that\):
 
 ```bash
 ➜ printf "%.60f\n" 0.1234567890123456
