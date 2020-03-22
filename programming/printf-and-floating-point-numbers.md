@@ -126,7 +126,9 @@ To quote from C99 standard:
 
 ### Conversion back to decimal with printf
 
-Now let's see what happens with that `printf`. It takes all those bits we used for binary representation, converts it back to exact decimal and prints it with specified precision. How long we can expect the decimal representation to be, i.e. how many digits does it have before starting the string of zeroes at the end?
+Now let's see what happens with that `printf`. It takes all those bits we used for binary representation, converts it back to exact decimal and prints it with specified precision. 
+
+How long we can expect the decimal representation to be, i.e. how many digits does it have before starting the string of zeroes at the end?
 
 Originally I thought that since we have 53 binary digits in significand \(mantissa\) for numbers close in scale to 1 \(with exponent = 0\), the smallest number we can represent is about $$ 2^{-53} \approx 10^{-16}$$ And I thought that it should mean that we should have approximately 16 digits or slightly more in the decimal representation of those bits and if we ask for more we should get zeros. But that is not true. To get an idea why, we can just look at $$ 2^{-3} $$ which is 0.125. It has 3 digits after the dot in its decimal expansion, even though it's very close to $$ 10^{-1} $$ and by reasoning above should have about 1 or "slightly more" digits. 
 
@@ -141,9 +143,9 @@ Let's look at the table of decimal expansions for $$ 1 / 2^i $$ values for conse
 | Bit 5 | 1 / 32 | 0.03125 |
 | Bit 6 | 1 / 64 | 0.015625 |
 
-It looks like every new bit adds a new digit to the decimal! So, if we have 53 bits in the significand, we can have up to 53 digits in the decimal expansion! \(For now we disregard exponent, which can be just zero for those examples\).
+It looks like every new bit adds a new digit to the decimal! So, if we have 53 bits in the significand, we can have up to 53 digits in the decimal expansion! \(For now we disregard the exponent, which can be just zero for those examples\).
 
-This makes sense: if we want to represent $$1/2^n$$ in decimal, we will represent it as a sum of decimal digits, each of them is $$1/10^i$$ for some $$i$$. Note that $$1/10^i = 1/(2^i \times 5^i)$$And if we want to represent original $$1/2^n$$ in decimal, we will need to have one of those digits, i.e. some $$i$$ at least as big as $$n$$ \(otherwise we won't have enough precision, not enough 2-s in the denominator\). And this means that we need to have at least $$n$$ decimal digits in the expansion to represent $$1/2^n$$, which the table above demonstrates.
+This makes sense: if we want to represent $$1/2^n$$ in decimal, we will represent it as a sum of decimal digits, each of them is $$1/10^i$$ for some $$i$$. Note that $$1/10^i = 1/(2^i \times 5^i).$$And if we want to represent original $$1/2^n$$ in decimal, we will need to have one of those digits, i.e. some $$i$$ to be at least as big as $$n$$ \(otherwise we won't have enough precision, not enough 2-s in the denominator\). And this means that we need to have at least $$n$$ decimal digits in the expansion to represent $$1/2^n$$, which the table above demonstrates.
 
 So now we can see that it's completely fine to have so many digits from `printf` and we also have an upper bound on them. For example in our case we should expect no more than 53 + 4 digits after the dot. "+4" because we use `-4` exponent, which can add more digits. Indeed, if we add some more precision to our original program, we can see that decimal representation of our double has 56 digits \(and zeros after that\):
 
