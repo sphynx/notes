@@ -22,8 +22,8 @@ int main(void)
 
 What do you think it will print? Most programmers know that double precision has about 16 significant decimal digits when numbers are in that range \(i.e between 0 and 1\). So I am printing here 16 digits first and then some more just to see what comes next. It prints this:
 
-```c
-> gcc 1.c && ./a.out
+```bash
+➜ gcc 1.c && ./a.out
 0.1234567890123456
 0.1234567890123455941031593852130754385143518447875976562
 ```
@@ -77,7 +77,7 @@ Our first `1` is 4 positions to the right from the dot. So in our case the expon
 
 #### 4. Combine the parts
 
-The memory layout for doubles is as follows:
+The memory layout for doubles is as follows \(assumes Big Endian order\):
 
 ![Double precision memory layout for IEEE 754](../.gitbook/assets/f64-layout.png)
 
@@ -97,14 +97,16 @@ fn main() {
 
 When we run this we get exactly the bits we calculated before, success!
 
-```rust
-➜  rustc a.rs && ./a
+```bash
+➜ rustc a.rs && ./a
 0011111110111111100110101101110100110111010001101111011001011001
 ```
 
 ### Literals conversion
 
-So, how C literals are parsed into doubles? Apparently, according to this StackOverflow [answer](https://stackoverflow.com/a/649108/211906) and [C99 standard](http://c0x.coding-guidelines.com/6.4.4.2.html), there are no limitations on length of double literals \(at least I don't see it in the grammar and I can use literals with thousands digits and it compiles just fine\). The double representation we'll get should be the closest representable number or one before or after it, depending on the implementation. So yes, you can use literals like 0.123456789012345678901234567890 with 30 digits, but most of those digits would be wasted since it's too precise to be represented in double precision format. 
+Now we have the terminology to tackle the next question. So, how C literals from the program are parsed into doubles? Are there any limitations on length? 
+
+Apparently, according to this StackOverflow [answer](https://stackoverflow.com/a/649108/211906) and [C99 standard](http://c0x.coding-guidelines.com/6.4.4.2.html), there are no limitations on length of double literals \(at least I don't see it in the grammar and I can use literals with thousands digits and it compiles just fine\). The double representation we'll get should be the closest representable number or one before or after it, depending on the implementation. So yes, you can use literals like 0.123456789012345678901234567890 with 30 digits, but most of those digits would be wasted since it's too precise to be represented in double precision format. 
 
 To quote from C99 standard:
 
