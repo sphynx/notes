@@ -112,17 +112,21 @@ When we run this we get exactly the bits we calculated before, success!
 
 ### Literals conversion
 
-Now we have the terminology to tackle the next question: how C literals from the program are parsed into doubles? Are there any limitations on length? 
+Now we have the terminology to tackle the next question: how C literals from the program are parsed into doubles? Are there any limitations on length? What if we write
+
+ `double d = 1.111111111111111111111111111111111111111111111111;`
+
+Will it fail? How many ones will be preserved?
 
 Apparently, according to this StackOverflow [answer](https://stackoverflow.com/a/649108/211906) and [C99 standard](http://c0x.coding-guidelines.com/6.4.4.2.html), there are no limitations on length of double literals \(at least I don't see it in the grammar and I can use literals with thousands digits and it compiles just fine\). The double representation we'll get should be the closest representable number or one before or after it, depending on the implementation. So yes, you can use literals like 0.123456789012345678901234567890 with 30 digits, but most of those digits would be wasted since it's too precise to be represented in double precision format. 
 
 To quote from C99 standard:
 
-> The significand part is interpreted as a \(decimal or hexadecimal\) rational number; the digit sequence in the exponent part is interpreted as a decimal integer. For decimal floating constants, the exponent indicates the power of 10 by which the significand part is to be scaled. \[...\] For decimal floating constants, and also for hexadecimal floating constants when `FLT_RADIX` is not a power of 2, **the result is either the nearest representable value, or the larger or smaller representable value immediately adjacent to the nearest representable value, chosen in an implementation-defined manner**.
+> For decimal floating constants \[...\] the result is either the nearest representable value, or the larger or smaller representable value immediately adjacent to the nearest representable value, chosen in an implementation-defined manner.
 
 ### Conversion back to decimal with printf
 
-Now let's see what's happening with that `printf`. It takes all those bits we used for binary representation, converts it back to exact decimal and prints it with specified precision. How long we can expect the decimal representation to be, i.e. how many digits does it have before starting the string of zeroes at the end?
+Now let's see what happens with that `printf`. It takes all those bits we used for binary representation, converts it back to exact decimal and prints it with specified precision. How long we can expect the decimal representation to be, i.e. how many digits does it have before starting the string of zeroes at the end?
 
 Originally I thought that since we have 53 binary digits in significand \(mantissa\) for numbers close in scale to 1 \(with exponent = 0\), the smallest number we can represent is about $$ 2^{-53} \approx 10^{-16}$$ And I thought that it should mean that we should have approximately 16 digits or slightly more in the decimal representation of those bits and if we ask for more we should get zeros. But that is not true. To get an idea why, we can just look at $$ 2^{-3} $$ which is 0.125. It has 3 digits after do in its decimal expansion, even though it's very close to $$ 10^{-1} $$ and by reasoning above should have about 1 or "slightly more" digits. 
 
