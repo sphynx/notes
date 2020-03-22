@@ -17,11 +17,11 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ## Maps
 
-{% file src=".gitbook/assets/torres-del-paine-official-map.pdf" caption="Torres del Paine official map PDF" %}
+{% file src="../.gitbook/assets/torres-del-paine-official-map.pdf" caption="Torres del Paine official map PDF" %}
 
-![Camping spots](.gitbook/assets/refugios-map.jpg)
+![Camping spots](../.gitbook/assets/refugios-map.jpg)
 
-![3D map with days for O circuit](.gitbook/assets/torres-3d-map.jpg)
+![3D map with days for O circuit](../.gitbook/assets/torres-3d-map.jpg)
 
 ## Campsites
 
@@ -33,7 +33,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 * Paso \(on "O"\)
 * Torres \(on "W"\) - closed?
 
-![CONAF campsites overview](.gitbook/assets/conaf-overview.png)
+![CONAF campsites overview](../.gitbook/assets/conaf-overview.png)
 
 ### Vertice Patagonia
 
@@ -44,7 +44,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 * Los perros
 * Paine Grande
 
-![Overview of Vertice campsites](.gitbook/assets/vertice-overview.png)
+![Overview of Vertice campsites](../.gitbook/assets/vertice-overview.png)
 
 ### Fantastico Sur
 
@@ -56,13 +56,13 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 * Seron
 * Las Torres \("Campsite Central" on the image below\)
 
-![Fantastico Sur campsites overview](.gitbook/assets/fantastico-sur-overview.jpg)
+![Fantastico Sur campsites overview](../.gitbook/assets/fantastico-sur-overview.jpg)
 
 ## Routes, times and distances
 
 ### Distances
 
-![](.gitbook/assets/timings-and-distances.png)
+![](../.gitbook/assets/timings-and-distances.png)
 
 ### "O" Route
 
@@ -77,7 +77,7 @@ Lifehack: book "Chileno" camp site first, since it tends to be very busy, adjust
 
 ### "W" route \(east to west\)
 
-![](.gitbook/assets/w-map.png)
+![](../.gitbook/assets/w-map.png)
 
 * Day 1. Las Torres - Torres Lookout - Las Torres \(4 hours x 2\)
 * Day 2. Las Torres - Los Cuernos. 11.6 km. 4:30. \(or camp Francese\). 100m ascent. 160m descent.

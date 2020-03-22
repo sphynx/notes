@@ -1,8 +1,16 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Tents](tents.md)
-* [Torres del Paine](torres-del-paine.md)
-* [Newsletters](newsletters.md)
+
+## Programming
+
+## Travel
+
+* [Torres del Paine](travel/torres-del-paine.md)
+* [Tents](travel/tents.md)
 * [Cheatsheet: Option \(in Rust\) vs Maybe \(in Haskell\)](cheatsheet-rust-option-vs-haskell-maybe.md)
+
+## Miscellaneous
+
+* [Newsletters](miscellaneous/newsletters.md)
 

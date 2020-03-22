@@ -45,7 +45,7 @@ Spoiler: after all the research and several days of hesitation I bought Hilleber
 
 ![](https://www.msrgear.com/on/demandware.static/-/Sites-msr-master-catalog/default/dw7b52d374/images/large/10316_msr_hubba_hubba_nx_tent_rainfly_open.jpg)
 
-![](.gitbook/assets/msr-hubba-hubba-nx-2-plan.png)
+![](../.gitbook/assets/msr-hubba-hubba-nx-2-plan.png)
 
 [Official manufacturer link](https://www.msrgear.com/ie/products/tents/hubba-hubba-nx-2-person-backpackingandnbsp%3Btent/06204.html?srd=true)
 
@@ -76,13 +76,13 @@ In terms of materials it looks like this tent is in the middle between really li
 
 ![](https://www.nemoequipment.com/wp-content/uploads/idvtqxawf4kyizdwtvyu-1768x1496.jpg)
 
-![](.gitbook/assets/nemo-dragonfly-plan.png)
+![](../.gitbook/assets/nemo-dragonfly-plan.png)
 
 [Official manufacturer link](https://www.nemoequipment.com/product/dragonfly/)
 
 This tent got seriously raving reviews both from ProPohody and OutdoorGearLab. It is super lightweight \(1410 g!\) which still being spacious and convenient. However, I was put off by a delicate rain fly \(outer tent\), it is just 15D = 15 denier \(it's a measure of fabric density\) and by a weird cut in a rainfly on the side of the tent \(a screenshot from the [video review below](https://propohody.com/nemo-dragonfly-2p-review/)\):
 
-![](.gitbook/assets/dragonfly-cut.png)
+![](../.gitbook/assets/dragonfly-cut.png)
 
 This cut is suspiciously never visible on pictures from Nemo official website. According to the reviewers it's completely fine, since the bathtub floor is high and completely waterproof, but still, I don't like the look of it and don't see much point of it except for saving the weight, but for that price?
 
@@ -111,7 +111,7 @@ However, the comfort, total area and attention to details of this tent almost pe
 
 ![](https://i.sportisimo.com/products/images/830/830588/450x450/trimm-44118-himlite-dsl_0.jpg)
 
-![The lower side of the tent is 107 cm \(as measured\)](.gitbook/assets/trimm-himlite-plan.png)
+![The lower side of the tent is 107 cm \(as measured\)](../.gitbook/assets/trimm-himlite-plan.png)
 
 [Official manufacturer link](https://www.trimm.cz/en/catalog/himlite-dsl-c1247.htm)
 
@@ -133,9 +133,9 @@ This is my current tent: I bought it around 6 years ago and described its usage 
 
 ## Exped Mira II HL
 
-![](.gitbook/assets/exped-mira-2-hl.png)
+![](../.gitbook/assets/exped-mira-2-hl.png)
 
-![](.gitbook/assets/exped-mira-2-hl-plan.png)
+![](../.gitbook/assets/exped-mira-2-hl-plan.png)
 
 [Official manufacturer link](http://www.exped.com/italy/en/product-category/tents/mira-ii-hl)
 
@@ -164,7 +164,7 @@ This Swiss tent is a relatively late addition to the list, it looks like it's in
 
 ![](https://www.tauntonleisure.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/i/hilleberg-niakgrn-srgbtag.jpg)
 
-![](.gitbook/assets/hilleberg-niak-plan.png)
+![](../.gitbook/assets/hilleberg-niak-plan.png)
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/niak/)
 
@@ -205,7 +205,7 @@ In some shops it comes with a free footprint \(but you have to order it separate
 
 ![](https://images.hilleberg.net/products/Anjan/AnjanGrn-2017.jpg)
 
-![](.gitbook/assets/hilleberg-anjan-2-plan.png)
+![](../.gitbook/assets/hilleberg-anjan-2-plan.png)
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2/)
 
@@ -242,7 +242,7 @@ I am going to test the tent in Patagonia soon, hopefully I'll update this note w
 
 ![](https://images.hilleberg.net/products/Anjan/AnjanGTGrn-2017.jpg)
 
-![](.gitbook/assets/hilleberg-anjan-2-gt-plan.png)
+![](../.gitbook/assets/hilleberg-anjan-2-gt-plan.png)
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/anjan-2-gt/)
 
@@ -269,7 +269,7 @@ This is just a version of [Anjan 2](tents.md#hilleberg-anjan-2) with an extended
 
 ![](https://images.hilleberg.net/products/Rogen/RogenGrn-2018.jpg)
 
-![](.gitbook/assets/hilleberg-rogen-plan.png)
+![](../.gitbook/assets/hilleberg-rogen-plan.png)
 
 [Official manufacturer link](https://hilleberg.com/eng/tent/yellow-label-tents/rogen/)
 
