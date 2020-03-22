@@ -61,9 +61,11 @@ In order to convert a real decimal number into bits of `double` we can do the fo
 
 It will most likely contain the repeating fractional part unless it can be represented as `P / Q` where `Q` is an exact power of 2 and `P` is an integer. 
 
-In our case `0.1234567890123456` corresponds to binary: `0.0001111110011010110111010011011101000110111101100101100101101100110...`
+In our case `0.1234567890123456` corresponds to this binary \(I calculated it with [online converter](https://www.exploringbinary.com/binary-converter/)\): 
 
-We haven't even get to the repeating part, but that's alright since we only need the beginning.
+`0.0001111110011010110111010011011101000110111101100101100101101100110...`
+
+We haven't even got to the repeating part, but that's alright since we only need the beginning.
 
 #### 2. Take 53 bits starting from the first digit 1 \(and including it\). 
 
@@ -79,7 +81,7 @@ If the next bit after those 53 is `1` we should also add `1` to that large part.
 
 #### 3. Figure out what the exponent should be. 
 
-Our first `1` is 4 positions to the right from the dot. So in our case the exponent will be `-4`. However, in IEEE 754 exponents are stored with a particular bias which has to be added before we store it in bits. For double precision this bias is 1023, so we have to add that to `-4` getting `1019` which we need to store as unsigned integer in 11 bits of exponent \(those numbers can also be taken from the table above\).
+Our first `1` is 4 positions to the right from the dot. So in our case the exponent will be `-4`. However, in IEEE 754 exponents are stored with a particular bias which has to be added before we store it in bits. For double precision this bias is 1023, so we have to add that to -4 getting `1019` which we need to store as unsigned integer in 11 bits of exponent \(those numbers can also be taken from the table above\). Why to store the exponent with a bias and not as "sign + absolute value" or "two complement"? The main reason that with this way we can use integer comparator to compare floating-point numbers. Also, it leads to a nice zero representation with all 0 bits. See [here](https://en.wikipedia.org/wiki/Exponent_bias) for the details.
 
 #### 4. Combine the parts
 
@@ -87,7 +89,7 @@ The memory layout for doubles is as follows \(assumes Big Endian order\):
 
 ![Double precision memory layout for IEEE 754](../.gitbook/assets/f64-layout.png)
 
-Our number is positive, so we use `0` for sign. Exponent is `1019` which is `01111111011` if represented with 11 bits. And we've got our 53 precision bits of the significand which we need to pack into 52 bits. This is easily done, since the first bit is always 1, so we never store it. In the end we get this:
+Our number is positive, so we use `0` for sign. Exponent is `1019` which is `01111111011` if represented with 11 bits. And we've got our 53 precision bits of the significand which we need to pack into 52 bits. This is easily done, since the first bit is always 1, so we never store it \(it's called "hidden" or "implicit" bit\). In the end we get this:
 
 `0 01111111011 1111100110101101110100110111010001101111011001011001`
 
