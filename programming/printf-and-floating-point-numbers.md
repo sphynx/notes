@@ -1,5 +1,5 @@
 ---
-description: Help! My printf is producing digits out of thin air
+description: Help! My printf is producing digits out of thin air!
 ---
 
 # printf\(\) and floating point numbers
