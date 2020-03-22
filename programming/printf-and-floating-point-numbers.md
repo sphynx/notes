@@ -6,7 +6,7 @@ description: Help! My printf is producing digits out of thin air!
 
 ### Problem setup
 
-One day we had certain mismatch between floating point numbers. One number when inspected in an IDE looked much longer than the other, having lots of extra digits. Then a colleague of mine said that it's fine, they might still be the same number, and produced some code similar to this:
+One day we had a certain mismatch between two floating point numbers. One number when inspected in an IDE looked much longer than the other, having lots of extra digits. Then a colleague of mine said that it's fine, they might still be the same number, and produced some code similar to this:
 
 ```c
 #include <stdio.h>
@@ -32,13 +32,13 @@ This looked like quite a lot of extra digits and it did not even stop there!
 
 I know that we represent real decimal numbers with bits stored according to IEEE 754 floating point standard, so our decimal literal is somewhat imprecisely stored in binary representation. Now it looks like `printf` is printing that decimal representation. However, what was surprising to me is that this imprecise representation can be expanded to so many new decimal digits.
 
-**TL;DR** `printf` prints decimal expansion of the binary number corresponding to our original literal. Binary number approximates the literal. There can be maximum `53 - binary exponent` digits in the decimal expansion \(at least for "normal" numbers\). Read below for the details.
+**TL;DR** `printf` prints decimal expansion of the binary number corresponding to our original literal. That binary number approximates the literal. There can be maximum `53 - binary exponent` digits in the decimal expansion \(at least for "normal" numbers\). Read below for the details.
 
 ### Plan of attack
 
-Let's figure out step by step what's happening in this little program. The interesting steps with accompanying questions I had are below:
+Let's figure out step by step what's happening in this little program. The interesting steps with accompanying questions I had are as follows:
 
-1. Compiler has to convert that string representing a decimal C-literal into a double. How that should be done? Are there any restrictions on the literal length?
+1. C compiler has to convert that string representing a decimal C-literal into a double. How that should be done? Are there any restrictions on the literal length?
 2. That double is represented with some bits. What bits exactly? How they are laid out in memory? Can I build them by hand?
 3. Those bits can be converted back to decimal and printed with `printf`. How many digits can I expect in this decimal expansion?
 
