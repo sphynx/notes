@@ -112,7 +112,7 @@ When we run this we get exactly the bits we calculated before, success!
 
 ### Literals conversion
 
-Now we have the terminology to tackle the next question: how C literals from the program are parsed into doubles? Are there any limitations on length? What if we write
+Now we have the terminology to tackle the next question: how C literals from the program are parsed into doubles? Are there any limitations on length? What if I write a very long literal:
 
  `double d = 1.111111111111111111111111111111111111111111111111;`
 
