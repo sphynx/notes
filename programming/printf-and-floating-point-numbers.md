@@ -154,7 +154,7 @@ So now we can see that it's completely fine to have so many digits from `printf`
 
 ### References and further reading
 
-* A [tool](https://float.exposed/) to explore floating point numbers, where you can toggle bits and see how it affects the value, inspect decimal representation and do many other things
+* A [tool](https://float.exposed/) to explore floating point numbers, where you can toggle bits and see how it affects the value, inspect decimal representations and do many other things
 * A very readable and well written article on Wikipedia: ["Floating-point arithmetic"](https://en.wikipedia.org/wiki/Floating-point_arithmetic)
 * ["Floating point guide"](https://floating-point-gui.de/) if you don't want to overload yourself with details and want easy answers
 * A famous long article ["What Every Computer Scientist Should Know About Floating Point Arithmetic."](https://cr.yp.to/2005-590/goldberg.pdf) if you **want** to overload yourself with details and want rigorous answers
