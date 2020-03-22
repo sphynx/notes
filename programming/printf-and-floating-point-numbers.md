@@ -145,7 +145,15 @@ Let's look at the table of decimal expansions for $$ 1 / 2^i $$ values for conse
 
 It looks like every new bit adds a new digit to the decimal! So, if we have 53 bits in the significand, we can have up to 53 digits in the decimal expansion! \(For now we disregard the exponent, which can be just zero for those examples\).
 
-Let's prove that $$1 / 2^n$$has n digits after the dot in its decimal representation. My friend Igor suggested a nice and easy proof by induction! Basis is always easy: 1/2 = 0.5 and it has 1 digit. Then let's assume by induction hypothesis that $$1/2^n$$ has $$n$$ digits and let's see what happens with $$1/2^{n+1}$$. This is just $$1/2^n$$ divided by $$2$$, and so for every of n digits of the original number we'll have a corresponding digit in the new number plus an extra one for the last "5" \(since it is odd\). Proving that it always ends with 5 can also be done by induction: every 5 at the end leads to another 5 when divided by 2 and we start with 5.
+Let's prove that $$1 / 2^n$$has n digits after the dot in its decimal representation. My friend [Igor](http://www.chornous.com/) suggested a nice and easy proof by induction! Basis is always easy: 1/2 = 0.5 and it has 1 digit. Then let's assume by induction hypothesis that $$1/2^n$$ has $$n$$ digits and let's see what happens with $$1/2^{n+1}$$. This is just $$1/2^n$$ divided by $$2$$, and so for every of n digits of the original number we'll have a corresponding digit in the new number \(divided by two with truncation and carry-over to the right\) plus an extra digit for the last "5" \(since it is odd and no carry-over will fix that\). Illustration:
+
+```bash
+.125
+-----  / 2
+.0625
+```
+
+ Proving that it always ends with 5 can also be done by induction: every 5 at the end leads to another 5 when divided by 2 and we start with 5 for the basis.
 
 And since $$1/2^n$$is the finest unit of precision for n-bit number we can be sure that other higher bits are "coarser", i.e. that they will have less decimal digits in their individual representation.
 
