@@ -4,7 +4,9 @@ description: Help! My printf is producing digits out of thin air!
 
 # printf\(\) and floating point numbers
 
-One day we had certain mismatch between floating point numbers. One number when inspected in an IDE looked much longer than the other, having lots of extra digits. Then a colleague of mine said that it's fine, they might still be the same number and produced some code similar to this:
+### Problem setup
+
+One day we had certain mismatch between floating point numbers. One number when inspected in an IDE looked much longer than the other, having lots of extra digits. Then a colleague of mine said that it's fine, they might still be the same number, and produced some code similar to this:
 
 ```c
 #include <stdio.h>
@@ -26,7 +28,7 @@ What do you think it will print? Most programmers know that double precision has
 0.1234567890123455941031593852130754385143518447875976562
 ```
 
-This looked like quite a lot of extra digits and it did not even stop there! So I tried to understand what's going on.
+This looked like quite a lot of extra digits and it did not even stop there!
 
 I know that we represent real decimal numbers with bits stored according to IEEE 754 floating point standard, so our decimal literal is somewhat imprecisely stored in binary representation. Now it looks like `printf` is printing that decimal representation. However, what was surprising to me is that this imprecise representation can be expanded to so many new decimal digits.
 
@@ -49,11 +51,56 @@ I assume that you more or less know what a floating number is. As a quick remind
 
 For example binary 101.1 can be represented as `1 * 1.011 * (base ^ 2)`, sign is 1, significand is 1.011 and we need to scale it two positions to the right, so exponent is +2. 
 
-In order to convert a real decimal number into bits of `double` we can do the following steps:
+In order to convert a real decimal number into bits of `double` we can do the following steps.
 
-1. Get full binary representation of the decimal number we are trying to convert. It will most likely contain the repeating fractional part unless it can be represented as `P / Q` where `Q` is an exact power of 2 and `P` is an integer. For example 3/8 would terminate in binary representation, 1/5 will not.
-2. Take 53 bits starting from the first 1. This is because IEEE 754 double has 53 bits of precision. You can look up those number in corresponding Wikipedia table.
-3. Figure out what the exponent should be. In our case it will be -4. **TODO**
+#### 1. Get full binary representation of the decimal number we are trying to convert. 
+
+It will most likely contain the repeating fractional part unless it can be represented as `P / Q` where `Q` is an exact power of 2 and `P` is an integer. 
+
+In our case 0.1234567890123456 is something like that: `0.0001111110011010110111010011011101000110111101100101100101101100110...`
+
+We don't even get to the repeating part, but that's alright since we only need the beginning.
+
+#### 2. Take 53 bits starting from the first digit 1 \(and including it\). 
+
+This is because IEEE 754 double has 53 bits of precision. You can look up those numbers in corresponding Wikipedia table.
+
+![IEEE 754 binary formats](../.gitbook/assets/ieee-types.png)
+
+So we take this 53-bits long part in the middle:
+
+`0.000 11111100110101101110100110111010001101111011001011001 011011...`
+
+#### 3. Figure out what the exponent should be. 
+
+Our first `1` is 4 positions to the right from the dot. So in our case the exponent will be `-4`. However, in IEEE 754 exponents are stored with a particular bias which has to be added before we store it in bits. For double precision this bias is 1023, so we have to add that to `-4` getting `1019` which we need to store as unsigned integer in 11 bits of exponent \(those numbers can also be taken from the table above\).
+
+#### 4. Combine the parts
+
+The memory layout for doubles is as follows:
+
+![Double precision memory layout for IEEE 754](../.gitbook/assets/f64-layout.png)
+
+Our number is positive, so we use `0` for sign. Exponent is `1019` which is `01111111011` if represented with 11 bits. And we've got our 53 precision bits of the significand which we need to pack into 52 bits. This is easily done, since the first bit is always 1, so we never store it. In the end we get this:
+
+`0 01111111011 1111100110101101110100110111010001101111011001011001`
+
+which should be 64 bits representing our double `0.1234567890123456` in memory! Whoa, that was a lot of work. Let's check if we did it right with some Rust code \(it's easier to print bits in Rust than in C\):
+
+```rust
+fn main() {
+    let d: f64 = 0.1234567890123456;
+    d.to_be_bytes().iter().for_each(|b| print!("{:08b}", b));
+    println!();
+}
+```
+
+When we run this we get exactly the bits we calculated before, success!
+
+```rust
+➜  rustc a.rs && ./a
+0011111110111111100110101101110100110111010001101111011001011001
+```
 
 ### Literals conversion
 
