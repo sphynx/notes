@@ -32,7 +32,7 @@ This looked like quite a lot of extra digits and it did not even stop there!
 
 I know that we represent real decimal numbers with bits stored according to IEEE 754 floating point standard, so our decimal literal is somewhat imprecisely stored in binary representation. Now it looks like `printf` is printing that decimal representation. However, what was surprising to me is that this imprecise representation can be expanded to so many new decimal digits.
 
-**TL;DR** `printf` prints decimal expansion of the binary number corresponding to our original literal. That binary number approximates the literal. There can be maximum `53 - binary exponent` digits in the decimal expansion \(at least for "normal" numbers\). Read below for the details.
+**TL;DR** `printf` prints decimal expansion of the binary number corresponding to our original literal. That binary number approximates the literal. There can be maximum `53 - binary exponent` digits in the decimal expansion \(at least for "normal" numbers less than 1\). Read below for the details.
 
 ### Plan of attack
 
