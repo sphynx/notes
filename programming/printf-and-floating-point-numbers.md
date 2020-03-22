@@ -77,7 +77,7 @@ So we take this 53-bits long part in the middle:
 
 `0.000 11111100110101101110100110111010001101111011001011001 011011...`
 
-If the next bit after those 53 is `1` we should also add `1` to that large part. In our case it's `0` so we are fine.
+If the next bit after those 53 is `1` we should also add `1` to that large part for rounding purposes. In our case it's `0` so we are fine.
 
 #### 3. Figure out what the exponent should be. 
 
