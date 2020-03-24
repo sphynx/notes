@@ -8,5 +8,5 @@
   * [Torres del Paine](travel/torres-del-paine.md)
   * [Tents](travel/tents.md)
 * [Miscellaneous](miscellaneous/README.md)
-  * [Newsletters](miscellaneous/newsletters.md)
+  * [Technical newsletters](miscellaneous/newsletters.md)
 

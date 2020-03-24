@@ -2,7 +2,7 @@
 description: A list of interesting newsletters (mostly about programming)
 ---
 
-# Newsletters
+# Technical newsletters
 
 I find weekly newsletters a convenient way for digesting information. It works as follows: someone knowledgeable prepares a curated list of links on a particular topic: articles, blog posts, news, pull requests, etc. and sends it weekly by e-mail to all subscribers. Then you can save time by skimming through the best links on, say, Friday instead of reading them one by one throughout the week.
 
