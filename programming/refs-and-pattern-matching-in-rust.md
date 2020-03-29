@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-In Haskell pattern matching is mostly nice and easy. It might be made more complicated by strictness annotations \(i.e. whether to evaluate sub-patterns lazily or strictly\) or irrefutability annotations, but it doesn't have any special interactions with ownership, borrowing and mutability which are bread and butter of Rust. So, naturally, pattern matching in Rust has additional complexity which I wanted to investigate here. Interestingly enough, most of this material is not covered by the Rust Book.
+In Haskell pattern matching is mostly nice and easy. It might be made more complicated by strictness annotations \(i.e. whether to evaluate sub-patterns lazily or strictly\) or irrefutability annotations, but it doesn't have any special interactions with ownership, borrowing and mutability which are bread and butter of Rust. So, naturally, pattern matching in Rust has additional complexity which I wanted to investigate here. Interestingly enough, some of this material is not covered by current edition of the Rust Book.
 
 The plan of attack is as follows:
 
@@ -53,7 +53,7 @@ fn print_type_of<T>(msg: &str, _: &T) {
 }
 ```
 
-Ok, back to reference patterns. When do we use this kind of a pattern? It's used for dereferencing the pointers which are being matched. Or you can say that they are used to "destructure" the pointer. For example let's look at a common idiom for mapping a function with an iterator: `xs.iter().map(|&x| x + 1).collect()` Note how we use `&x` pattern here to dereference \(deconstruct\) the pointer returned by the iterator. We can also use `map(|x| *x + 1)` for that, making dereference explicit, but I'd prefer the first variant because one can immediately see from `&x` pattern that a parameter is a reference without looking at its usage. I've run a quick `grep` over Rust standard library looking for iter/map combination and it feels like the first variant is more popular when we need to dereference.
+Ok, back to reference patterns. When do we use this kind of a pattern? It's used for dereferencing the pointers which are being matched. Or you can say that they are used to "destructure" the pointer. For example let's look at a common idiom for mapping a function with an iterator: `xs.iter().map(|&x| x + 1).collect()` Note how we use `&x` pattern here to dereference \(deconstruct\) the pointer returned by the iterator. We can also use `map(|x| *x + 1)` for that, making dereference explicit, but I'd prefer the first variant because one can immediately see from `&x` pattern that a parameter is a reference without looking at its usage. I've run a quick `grep` over Rust standard library looking for iter/map combination and it feels like the first variant is more popular when we need to dereference, but it's probably a matter of taste.
 
 An exercise for the reader: what error message do you expect if you try `let &x = 1`?
 
@@ -61,7 +61,7 @@ An exercise for the reader: what error message do you expect if you try `let &x 
 
 When we pattern match some expressions against patterns, for example `let x = y` we have several options with respect to binding modes. 
 
-A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e. we just move those values: `y` is moved into `x` and we can't use it again. If `y` has `Copy` then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to a pattern. If we say `let ref x = y` this means that we want borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e `let ref mut x = y` which is the same as `let x = &mut ref y`.
+A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e. we just move those values: `y` is moved into `x` and we can't use it again. If `y` has `Copy` then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to the pattern like this: `let ref x = y`. This means that we want to borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e `let ref mut x = y` which is the same as `let x = &mut ref y`.
 
 > A thing to remember. Those two statements are identical:
 >
@@ -69,5 +69,18 @@ A _binding mode_ determines how values are bound to identifiers in patterns. The
 >
 > `let x = &y;`
 
+Now the question is: if `ref` is just a funky way of saying that you want to borrow, why is it needed? Is just using `&` not enough? When I first saw `ref` in Rust code, I thought that it was an antiquated way of borrowing, a remnant from previous Rust versions. It is indeed so, mostly because of the feature called "match ergonomics" which we look into in the next chapter. But first, let's try to understand how `ref` is/was used.
 
+Let's say you have an Option with some data inside and you want to pattern match against that data:
+
+```rust
+fn analyse(x: &Option<Node>) -> bool {
+    match x {
+        None => false,
+        Some(node) => ...
+    };
+}
+```
+
+TBC
 
