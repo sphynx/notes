@@ -92,7 +92,7 @@ fn f(x: &Option<String>) {
 }
 ```
 
-* Dereference the Option pointer and still use `ref` because of the same reasons as in \(1\).
+* Dereference the Option pointer and still use `ref` for the same reasons as in \(1\).
 
 ```rust
 fn f(x: &Option<String>) {
@@ -103,7 +103,7 @@ fn f(x: &Option<String>) {
 }
 ```
 
-Both of those choices were unsatisfactory and too verbose for such a common operation. Hence, RFC-2005 "Match Ergonomics" has been proposed implemented. It allowed one to just write this code, without `ref` and reference patterns:
+Both of those choices were unsatisfactory and too verbose for such a common operation. Hence, RFC-2005 "Match Ergonomics" has been proposed and implemented. It allowed one to just write the following code, without `ref` and reference patterns:
 
 ```rust
 fn f(x: &Option<String>) {
@@ -114,9 +114,9 @@ fn f(x: &Option<String>) {
 }
 ```
 
-It works as follows: it sees that `x` is a _reference_ which is matched by _non-reference_ patterns. Therefore it automatically dereferences `x` and uses appropriate binding modes for identifiers in that pattern, in this case bind by reference. In other words, it automatically inserts `ref` for you, since it's the only sensible thing to do in this situation.
+It works like this: it sees that `x` is a _reference_ which is matched by _non-reference_ patterns. Therefore it automatically dereferences `x` and uses appropriate binding modes for identifiers in that pattern, in this case "bind by reference". In other words, it automatically inserts `ref` for you, since it's the only sensible thing to do in this situation.
 
-You can learn more details in the [original RFC](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md), it's amazingly readable, has nice motivating examples \(actually I've stolen my example from there\). Here is a memorable quote from that RFC:
+You can learn more details in the [original RFC](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md), it's amazingly readable and has nice motivating examples and links \(actually I've stolen my example from there\). Here is a memorable quote from that RFC:
 
 > Match expressions are an area where programmers often end up playing 'type Tetris': adding operators until the compiler stops complaining, without understanding the underlying issues. This serves little benefit - we can make match expressions much more ergonomic without sacrificing safety or readability.
 
@@ -149,7 +149,7 @@ Next, since we only have a reference to `T` and can't move out of it \(and don't
 
 Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type_of` function listed above.
 
-Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much auto- is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
+Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much "auto-" is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
 
 ```rust
 &((**ch).0)
@@ -157,7 +157,7 @@ Now we want to recurse and to get access to our tuple which is hidden behind two
 
 ## Box patterns
 
-Finally, let's look if we can make previous code slightly nicer by further binding the pair elements to names like `(left, right)`. How do we do this? 
+Finally, let's look if we can make previous code slightly nicer by further binding the tuple elements to names like `(left, right)`. How do we do this? 
 
 ```rust
 Some(ch) => {
@@ -176,7 +176,7 @@ Some((left, right)) => {
 }
 ```
 
-After all, we have a reference and we match it against a non-reference tuple pattern, so it should auto-dereference twice and use appropriate binding modes for `left` and `right`. But not so fast: unfortunately, match ergonomics only works for ordinary references and we have a `Box` there! So, we have two options: either use `box_patterns` feature from unstable Rust or wait for match ergonomics starting to work for anything implementing `Deref` including Boxes as discussed [here](https://github.com/rust-lang/rust/issues/29641#issuecomment-360574042).
+After all, we have a reference and we match it against a non-reference tuple pattern, so match ergonomics should auto-dereference twice and use appropriate binding modes for `left` and `right`. But not so fast: unfortunately, match ergonomics only works for ordinary references and we have a `Box` there! So, we have two options: either use `box_patterns` feature from unstable Rust or wait for match ergonomics starting to work for anything implementing `Deref` including Boxes as discussed [here](https://github.com/rust-lang/rust/issues/29641#issuecomment-360574042).
 
 Solution with `box_patterns` looks like this:
 
