@@ -4,7 +4,7 @@ description: >-
   interesting stuff
 ---
 
-# References and pattern matching in Rust
+# More advanced aspects of pattern matching in Rust
 
 ## Introduction
 
