@@ -59,7 +59,7 @@ An exercise for the reader: what error message do you expect if you try `let &x 
 
 ## Binding modes and \`ref\` keyword
 
-When we pattern match some expressions against patterns, for example `let x = y` we have several options with respect to binding modes. 
+When we pattern match some expressions against patterns, for example `let x = y` we have several options with respect to binding modes.
 
 A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e. we just move those values: `y` is moved into `x` and we can't use it again. If `y` has `Copy` then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to an identifier pattern like this: `let ref x = y`. This means that we want to borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e `let ref mut x = y` which is the same as `let x = &mut ref y`.
 
@@ -114,7 +114,7 @@ fn f(x: &Option<String>) {
 }
 ```
 
-It works as follows: it sees that `x` is a _reference_ which is matched by _non-reference_ patterns. Therefore it automatically dereferences `x` and uses appropriate binding modes for identifiers in that pattern, in this case bind by reference. In other words, it automatically inserts `ref` for you, since it's the only sensible thing to do in this situation.  
+It works as follows: it sees that `x` is a _reference_ which is matched by _non-reference_ patterns. Therefore it automatically dereferences `x` and uses appropriate binding modes for identifiers in that pattern, in this case bind by reference. In other words, it automatically inserts `ref` for you, since it's the only sensible thing to do in this situation.
 
 You can learn more details in the [original RFC](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md), it's amazingly readable, has nice motivating examples \(actually I've stolen my example from there\). Here is a memorable quote from that RFC:
 
@@ -149,5 +149,5 @@ Next, since we only have a reference to `T` and can't move out of it \(and don't
 
 Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type_of` function listed above.
 
-Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add  **automatically. Finally, we need to borrow that with &: this operator has lower precedence than field accessors, so &a.b is identical to &\(a.b\) In order to appreciate how much auto- is happening here let's look at the fully parenthesised unambiguous analog of &ch.0: it's the same as**
+Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add &ast;&ast; automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much auto- is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` (it even broke my Markdown renderer!):
 
