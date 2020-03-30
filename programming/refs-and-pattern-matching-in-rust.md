@@ -79,9 +79,9 @@ The difference between `Some(ref y) =>` and some `Some(y) =>` is that in the fir
 
 ## Match ergonomics
 
-In older versions of Rust \(up to [1.26](https://blog.rust-lang.org/2018/05/10/Rust-1.26.html) which was released in May 2018\) when you had a reference to Option and wanted to pattern match against it your life was hard. You had two choices:
+In older versions of Rust \(up to [1.26](https://blog.rust-lang.org/2018/05/10/Rust-1.26.html) which was released in May 2018\) when you had a reference to Option and wanted to pattern match against it, your life was hard. You had two choices:
 
-1. Use reference patterns and `ref` because: a\) you needed to match references with reference patterns b\) you had to use `ref` because you couldn't move part of Option into `s`, since you only had a borrowed version of Option:
+* Use reference patterns and `ref` because: a\) you needed to match references with reference patterns b\) you had to use `ref` because you couldn't move part of Option into `s`, since you only had a borrowed version of Option:
 
 ```rust
 fn f(x: &Option<String>) {
@@ -92,7 +92,7 @@ fn f(x: &Option<String>) {
 }
 ```
 
-2. Dereference the Option pointer and still use `ref` because of the same reasons as in \(1\).
+* Dereference the Option pointer and still use `ref` because of the same reasons as in \(1\).
 
 ```rust
 fn f(x: &Option<String>) {
@@ -149,5 +149,57 @@ Next, since we only have a reference to `T` and can't move out of it \(and don't
 
 Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type_of` function listed above.
 
-Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add &ast;&ast; automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much auto- is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` (it even broke my Markdown renderer!):
+Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much auto- is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
+
+```rust
+&((**ch).0)
+```
+
+## Box patterns
+
+Finally, let's look if we can make previous code slightly nicer by further binding the pair elements to names like `(left, right)`. How do we do this? 
+
+```rust
+Some(ch) => {
+    // type of ch: &Box<(T, T)>
+    // 
+    // and we want bind it to something like (left, right)
+}
+```
+
+Being emboldened by impressive deductive powers of match ergonomics we quickly type the following code and expect it to work:
+
+```rust
+Some((left, right)) => {
+    traverse(left);
+    traverse(right);
+}
+```
+
+After all, we have a reference and we match it against a non-reference tuple pattern, so it should auto-dereference twice and use appropriate binding modes for `left` and `right`. But not so fast: unfortunately, match ergonomics only works for ordinary references and we have a `Box` there! So, we have two options: either use `box_patterns` feature from unstable Rust or wait for match ergonomics starting to work for anything implementing `Deref` including Boxes as discussed [here](https://github.com/rust-lang/rust/issues/29641#issuecomment-360574042).
+
+Solution with `box_patterns` looks like this:
+
+```rust
+#![feature(box_patterns)]
+
+struct T {
+    data: u8,
+    children: Option<Box<(T, T)>>,
+}
+
+fn traverse(s: &T) {
+    match &s.children {
+        None => {}, 
+        Some(box (left, right)) => {
+            traverse(left);
+            traverse(right);
+        }
+    }
+}
+```
+
+And the tracking issue for `box_patterns` feature along with interesting discussions on the subject can be found [here](https://github.com/rust-lang/rust/issues/29641). 
+
+This note is already getting too long, so there won't be any summary or references section: enjoy the ergonomics!
 
