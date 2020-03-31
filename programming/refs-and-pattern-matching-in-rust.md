@@ -63,11 +63,13 @@ When we pattern match some expressions against patterns, for example `let x = y`
 
 A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e. we just move those values: `y` is moved into `x` and we can't use it again. If `y` has `Copy` then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to an identifier pattern like this: `let ref x = y`. This means that we want to borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e `let ref mut x = y` which is the same as `let x = &mut y`.
 
-> A thing to remember. Those two statements are identical:
->
-> `let ref x = y;`
->
-> `let x = &y;`
+{% hint style="info" %}
+A thing to remember. Those two statements are identical:
+
+`let ref x = y;`
+
+`let x = &y;`
+{% endhint %}
 
 Now the question is: if `ref` is just a funky way of saying that you want to borrow, why is it needed? Is just using `&` not enough? `ref` becomes more useful when used in nested patterns.
 
