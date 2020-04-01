@@ -11,3 +11,8 @@
 * [Miscellaneous](miscellaneous/README.md)
   * [Technical newsletters](miscellaneous/newsletters.md)
 
+## Bits and Pieces
+
+* [Rust](bits-and-pieces/rust.md)
+* [Git](bits-and-pieces/git.md)
+
