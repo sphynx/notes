@@ -5,7 +5,7 @@
   * [Cheatsheet: Option \(in Rust\) vs Maybe \(in Haskell\)](programming/cheatsheet-rust-option-vs-haskell-maybe.md)
   * [printf\(\) and floating point numbers](programming/printf-and-floating-point-numbers.md)
   * [More advanced aspects of pattern matching in Rust](programming/refs-and-pattern-matching-in-rust.md)
-  * [Rust closures: returning \`impl Fn\` for \`move\` closures](programming/rust-closures-combining-move-and-fn.md)
+  * [Rust Closures: Returning \`impl Fn\` for \`move\` closures](programming/rust-closures-combining-move-and-fn.md)
 * [Travel](travel/README.md)
   * [Torres del Paine](travel/torres-del-paine.md)
   * [Tents](travel/tents.md)
