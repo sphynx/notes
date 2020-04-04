@@ -1,10 +1,10 @@
-# Rust closures: combining \`move\` and \`Fn\`
+# Rust closures: returning \`impl Fn\` for \`move\` closures
 
 ## Problem setup
 
 Recently I had to write some `nom` code \(it is a parser combinator [library](https://docs.rs/nom/5.1.1/nom/) for Rust\). To my surprise I discovered that there is no combinator for creating a parser which always succeeds returning a certain given value. At least not without using macros which is [discouraged](https://github.com/Geal/nom/blob/master/doc/upgrading_to_nom_5.md#from-macros-to-functions) in nom v5. That combinator would be something like `pure 3` in Haskell Parsec. It's not very useful on its own, but can be used as part of other combinators, say providing a default alternative for `alt`.
 
-So I decided to add `success` to nom. However, when I started looking at the library code, it was not 100% clear for me what's going on there. It uses closures quite heavily and I didn't use them much in Rust, so I decided to look closer. Here is my version of `success` inspired by a similar combinator `value` :
+So I decided to add `success` to nom. However, when I started looking at the library code, it was not 100% clear for me what's going on there. It uses closures quite heavily and I didn't use them much in Rust, so I decided to look closer. Here is my version of `success` basically copy-pasted from a similar combinator `value` :
 
 ```rust
 pub fn success<I: Clone + Slice<RangeTo<usize>>, O: Clone, E: ParseError<I>>(val: O) -> impl Fn(I) -> IResult<I, O, E>
@@ -38,7 +38,7 @@ I had three questions here:
 
 ## Answers
 
-I assume here that you know the basics about closures. If not, you can read a corresponding chapter in the Rust book. Also, on top of that I would recommend reading Steven Donovan's post ["Why Rust closures are \(somewhat\) hard"](https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html). 
+I assume here that you know the basics about closures. If not, you can read a corresponding chapter in the Rust book. Also, on top of that I would recommend reading Steven Donovan's post ["Why Rust Closures are \(Somewhat\) Hard"](https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html). 
 
 That post \(and Rust reference\) tells you that a closure basically corresponds to an anonymous structure of some unknown type which has fields corresponding to the captured variables. The capture mode of those fields \(i.e. whether they are `&T`, `&mut T` or `T`\) is determined by the usage of the captured variables inside the closure. Or it can be forced to `T`, i.e. to passing the ownership to the closure, by using `move` keyword.
 
@@ -85,8 +85,15 @@ The **question 2:** how `move` can coexist with returning `Fn` is also clear now
 
 The remaining part of **question 3** is why we want to use `move` closure here if we only access the variable by reference anyway. The explanation is that we are returning this closure, but `val` will be dropped immediately on return and the closure can't outlive it. In other words, if we didn't use `move`, we would have `&'a O` in that closure structure field. But that reference would immediately become invalid since when we return our closure, `val` is dropped, so no references to that are allowed, including inside our returned closure. So that won't work and we'll get "val does not live long enough" error message.
 
+Therefore, it looks like all the bells and whistles in that `success` combinator were actually needed.
+
+## Summary
+
+I think the main conclusion of this investigation is that explicitly writing out those implicit structures and Fn/FnMut/FnOnce implementations is very useful for making sense of compiler errors and understanding what's going on under the hood in the world of closures.
+
 ## Further reading
 
-* Rust reference: ["Closure expressions"](https://doc.rust-lang.org/stable/reference/expressions/closure-expr.html), ["Closure types"](https://doc.rust-lang.org/stable/reference/types/closure.html)
+* Rust reference: ["Closure expressions"](https://doc.rust-lang.org/stable/reference/expressions/closure-expr.html), ["Closure types"](https://doc.rust-lang.org/stable/reference/types/closure.html) \(it even has a special note about combination of `move` closures and `Fn` [here](https://doc.rust-lang.org/stable/reference/types/closure.html#call-traits-and-coercions)\).
 * ["Why Rust Closure are \(Somewhat\) Hard"](https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html) blog post
+* [Fn](https://doc.rust-lang.org/std/ops/trait.Fn.html), [FnMut](https://doc.rust-lang.org/std/ops/trait.FnMut.html) and [FnOnce](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) in standard documentation
 
