@@ -16,5 +16,6 @@
 
 * [Rust](bits-and-pieces/rust.md)
 * [Command line](bits-and-pieces/command-line.md)
+* [GMail backup](bits-and-pieces/gmail-backup.md)
 * [Git](bits-and-pieces/git.md)
 
