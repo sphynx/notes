@@ -97,3 +97,5 @@ I think the main conclusion of this investigation is that explicitly writing out
 * ["Why Rust Closure are \(Somewhat\) Hard"](https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html) blog post
 * [Fn](https://doc.rust-lang.org/std/ops/trait.Fn.html), [FnMut](https://doc.rust-lang.org/std/ops/trait.FnMut.html) and [FnOnce](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) in standard documentation
 
+**Update**: as [/u/CUViper](https://www.reddit.com/user/CUViper/) has suggested on Reddit, there is also a very nice blog post ["Closures: Magic Functions"](https://krishnasannasi.github.io/rust/syntactic/sugar/2019/01/17/Closures-Magic-Functions.html) which meticulously demonstrates the desugaring of various types of closures.
+
