@@ -15,5 +15,6 @@
 ## Bits and Pieces
 
 * [Rust](bits-and-pieces/rust.md)
+* [Command line](bits-and-pieces/command-line.md)
 * [Git](bits-and-pieces/git.md)
 
