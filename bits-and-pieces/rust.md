@@ -15,10 +15,10 @@ description: Bits and pieces of Rust
 
 ### Common/standard traits, conversion
 
-* ["Conversion" ](https://doc.rust-lang.org/stable/rust-by-example/conversion.html)section in Rust by Example.
 * ["Rust's Built-in Traits, the When, How & Why"](https://llogiq.github.io/2015/07/30/traits.html) by Lloqiq \(2015\)
 * ["The Common Rust Traits"](https://stevedonovan.github.io/rustifications/2018/09/08/common-rust-traits.html) by Steve Donovan \(2018\)
 * ["Use conversion traits"](https://deterministic.space/elegant-apis-in-rust.html#use-conversion-traits) part from "Designing elegant APIs in Rust" by Pascal Hertleif \(a very insightful post!\) \(2016\)
+* ["Conversion" ](https://doc.rust-lang.org/stable/rust-by-example/conversion.html)section in "Rust by Example"
 * ["Convenient and idiomatic conversions in Rust"](https://ricardomartins.cc/2016/08/03/convenient_and_idiomatic_conversions_in_rust) by Ricardo Martins \(2016\)
 * Rust reference: ["Special types and traits"](https://doc.rust-lang.org/reference/special-types-and-traits.html)
 
