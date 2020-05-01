@@ -28,3 +28,9 @@ description: Bits and pieces of Rust
 * ["Lifetimes"](https://doc.rust-lang.org/nomicon/lifetimes.html) and the following sections in Rustonomicon
 * ["Understanding Rust Lifetimes"](https://medium.com/nearprotocol/understanding-rust-lifetimes-e813bcd405fa) by Maksym Zavershynskyi
 
+### Profiling on Mac
+
+* [Profiling with](https://gist.github.com/loderunner/36724cc9ee8db66db305#profiling-with-sample) `sample`
+* ["Rust profiling with DTrace and FlameGraph on MacOs"](https://carol-nichols.com/2017/04/20/rust-profiling-with-dtrace-on-osx/) by Carol Nichols, a simple easy to follow reference
+* [Inferno](https://docs.rs/inferno/0.9.5/inferno/) by Jon Gjengset for producing flame-graphs from process samples. Rust port of [flame-graph](https://github.com/brendangregg/FlameGraph) tools. Its README.md on GitHub has lots of useful information. Btw, there is a 5 hours [video stream](https://www.youtube.com/watch?v=jTpK-bNZiA4) of how this tool was actually coded live! 
+
