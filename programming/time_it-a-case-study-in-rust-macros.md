@@ -244,7 +244,7 @@ This also works and doesn't require any special treatment of semicolons, but is 
 
 ### Summary
 
-I hope this exposed and clarified some nuances of working with Rust declarative macros. There are lots of other interesting nuances when one digs deeper. An interesting and illuminating reading about that is ["The Little Book of Rust Macros"](https://danielkeep.github.io/tlborm/book/README.html) which I recommended above. It's a little bit dated but still a very good read. And of course, Rust reference itself has an[ informative section](https://doc.rust-lang.org/reference/macros-by-example.html) on macros, which is an invaluable source of information for us, the ones trying to dig to the source of things.
+I hope this exposed and clarified some nuances of working with Rust declarative macros. There are lots of other interesting nuances when one digs deeper. An interesting and illuminating reading about that is ["The Little Book of Rust Macros"](https://danielkeep.github.io/tlborm/book/README.html) which I recommended above. It's a little bit dated but still a very good read. And of course, Rust reference itself has an[ informative section](https://doc.rust-lang.org/reference/macros-by-example.html) on macros.
 
 
 
