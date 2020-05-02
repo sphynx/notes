@@ -1,5 +1,5 @@
 ---
-description: My adventures in declarative macros land
+description: My adventures in Declarative Macros Land
 ---
 
 # time\_it: a case study in Rust macros
