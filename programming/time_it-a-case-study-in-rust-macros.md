@@ -2,7 +2,7 @@
 description: My adventures in Declarative Macros Land
 ---
 
-# time\_it: a case study in Rust macros
+# time\_it: a Case Study in Rust Macros
 
 ### Problem setup
 
