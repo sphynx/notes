@@ -226,6 +226,8 @@ Now I know that `stmt` are parsed without trailing semicolon, so I'm just using 
 
 It works almost perfectly, but note that the last statement `let z = x + y` still can't have a trailing semicolon when wrapped. That's expected, because it's the last one and repetitions syntax only allows separators **between** the items, not after the last one. One way to fix this is just to add that last semicolon explicitly: `$($s:stmt);+ ;` It works fine, because semicolons are allowed after `stmt` specifier \(not all symbols are, only `;` `,` and `=>` \), see ["Follow-set Ambiguity Restrictions"](https://doc.rust-lang.org/reference/macros-by-example.html#follow-set-ambiguity-restrictions) in Rust reference for details.
 
+**UPDATE:** Another option suggested by several people on Reddit is to use a question mark for zero or one repetition of the semicolon at the end like this: `$($s:stmt);+ $(;)?` Note that repeating groups do not necessarily need to contain bindings, e.g. here we just repeat semicolon tokens without capturing them.
+
 ### With \`tt\` specifier
 
 Another way of achieving this would be to use a sledgehammer of Rust declarative macros: `tt` specifier. This just matches any token tree. What is a token tree? It's either a single token or a group of any number of token trees wrapped in `()`, `[]` or `{}`. So we can just say: take many arbitrary token trees, prepend `Instant` creation to that, paste all the tokens and then print elapsed time:
