@@ -40,7 +40,7 @@ I had three questions here:
 
 I assume here that you know the basics about closures. If not, you can read a corresponding chapter in the Rust book. Also, on top of that I would recommend reading Steven Donovan's post ["Why Rust Closures are \(Somewhat\) Hard"](https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html). 
 
-That post \(and Rust reference\) tells you that a closure basically corresponds to an anonymous structure of some unknown type which has fields corresponding to the captured variables. The capture mode of those fields \(i.e. whether they are `&T`, `&mut T` or `T`\) is determined by the usage of the captured variables inside the closure. Or it can be forced to be `T`, i.e. to passing the ownership to the closure, by using `move` keyword.
+That post \(and Rust reference\) tells you that a closure basically corresponds to an anonymous structure of some concrete but unknown type which has fields corresponding to the captured variables. The capture mode of those fields \(i.e. whether they are `&T`, `&mut T` or `T`\) is determined by the usage of the captured variables inside the closure. Or it can be forced to be `T`, i.e. to passing the ownership to the closure, by using `move` keyword.
 
 I'll repeat the code above for your convenience:
 
