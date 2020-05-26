@@ -28,6 +28,13 @@ description: Bits and pieces of Rust
 * ["Lifetimes"](https://doc.rust-lang.org/nomicon/lifetimes.html) and the following sections in Rustonomicon
 * ["Understanding Rust Lifetimes"](https://medium.com/nearprotocol/understanding-rust-lifetimes-e813bcd405fa) by Maksym Zavershynskyi
 
+### Error handling
+
+* [Error handling survey - 13 Nov 2019](https://blog.yoshuawuyts.com/error-handling-survey/) - many error handling packages reviewed and compared
+* [Error handling in Rust](https://blog.burntsushi.net/rust-error-handling/) by Andrew Gallant \(burntsushi\)
+* [The state of error handling in Rust 2018 edition](https://users.rust-lang.org/t/the-state-of-error-handling-in-the-2018-edition/23263)
+* [Notice: failure is deprecated](https://www.reddit.com/r/rust/comments/gcbcew/notice_failure_is_deprecated/) on Reddit
+
 ### Profiling on Mac
 
 * [Profiling with](https://gist.github.com/loderunner/36724cc9ee8db66db305#profiling-with-sample) `sample`
