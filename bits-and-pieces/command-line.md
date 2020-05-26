@@ -8,6 +8,12 @@
 Intel(R) Core(TM) i7-3740QM CPU @ 2.70GHz
 ```
 
+* Create a zero-filled file of specified size:
+
+```bash
+dd if=/dev/zero of=32mb.bin bs=32m count=1
+```
+
 
 
 
