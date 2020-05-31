@@ -165,12 +165,12 @@ Now we want to recurse and to get access to our tuple which is hidden behind two
 
 ## Box patterns
 
-Finally, let's look if we can make previous code slightly nicer by further binding the tuple elements to names like `(left, right)`. How do we do this? 
+Finally, let's look if we can make previous code slightly nicer by further binding the tuple elements to names like `(left, right)`. How do we do this?
 
 ```rust
 Some(ch) => {
     // type of ch: &Box<(T, T)>
-    // 
+    //
     // and we want bind it to something like (left, right)
 }
 ```
@@ -198,7 +198,7 @@ struct T {
 
 fn traverse(s: &T) {
     match &s.children {
-        None => {}, 
+        None => {},
         Some(box (left, right)) => {
             traverse(left);
             traverse(right);
@@ -207,7 +207,7 @@ fn traverse(s: &T) {
 }
 ```
 
-And the tracking issue for `box_patterns` feature along with interesting discussions on the subject can be found [here](https://github.com/rust-lang/rust/issues/29641). 
+And the tracking issue for `box_patterns` feature along with interesting discussions on the subject can be found [here](https://github.com/rust-lang/rust/issues/29641).
 
 This note is already getting too long, so there won't be any summary or references section: enjoy the ergonomics!
 
