@@ -8,21 +8,21 @@ description: >-
 
 ## Introduction
 
-In Haskell pattern matching is mostly nice and easy. It might be made more complicated by strictness annotations \(i.e. whether to evaluate sub-patterns lazily or strictly\) or irrefutability annotations, but it doesn't have any special interactions with ownership, borrowing and mutability which are bread and butter of Rust. So, naturally, pattern matching in Rust has additional complexity which I wanted to investigate here. Interestingly enough, some of this material is not covered by current edition of the Rust Book.
+In Haskell, pattern matching is mostly nice and easy. It might be made more complicated by strictness annotations \(i.e. whether to evaluate sub-patterns lazily or strictly\) or irrefutability annotations, but it doesn't have any special interactions with ownership, borrowing and mutability which are bread and butter of Rust. So, naturally, pattern matching in Rust has additional complexity which I want to investigate here. Interestingly enough, some of this material is not covered by current edition of the Rust Book.
 
 The plan of attack is as follows:
 
 * Reference patterns: things like `let &x = &1`
 * `ref` keyword: what's the difference between using `Some(ref x) =>` and `Some(&x) =>` in patterns? Maybe no difference?
-* So called "match ergonomics": what Rust compiler does under the hood to make our lives easier? \(and maybe less predictable?\)
+* So called "match ergonomics": what the Rust compiler does under the hood to make our lives easier? \(and maybe less predictable?\)
 * Box patterns: things like `box (x, y) =>` in patterns
 * Other useful auxiliary notes: binding modes, patterns \(ir-\)refutability, auto dereferencing, printing types for debugging purposes, etc.
 
 ## Reference patterns
 
-As the Rust Book tells us, `match` is not the only place where pattern matching occurs. It also happens in many other places: `let`, `if let`, `while let`, function arguments, etc. So, even a simple `let x = 1` exhibits pattern matching: we match 1 against pattern `x`. This is called _identifier pattern_ and it never fails, hence it is called _irrefutable pattern_. We can use only irrefutable patterns with `let`. If we try something like `let Some(x) = Some(1)` it will fail, because we don't cover all the cases. A pattern which may fail is called _refutable pattern_. I am reminding you about those `let` patterns here just because it's easier to use them in examples rather than fully fledged `match` even tough such examples may feel more contrived.
+As the Rust Book tells us, `match` is not the only place where pattern matching occurs. It also happens in many other places: `let`, `if let`, `while let`, `for`, function arguments, etc. Even a simple `let x = 1` exhibits pattern matching: we match 1 against pattern `x`. This is called the _identifier pattern_ and it never fails, hence it is called a _irrefutable pattern_. We must use irrefutable patterns with function parameters, `let` statements, and `for` loops. If we try to write something like `let Some(x) = Some(1)`, it will fail to compile since the match could fail and we aren't covering all the cases. A pattern which may fail is called a _refutable pattern_. I am reminding you about those `let` patterns here just because it's easier to use them in examples rather than in a fully fledged `match` even though such examples may feel more contrived.
 
-Let's move to the next class of patterns called _reference patterns_. It's a pattern starting with one or two `&` like this: `let &y = &1`. After that we can use `y` and its value would be 1, no surprises:
+Let's move to the next class of patterns called _reference patterns_. It's a pattern starting with one or two `&`'s like this: `let &y = &1`. After that we can use `y` and its value would be 1, no surprises:
 
 ```rust
 fn test() {
@@ -45,7 +45,7 @@ type of y: i32
 y: 1
 ```
 
-A quick aside: here I am using a little helper for printing types which uses `std::any::type_name::<T>()` function from stable Rust. This is useful for investigating pattern matching, auto-dereferencing and other situations when compiler may do something strange and the type might not be clear from context:
+A quick aside: here I am using a little helper for printing types which uses the `std::any::type_name::<T>()` function from stable Rust. This is useful for investigating pattern matching, auto-dereferencing, and other situations when the compiler may do something strange and the type might not be clear from context:
 
 ```rust
 fn print_type_of<T>(msg: &str, _: &T) {
@@ -59,15 +59,15 @@ macro_rules! print_type {
 }
 ```
 
-Ok, back to reference patterns. When do we use this kind of a pattern? It's used for dereferencing the pointers which are being matched. Or you can say that they are used to "destructure" the pointer. For example let's look at a common idiom for mapping a function with an iterator: `xs.iter().map(|&x| x + 1).collect()` Note how we use `&x` pattern here to dereference \(deconstruct\) the pointer returned by the iterator. We can also use `map(|x| *x + 1)` for that, making dereference explicit, but I'd prefer the first variant because one can immediately see from `&x` pattern that a parameter is a reference without looking at its usage. I've run a quick `grep` over Rust standard library looking for iter/map combination and it feels like the first variant is more popular when we need to dereference, but it's probably a matter of taste.
+Okay, back to reference patterns. When do we use this kind of pattern? It's used for dereferencing pointers which are being matched. Or you can say that they are used to "destructure" the pointer. For example, let's look at a common idiom for mapping a function with an iterator: `xs.iter().map(|&x| x + 1).collect()`. Note how we use the `&x` pattern here to dereference \(deconstruct\) the pointer returned by the iterator. We can also use `map(|x| *x + 1)` for that, making dereference explicit, but I  prefer the first variant since one can immediately see from the `&x` pattern that a parameter is a reference without looking at its usage. I've run a quick `grep` over Rust standard library looking for iter/map combinations and it feels like the first variant is more popular when we need to dereference, but it's probably a matter of taste.
 
 An exercise for the reader: what error message do you expect if you try `let &x = 1`?
 
 ## Binding modes and \`ref\` keyword
 
-When we pattern match some expressions against patterns, for example `let x = y` we have several options with respect to binding modes.
+When we pattern match some expressions against patterns, for example `let x = y`, we have several options with respect to binding modes.
 
-A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e. we just move those values: `y` is moved into `x` and we can't use it again. If `y` has `Copy` then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to an identifier pattern like this: `let ref x = y`. This means that we want to borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e `let ref mut x = y` which is the same as `let x = &mut y`.
+A _binding mode_ determines how values are bound to identifiers in patterns. The default binding mode is to move, i.e., we just move those values: `y` is moved into `x` and we can't use it again. If `y` implements the `Copy` trait then we copy. Those two binding modes are normally called _binding by value_. There is also _binding by reference_, which is introduced with `ref` keyword attached to an identifier pattern like this: `let ref x = y`. This means that we want to borrow `y` instead of moving/copying it, so `x` will be a reference. It is exactly the same as `let x = &y`. For mutable reference there is `ref mut`, i.e., `let ref mut x = y` which is the same as `let x = &mut y`.
 
 {% hint style="info" %}
 A thing to remember. Those two statements are identical:
@@ -157,7 +157,7 @@ Next, since we only have a reference to `T` and can't move out of it \(and don't
 
 Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type!` macro listed above.
 
-Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much "auto-" is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
+Now we want to recur and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much "auto-" is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
 
 ```rust
 &((**ch).0)
