@@ -27,11 +27,11 @@ Let's move to the next class of patterns called _reference patterns_. It's a pat
 ```rust
 fn test() {
     let x = 1;
-    print_type_of("x", &x);
+    print_type!(x);
     println!("x: {}", x);
 
     let &y = &1;
-    print_type_of("y", &y);
+    print_type!(y);
     println!("y: {}", y);
 }
 ```
@@ -50,6 +50,12 @@ A quick aside: here I am using a little helper for printing types which uses `st
 ```rust
 fn print_type_of<T>(msg: &str, _: &T) {
     println!("type of {}: {}", msg, std::any::type_name::<T>())
+}
+
+macro_rules! print_type {
+    ( $x:expr ) => {
+        print_type_of(stringify!($x), &$x)
+    }
 }
 ```
 
@@ -149,7 +155,7 @@ First, what is the type of `s.children`? It is a little bit non-obvious, since `
 
 Next, since we only have a reference to `T` and can't move out of it \(and don't want to\) we need to match a reference to `s.children` \(as opposed to `s.children` itself\) to kick-in the match ergonomics process. Note that we don't need `&` before `None` and `Some` or `ref` keyword.
 
-Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type_of` function listed above.
+Then what is the type of `ch` when it is bound? Remember that we bind by reference here, so it is `&Box<(T, T)>`. You can easily check it with `print_type!` macro listed above.
 
 Now we want to recurse and to get access to our tuple which is hidden behind two references \(`&` and `Box`\). Auto-dereferencing to the rescue! We can just say `ch.0` and this will add \*\* automatically. Finally, we need to borrow that with `&`: this operator has lower precedence than field accessors, so `&a.b` is identical to `&(a.b)` In order to appreciate how much "auto-" is happening here let's look at the fully parenthesised unambiguous analog of `&ch.0` \(it even broke my Markdown renderer!\):
 
