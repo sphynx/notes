@@ -7,6 +7,7 @@ description: Bits and pieces of Rust
 ### Useful commands
 
 * To override default toolchain for a particular project: `rustup override set nightly`. The directory is stored in `~/.rustup/settings.toml` \(in `overrides` section\) separately from the project itself.
+* To print all package dependencies as a nice tree in the command line, we can use `cargo tree` - more details [here](https://doc.rust-lang.org/beta/cargo/commands/cargo-tree.html) \(works starting from Rust 1.44\)
 
 ### Closures
 

@@ -186,7 +186,9 @@ This is meant to be for people coming from Haskell to Rust or vice versa who wan
         </td>
     </tr>
   </tbody>
-</table>### Notes
+</table>
+
+### Notes
 
 In Rust, all combinators with `or` at the end have a variant with `or_else` at the end: `unwrap_or_else` or `or_else` etc. Those variants take a closure for the default value and are lazily evaluated. They are recommended when you have a function call returning default value. In Haskell there is no need for this, since it is a lazy language by default.
 
