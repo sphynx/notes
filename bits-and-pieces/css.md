@@ -8,4 +8,5 @@
 ## Flexbox
 
 * [flexbugs](https://github.com/philipwalton/flexbugs) - a Github repository tracking browsers bugs and their fixes related to Flexbox
+* [CSS spec](https://drafts.csswg.org/css-flexbox/) on Flexbox - quite readable and nice!
 
