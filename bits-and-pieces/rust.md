@@ -44,3 +44,9 @@ description: Bits and pieces of Rust
 * ["Rust profiling with DTrace and FlameGraph on MacOs"](https://carol-nichols.com/2017/04/20/rust-profiling-with-dtrace-on-osx/) by Carol Nichols, a simple easy to follow reference
 * [Inferno](https://docs.rs/inferno/0.9.5/inferno/) by Jon Gjengset for producing flame-graphs from process samples. Rust port of [flame-graph](https://github.com/brendangregg/FlameGraph) tools. Its README.md on GitHub has lots of useful information. Btw, there is a 5 hours [video stream](https://www.youtube.com/watch?v=jTpK-bNZiA4) of how this tool was actually coded live! 
 
+### Misc
+
+* ["Rust Tidbits: What is a Lang Item?"](https://manishearth.github.io/blog/2017/01/11/rust-tidbits-what-is-a-lang-item/) - an interesting explanation about  traits and other items known to the Rust compiler and marked with `#[lang]` annotation. I really enjoyed this article, but for some reason it was quite hard to google to find it again \(perhaps because I googled "traits" and "lang" is not a very googleable term\).
+
+
+
