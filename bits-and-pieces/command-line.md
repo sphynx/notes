@@ -46,10 +46,20 @@ iterator returned: 384
 ```
 
 * Or even simpler, to just print maximum resident set size at the end: `gtime -f %M program_name`
+* Convert an SVG files to multiple PNG files with different resolutions and pack them all in an ICO file:
 
+```text
+# install `svgexport` and `imagemagick`:
+brew install imagemagick
+npm install -g svgexport
 
+# this worked better than ImageMagick for me:
+svgexport favicon.svg 16.png 16:16
+svgexport favicon.svg 32.png 32:32
 
-
+# and so on, and then combine them:
+convert 16.png 24.png 32.png -colors 256 favicon.ico
+```
 
 
 
