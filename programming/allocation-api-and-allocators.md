@@ -69,5 +69,62 @@ Wow, and we didn't even allocate anything, note that my `main` function was empt
 
 So, what's going on? Who requested those 4 bytes, is it that minimalist Rust runtime? I thought it should only allocate arguments to `main` on stack and the stack itself is provided by OS... Let's investigate.
 
-## 
+## Allocation before \`main\`
+
+For this we can write an allocator which wrap system allocator, but counts number of bytes which it allocated! I've shamelessly stolen this example from `std::alloc::System` documentation:
+
+```rust
+use std::alloc::{GlobalAlloc, Layout, System};
+use std::sync::atomic::{AtomicUsize, Ordering::SeqCst};
+
+static ALLOCATED: AtomicUsize = AtomicUsize::new(0);
+
+struct Counter;
+unsafe impl GlobalAlloc for Counter {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        let ret = System.alloc(layout);
+        if !ret.is_null() {
+            ALLOCATED.fetch_add(layout.size(), SeqCst);
+        }
+        return ret;
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        System.dealloc(ptr, layout);
+        ALLOCATED.fetch_sub(layout.size(), SeqCst);
+    }
+}
+
+#[global_allocator]
+static A: Counter = Counter;
+
+fn main() {
+    println!("allocated bytes before main: {}", ALLOCATED.load(SeqCst));
+}
+
+```
+
+Here we use atomics, recently there was [a post](https://www.nickwilcox.com/blog/arm_vs_x86_memory_model/) on "This Week in Rust" about atomics, memory model and different implementation on ARM and x86 processors, you may want to check it out. But for now, we just need to know that atomics represent shared memory for threads to communicate. And `Ordering::SeqCst` represent the highest barrier between those threads, so that they definitely see the previous value before updating it and everything definitely works well for our counting example.
+
+Also note that we use `std::alloc::System` which is a system allocator. What's that, say on macOS? In the libstd [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/sys/unix/alloc.rs#L14) we can see that it basically amounts to calling `malloc` library function from `libc` on UNIX systems \(including macOS\).
+
+So what's the answer? How many bytes, do you think have been allocated before `main`? Tap on this black-box to reveal the answer: ⬛ - hm, I need some JavaScript to make it happen and it doesn't work on Gitbook, so ok, I'll tell you without clicking: 237 bytes on my macOS machine. And 241 if we don't subtract for deallocating \(so apparently 4 bytes have even been deallocated\). Just for fun I've also asked my friend to test it on Windows and Linux:
+
+| OS | Allocated, bytes | Remaining in use, bytes |
+| :--- | :--- | :--- |
+| macOS | 241 | 237 |
+| Windows | 441 | 173 |
+| Linux | 177 | 173 |
+
+Again, there recently was an [interesting post](https://blog.mgattozzi.dev/rusts-runtime/) by Michael Gattozzi in "This Week in Rust" about all the details of Rust runtime. It guides you through the code and it can be seen that at least the runtime uses `Vec` to allocate `std::env::args` from `argv`pointer. Also have `"main".to_owned()` to name the main thread there. And `String` allocates just the same as `Vec`. Presumably there are other structures which allocate and all this is of course OS dependent.
+
+I've also tried to just search for that error message in Rust codebase:
+
+```text
+> rg "memory allocation of"
+src/libstd/alloc.rs
+270:    dumb_print(format_args!("memory allocation of {} bytes failed", layout.size()));
+```
+
+This is defined in `default_alloc_error_hook` function which gets called when there is allocation error. Apparently we can also override error hooks to install our own.
 
