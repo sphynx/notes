@@ -1,0 +1,73 @@
+---
+description: Exploring allocators in general and their Rust API in particular.
+---
+
+# Allocation API and allocators
+
+## Intro
+
+I like to look at standard libraries of programming languages! It feels like being in a candy store: there are some many interesting functions and nice tools one can use! Some of them may feel useless at a particular moment, but may come handy later to save on some typing, to avoid reinventing the wheel, or even to guide a design choice.
+
+In Rust, [standard library documentation](https://doc.rust-lang.org/std/) is extremely readable and even has a section "How to read this documentation" for people like me. To quote from it:
+
+> If this is your first time, the documentation for the standard library is written to be casually perused. Clicking on interesting things should generally lead you to interesting places.
+
+So, I started reading and here we go. The very first module in the documentation is:
+
+| [alloc](https://doc.rust-lang.org/std/alloc/index.html) | Memory allocation APIs |
+| :--- | :--- |
+
+
+This definitely sounded interesting, so I decided to take a closer look and this post summarizes what I've learnt about allocators.
+
+## Registering dummy allocator as global
+
+`std::alloc` module provides us with means to write our own memory allocator and register it as a default global allocator for our program! And moreover this is easy to do: you just have to implement a trait with two functions: `alloc` and `dealloc`and register it with `[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
+
+After that, every time you allocate anything \(say, use a `Box` or `Vec` or anything else which allocates on heap\) you'll be using your own allocator, how cool is that.
+
+Let's try to break the system and write a `NullAllocator` which immediately gives up as there was no memory, register it gobally and see what happens.
+
+```rust
+use std::alloc::{GlobalAlloc, Layout};
+
+struct NullAllocator;
+
+unsafe impl GlobalAlloc for NullAllocator {
+    unsafe fn alloc(&self, _lt: Layout) -> *mut u8 {
+        std::ptr::null_mut()
+    }
+    unsafe fn dealloc(&self, _ptr: *mut u8, _lt: Layout) {
+        panic!("won't deallocate: we never allocated!");
+    }
+}
+
+#[global_allocator]
+static A: NullAllocator = NullAllocator;
+
+fn main() {}
+```
+
+Several comments along the way.
+
+`Layout` specifies size and alignment of the memory you want to access. I.e. you can say I want 16 bytes with alignment of 2. This means that you'll get 16 bytes at an address divisible by 2. Or you can use turbofish and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`. There are certain rules specified about data layout of Rust types in the [reference](https://doc.rust-lang.org/reference/type-layout.html).
+
+Also note that we also get `layout` as a parameter while deallocating, not only a pointer \(as is the case with `free(ptr)` function in C\).
+
+Of course if you are implementing your own allocator, there isn't much Rust can do to protect you, so not only the trait functions are `unsafe`, but even the trait impl itself is `unsafe`. Unsafe impl signifies that you have to provide certain guarantees on the whole allocator logic, while `alloc` function is unsafe because it will result in Undefined Behaviour if you request zero bytes.
+
+We returned null pointer from our `alloc`, this signifies that we are out of memory. Let's try to run our program and see what happens.
+
+```text
+> cargo run
+Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+Running `target/debug/alloc-blog`
+memory allocation of 4 bytes failed[1]    8113 abort      cargo run
+```
+
+Wow, and we didn't even allocate anything, note that my `main` function was empty.
+
+So, what's going on? Who requested those 4 bytes, is it that minimalist Rust runtime? I thought it should only allocate arguments to `main` on stack and the stack itself is provided by OS... Let's investigate.
+
+## 
+
