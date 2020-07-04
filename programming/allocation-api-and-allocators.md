@@ -8,7 +8,7 @@ description: Exploring allocators in general and their Rust API in particular.
 
 I like to look at standard libraries of programming languages! It feels like being in a candy store: there are some many interesting functions and nice tools one can use! Some of them may feel useless at a particular moment, but may come handy later to save on some typing, to avoid reinventing the wheel, or even to guide a design choice.
 
-In Rust, [standard library documentation](https://doc.rust-lang.org/std/) is extremely readable and even has a section "How to read this documentation" for people like me. To quote from it:
+In Rust, [standard library documentation](https://doc.rust-lang.org/std/) is extremely readable and even has a section "How to read this documentation" for people like me. Let me quote from it:
 
 > If this is your first time, the documentation for the standard library is written to be casually perused. Clicking on interesting things should generally lead you to interesting places.
 
