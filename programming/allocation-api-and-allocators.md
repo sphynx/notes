@@ -6,7 +6,7 @@ description: Exploring allocators in general and their Rust API in particular.
 
 ## Intro
 
-I like to look at standard libraries of programming languages! It feels like being in a candy store: there are some many interesting functions and nice tools one can use! Some of them may feel useless at a particular moment, but may come handy later to save on some typing, to avoid reinventing the wheel, or even to guide a design choice.
+I like to look at standard libraries of programming languages! It feels like being in a candy store: there are so many interesting functions and nice tools one can use! Some of them may feel useless at a particular moment, but may come handy later to save on some typing, to avoid reinventing the wheel, or even to guide a design choice.
 
 In Rust, [standard library documentation](https://doc.rust-lang.org/std/) is extremely readable and even has a section "How to read this documentation" for people like me. Let me quote from it:
 
@@ -22,7 +22,7 @@ This definitely sounded interesting, so I decided to take a closer look and this
 
 ## Registering dummy allocator as global
 
-`std::alloc` module provides us with means to write our own memory allocators and register them as the default global allocator for our programs! And moreover this is easy to do: you just have to implement a trait with two functions: `alloc` and `dealloc`and register it with `[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
+`std::alloc` module provides us with means to write our own memory allocators and register them as the default global allocator for our programs. Moreover, this is easy to do: you just have to implement a trait with two functions: `alloc` and `dealloc`and register it with `#[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
 
 After that, every time you allocate anything \(say, use a `Box` or `Vec` or anything else which allocates on heap\) you'll be using your own allocator, how cool is that.
 
@@ -50,7 +50,7 @@ fn main() {}
 
 Several comments along the way.
 
-`Layout` specifies size and alignment of the memory you want to access. I.e. you can say: "I want 16 bytes with alignment of 2". This means that you'll get 16 bytes at an address divisible by 2. Or you can use "turbofish" and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`. 
+`Layout` specifies size and alignment of the memory you want to get. I.e. you can say: "I want 16 bytes with alignment of 2". This means that you'll get 16 bytes at an address divisible by 2. Or you can use "turbofish" and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`. 
 
 Note that we also get `layout` as a parameter for deallocation, not only a pointer \(as is the case with `free(ptr)` function in C\).
 
