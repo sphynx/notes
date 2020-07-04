@@ -202,3 +202,10 @@ I think that the difference between `stderr` and `stdout` in terms of allocation
 
 Now we also know that one more benefit is that it can be used in `alloc`along with `format_args!`
 
+## TODO
+
+* using allocators locally, interaction with collections
+* ways to actually allocate memory in custom allocators
+* overview of popular Rust allocators
+* overview \(or at least links\) to poular algorithms
+
