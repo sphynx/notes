@@ -202,10 +202,41 @@ I think that the difference between `stderr` and `stdout` in terms of allocation
 
 Now we also know that one more benefit is that it can be used in `alloc`along with `format_args!`
 
+## Using custom allocators for standard collections
+
+Of course it's entirely optional to register allocator with `#[global_allocator]`, you can continue using the standard allocator and only use custom allocators for specific goals by directly calling their `alloc` and `dealloc`methods. 
+
+This raises an interesting question: if you want to allocate a Box, Vec or HashMap using a custom allocator, how would you do this? I was surprised to discover that there is no such API in `Vec`, even on nightly. However, the work and discussion on this are ongoing, I think the latest relevant places to check is the [repository](https://github.com/rust-lang/wg-allocators) of "Rust Allocators Working Group". It looks like the proposed version of API adds `new_in` [function](https://timdiekmann.github.io/alloc-wg/alloc_wg/vec/struct.Vec.html#method.new_in) which will receive an allocator \(i.e. something implementing `AllocRef`, another allocator trait\) as a parameter, so you can have `Vec::new_in(my_allocator)` or `Box::new_in(2, my_allocator)`.
+
+## How to get memory from inside the allocator
+
+If we want to write a more realistic allocator which actually does some allocation and not just returns `null_ptr` or counts whatever system allocator returns us, we need to face another serious question which immediately puzzled me. What's the proper way to actually get memory in our allocator then? If we just call `libc::malloc` doesn't it defeat the point? I.e. don't we just delegate the work to another allocator this way? In order to answer this question, we probably need some overview of memory management first.
+
+## General overview of memory management
+
+As you probably know, memory management conceptually happens on two levels.
+
+1. Operating system manages physical memory of the whole machine giving it to processes and using it for its own purposes. 
+2. Programs manage their dynamic memory for their own purposes \(for example to create dynamic data structures\).
+
+We can manage memory in fixed size chunks or in variable size chunks. 
+
+On the first level, operating systems normally use _fixed_ size approach called _paging:_ memory is given out to processes in fixed size pages, usually 4k in size \(you can run `pagesize` on macOS to check the page size\). OS and relevant hardware also has to manage the mapping between virtual _pages_ \(which are fixed size parts of your virtual address space\) and physical _page frames_ which are parts of actual physical memory. The mapping itself may be rather large, so in order to do resolve lookups efficiently OS uses help of hardware which basically caches part of the pages mapping on CPU in its Memory Management Unit. Without hardware support, paging would be prohibitively slow due to extra indirections involved in the address translation.
+
+On the second level, programs normally request memory in chunks of _variable_ sizes, which makes it harder to manage than using _fixed_ size chunks. Variable size leads to _fragmentation_ and requires certain algorithms to handle it. This also entails additional performance costs associated with such algorithms. Hence, there is a need for an allocator library which provides API for allocating and deallocating memory of any size, so that the complexity can be abstracted away and hidden from programmers.
+
+
+
+ `malloc` and `free` are ones of the APIs used by processes to manage their memory.
+
+Interesting enough `malloc` is not a system call, it's a library function. 
+
+I've started looking at the source code of some popular Rust allocators like `wee-alloc` or `bumpalo` and reading a little and here is what I've found.
+
+
+
 ## TODO
 
-* using allocators locally, interaction with collections
-* ways to actually allocate memory in custom allocators
 * overview of popular Rust allocators
 * overview \(or at least links\) to poular algorithms
 
