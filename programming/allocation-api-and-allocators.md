@@ -221,17 +221,15 @@ As you probably know, memory management conceptually happens on two levels.
 
 We can manage memory in fixed size chunks or in variable size chunks. 
 
-On the first level, operating systems normally use _fixed_ size approach called _paging:_ memory is given out to processes in fixed size pages, usually 4k in size \(you can run `pagesize` on macOS to check the page size\). OS and relevant hardware also has to manage the mapping between virtual _pages_ \(which are fixed size parts of your virtual address space\) and physical _page frames_ which are parts of actual physical memory. The mapping itself may be rather large, so in order to do resolve lookups efficiently OS uses help of hardware which basically caches part of the pages mapping on CPU in its Memory Management Unit. Without hardware support, paging would be prohibitively slow due to extra indirections involved in the address translation.
+On the first level, operating systems normally use _fixed_ size approach called _paging:_ memory is given out to processes in fixed size pages, usually 4k in size \(you can run `pagesize` on macOS to check the page size\). OS and relevant hardware also has to manage the mapping between virtual _pages_ \(which are fixed size parts of your virtual address space\) and physical _page frames_ which are parts of actual physical memory. The mapping itself may be rather large, so in order to resolve lookups efficiently OS uses help of the hardware which basically caches part of the pages mapping on CPU in its Memory Management Unit. Without hardware support, paging would be prohibitively slow due to extra indirections involved in the address translation.
 
 On the second level, programs normally request memory in chunks of _variable_ sizes, which makes it harder to manage than using _fixed_ size chunks. Variable size leads to _fragmentation_ and requires certain algorithms to handle it. This also entails additional performance costs associated with such algorithms. Hence, there is a need for an allocator library which provides API for allocating and deallocating memory of any size, so that the complexity can be abstracted away and hidden from programmers.
 
+ If it's abstacted away, then we need some API to work with it.`malloc` and `free` from C is an example of such API, `allocate` and `deallocate` from `std::alloc` in Rust we are looking at is another. 
+
+Now it should make some sense that  `malloc` is not an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get some clever allocator for free.
 
 
- `malloc` and `free` are ones of the APIs used by processes to manage their memory.
-
-Interesting enough `malloc` is not a system call, it's a library function. 
-
-I've started looking at the source code of some popular Rust allocators like `wee-alloc` or `bumpalo` and reading a little and here is what I've found.
 
 
 
