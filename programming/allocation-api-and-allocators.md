@@ -210,7 +210,7 @@ This raises an interesting question: if you want to allocate a Box, Vec or HashM
 
 ## How to get memory from inside the allocator
 
-If we want to write a more realistic allocator which actually does some allocation and not just returns `null_ptr` or counts whatever system allocator returns us, we need to face another serious question which immediately puzzled me. What's the proper way to actually get memory in our allocator then? If we just call `libc::malloc` doesn't it defeat the point? I.e. don't we just delegate the work to another allocator this way? In order to answer this question, we probably need some overview of memory management first.
+If we want to write a more realistic allocator which actually does some allocation and not just returns `null_ptr` or counts whatever system allocator returns us, we need to face another serious question: what's the proper way to actually get memory in our allocator then? If we just call `libc::malloc` doesn't it defeat the point? I.e. don't we just delegate the work to another allocator this way? In order to answer this question, we probably need some overview of memory management first.
 
 ## General overview of memory management
 
