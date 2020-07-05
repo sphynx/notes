@@ -2,7 +2,7 @@
 description: Exploring allocators in general and their Rust API in particular.
 ---
 
-# Allocation API and allocators
+# Allocation API, allocators and virtual memory
 
 ## Introduction
 
@@ -29,13 +29,13 @@ We will:
 * learn how `malloc` gets its memory by using `brk` and `mmap` system calls
 * learn how to get memory under your allocator's management
 
-## Registering dummy allocator as global
+## Registering a dummy allocator as global
 
 `std::alloc` module provides us with means to write our own memory allocators and register them as the default global allocator for our programs. Moreover, this is easy to do: you just have to implement a trait with two methods: `alloc` and `dealloc`and register it with `#[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
 
-After that, every time you allocate anything \(say, use a `Box` or `Vec` or anything else which allocates on heap\) you'll be using your own allocator, how cool is that.
+After that, every time you allocate anything \(say, use a `Box` or `Vec` or anything else which allocates on the heap\) you'll be using your own allocator.
 
-Let's try to break the system and write a `NullAllocator` \(which just pretends that there was no memory and immediately gives up\), register it gobally and see what happens.
+Let's try to break the system and write a `NullAllocator` \(which just pretends that there is no more memory and immediately gives up\), register it gobally and see what happens.
 
 ```rust
 use std::alloc::{GlobalAlloc, Layout};
@@ -57,11 +57,11 @@ static A: NullAllocator = NullAllocator;
 fn main() {}
 ```
 
-Several comments along the way.
+Several comments along the way:
 
 `Layout` specifies size and alignment of the memory you want to get. I.e. you can say: "I want 16 bytes with alignment of 2". This means that you'll get 16 bytes at an address divisible by 2. Or you can use "turbofish" and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`. 
 
-Note that we also get `layout` as a parameter for deallocation, not only a pointer \(as is the case with `free(ptr)` function in C\).
+Note that we also have `layout` as a parameter for **de**allocation, not only a pointer \(as is the case with `free(ptr)` function in C\).
 
 Of course if you are implementing your own allocator, there isn't much Rust can do to protect you in terms of memory safety, so not only the trait functions are `unsafe`, but even the trait impl itself is `unsafe`. Unsafe impl means that you have to provide certain guarantees on the whole allocator logic, while `alloc` function is unsafe because it will result in Undefined Behaviour if you request zero bytes. `dealloc` is unsafe, because for example if you fail to provide it with an address which was given to you by the allocator it can lead to Undefined Behaviour.
 
@@ -139,7 +139,7 @@ The error messages comes from `default_alloc_error_hook` function which gets cal
 
 ## Tracing in allocators
 
-Now, we played enough with the dummy and system allocators and want to write our own. However, it would be nice to have some tracing ability to be able to monitor the allocation and to use for debugging.
+Now, we played enough with the dummy and system allocators and want to write our own. However, first it would be nice to have some tracing ability to be able to monitor the allocation and to help with debugging.
 
 Just naively using `println!("allocated {} bytes", layout.size())` in `alloc` function doesn't work and leads to this scary error: `illegal hardware instruction`. Oh well, joys of unsafe code.
 
@@ -172,7 +172,7 @@ fn print(args: std::fmt::Arguments<'_>) {
 
 This code uses `format_args!` and still it doesn't allocate. Both `print!` and `eprint!` also use `format_args!` 
 
-Apparently, both `print!` and `eprint!` \(and their -ln variants\) allocate when they create their local versions of stderr/stdout: judging from the [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/io/stdio.rs#L16) there is a `Box` there and it alone allocates eight bytes. If we just use `std::io::stderr()` directly, this doesn't happen. 
+Apparently, both `print!` and `eprint!` \(and their `-ln` variants\) allocate when they create their local versions of stderr/stdout: judging from the [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/io/stdio.rs#L16) there is a `Box` there and it alone allocates eight bytes. If we just use `std::io::stderr()` directly, this doesn't happen. 
 
 Note also that using `stderr` \(as opposed to `stdout`\) is also important, because using `std::io::stdout()` also allocates!
 
@@ -311,5 +311,5 @@ If you want to take a look at some popular real-world allocators written in Rust
 * [wee\_alloc](https://github.com/rustwasm/wee_alloc) - "The **W**asm-**E**nabled, **E**lfin Allocator". 333 ⭐. This allocator specialises for WASM, trying to be simple \(so that the generated WASM size will be smaller\). It can also be run on UNIX, Windows or just with static array as a heap.
 * [bumpalo](https://github.com/fitzgen/bumpalo) - "A fast bump allocation arena for Rust". 339 ⭐. Bump allocation is a good place to start, since this is one of the simplest allocation strategies you can implement, while still being useful. Also the code is very well commented.
 
-That's it, I hope you've learnt something useful. If you want to comment: you can just create an issue on Gihub. Or if you want to send me some pull request with any changes or errors you've found, I'd be extremely grateful.
+That's it, I hope you've learnt something useful. If you want to comment you can just [create an issue](https://github.com/sphynx/notes/issues/new/choose) on Github. Or if you want to send me a pull request on this "Notes" [repository](https://github.com/sphynx/notes) with any proposed changes or mistakes you've found, I'd be extremely grateful.
 
