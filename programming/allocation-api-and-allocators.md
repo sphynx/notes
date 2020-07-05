@@ -278,8 +278,6 @@ I think the principal differences between `mmap` and `brk` are as follows:
 *  with `mmap` we can have many memory blocks \(for example one for each thread\), while with `brk` and program break - we maintain a large monolitic block of memory - the heap.
 * with `mmap` we can give back the memory of a particular block back to the OS \(with `munmap`\) when everything in that block has been freed. It's trickier to return memory with `sbrk` approach, since we can't return freed memory from the middle of the monolitic heap \(we can only decrease the program break when end of the monolitic block is freed\).
 
-
-
 ## Back to the "getting memory in our allocator" question
 
 So, now we've seen how `malloc` does it, we have some ideas how to do it in our own allocator program.
