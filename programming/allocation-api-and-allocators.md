@@ -20,9 +20,18 @@ So, I started reading and here we go. The very first module in the documentation
 
 This definitely sounded interesting, so I decided to take a closer look and this post summarizes what I've learnt about allocators so far.
 
+We will:
+
+* run some code experiments, registering toy allocators as global Rust allocators
+* see that Rust programs allocate dynamic memory even before running `main`
+* see how to collect and print information about memory allocations
+* learn about virtual memory basics and paging
+* learn how `malloc` gets its memory by using `brk` and `mmap` system calls
+* learn how to get memory under your allocator's management
+
 ## Registering dummy allocator as global
 
-`std::alloc` module provides us with means to write our own memory allocators and register them as the default global allocator for our programs. Moreover, this is easy to do: you just have to implement a trait with two functions: `alloc` and `dealloc`and register it with `#[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
+`std::alloc` module provides us with means to write our own memory allocators and register them as the default global allocator for our programs. Moreover, this is easy to do: you just have to implement a trait with two methods: `alloc` and `dealloc`and register it with `#[global_allocator]` annotation, that's it. Of course, writing the allocator and making it do something reasonable is much less easier.
 
 After that, every time you allocate anything \(say, use a `Box` or `Vec` or anything else which allocates on heap\) you'll be using your own allocator, how cool is that.
 
@@ -54,7 +63,7 @@ Several comments along the way.
 
 Note that we also get `layout` as a parameter for deallocation, not only a pointer \(as is the case with `free(ptr)` function in C\).
 
-Of course if you are implementing your own allocator, there isn't much Rust can do to protect you in terms of memory safety, so not only the trait functions are `unsafe`, but even the trait impl itself is `unsafe`. Unsafe impl means that you have to provide certain guarantees on the whole allocator logic, while `alloc` function is unsafe because it will result in Undefined Behaviour if you request zero bytes.
+Of course if you are implementing your own allocator, there isn't much Rust can do to protect you in terms of memory safety, so not only the trait functions are `unsafe`, but even the trait impl itself is `unsafe`. Unsafe impl means that you have to provide certain guarantees on the whole allocator logic, while `alloc` function is unsafe because it will result in Undefined Behaviour if you request zero bytes. `dealloc` is unsafe, because for example if you fail to provide it with an address which was given to you by the allocator it can lead to Undefined Behaviour.
 
 We returned null pointer from our `alloc`, which is a way to tell that we are out of memory. Let's try to run our program and see what happens.
 
@@ -130,7 +139,7 @@ The error messages comes from `default_alloc_error_hook` function which gets cal
 
 ## Tracing in allocators
 
-Now, we played enough with the dummy and system allocators and want to write our own. However, it would be nice to have some tracing ability to be able to monitor the allocation.
+Now, we played enough with the dummy and system allocators and want to write our own. However, it would be nice to have some tracing ability to be able to monitor the allocation and to use for debugging.
 
 Just naively using `println!("allocated {} bytes", layout.size())` in `alloc` function doesn't work and leads to this scary error: `illegal hardware instruction`. Oh well, joys of unsafe code.
 
@@ -139,7 +148,7 @@ As you may have guessed this happens because `println!` allocates. And allocatin
 But where exactly it allocates? First, I thought that it happens while building the formatted string, but no. Let me show you the tracing code which works fine inside `alloc`:
 
 ```rust
-// This works fine like this: 
+// This fn works fine when used like this: 
 // print(format_args!("hello {}", 1));
 fn print(args: std::fmt::Arguments<'_>) {
     std::io::stderr().write_fmt(args).unwrap()
@@ -289,7 +298,7 @@ static mut HEAP: [u8; 8192] = [0; 8192];
 
 This post is already getting rather long, so I think I need to wrap up, even though we've just scratched the surface of the allocators and didn't even start to implement one. 
 
-However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging.
+However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging. I hope this wetted your appetite to dive deeper into the alocators.
 
 There seem to be a ton of interesting algorithms and decisions to be made when implementing an allocator. Also, the staggering amount of different approaches suggests that there is no silver bullet and it's impossible to write an allocator which will scale well and satisfy all the possible needs, so we need to specialise.
 
