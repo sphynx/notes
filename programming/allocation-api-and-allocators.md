@@ -4,7 +4,7 @@ description: Exploring allocators in general and their Rust API in particular.
 
 # Allocation API and allocators
 
-## Intro
+## Introduction
 
 I like to look at standard libraries of programming languages! It feels like being in a candy store: there are so many interesting functions and nice tools one can use! Some of them may feel useless at a particular moment, but may come handy later to save on some typing, to avoid reinventing the wheel, or even to guide a design choice.
 
@@ -229,19 +229,78 @@ On the second level, programs normally request memory in chunks of _variable_ si
 
 Now it should make some sense that  `malloc` is _not_ an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get a clever allocator for free.
 
-How does `malloc` gets its memory? 
+## \`malloc\` and getting new memory
 
-1. It can either increase the available heap area of the process virtual space by moving so-called _program break_, which is just a pointer to end of the data available to the program. This is done by `brk` or `sbrk` system calls on UNIX. By the way, I was always puzzled why those calls for had such strange names for something heap-related. Now I know that that's because they manipulate that "program break" which is some ancient programming term.
-2. Map new pages with `mmap` system call, which stands for "map memory".
+How does `malloc` gets new memory under its management? It has two options: to adjust the program break with `brk` or to map new pages of memory with `mmap`. Let's look at those in more details.
+
+![Process memory layout](../.gitbook/assets/memory-layout.jpg)
+
+Above you can see a typical process memory layout, which describes which areas of the process virtual address space are assigned to which segments. The _program break_ is basically the address of the end of data segments of the program. Past program break there are unallocated addresses and if we try to access them we will get "segmentation violation" error. When the process is created, its program break is set to the top of uninitialised data segment \(BSS\), so the heap size is effectively 0.
+
+### brk/sbrk
+
+`malloc` then can increase the available heap area by moving program break further up. This is done by `brk` or `sbrk` system calls on UNIX. [Those calls](https://linux.die.net/man/2/sbrk) just update the address, they don't do any actual memory mapping. Their effect in essence is that they make new virtual memory addresses available for the process to use \(so we won't get segmentation violation anymore\). The actual pages mapping is made by OS kernel when we try to access that memory for the first time. Since OS virtual memory operates on pages, actual changes in program break are multiples of the system page size.
+
+Allocators can also decrease the amount of mapped memory by moving the program break down \(say, when all the blocks at the top were freed\).
+
+By the way, I was always puzzled why those calls had such strange names for something heap-related. Now I know that that's because they manipulate that "program break", which is some ancient programming term.
+
+### mmap
+
+Another option for `malloc` is to use `mmap` which is a system call which can be used for many purposes: to implement memory-mapped file I/O, to allocate memory or to organize shared memory for inter-process communication. If we use `mmap` like this:
+
+```c
+mmap(
+  NULL, // let OS decide where to place it in virtual address space 
+  size, // size of the memory we need, in bytes
+  PROT_READ | PROT_WRITE, // read/write memory 
+  MAP_ANON | MAP_PRIVATE, // zero-filled, used only by this process 
+  -1, // unused for anonymous memory
+  0   // unused for anonymous memory
+);
+```
+
+We are basically asking OS to give us a zero-initialised chunk of memory with size `size` so that we can read/write it for any private needs in our process. This memory will be mapped to an virtual address of the process at OS discretion.
+
+`mmap` is normally used by `malloc` for allocating larger blocks of memory, it's controlled by certain threshold which can be adjusted.
+
+I think the principal differences between `mmap` and `brk` are as follows:
+
+*  with `mmap` we can have many memory blocks \(for example one for each thread\), while with `brk` and program break - we maintain a large monolitic block of memory - the heap.
+* with `mmap` we can give back the memory of a particular block back to the OS \(with `munmap`\) when everything in that block has been freed. It's trickier to return memory with `sbrk` approach, since we can't return freed memory from the middle of the monolitic heap \(we can only decrease the program break when end of the monolitic block is freed\).
 
 
 
+## Back to the "getting memory in our allocator" question
 
+So, now we've seen how `malloc` does it, we have some ideas how to do it in our own allocator program.
 
+The easiest approach is probably just to use the system allocator `std::alloc::System` and ask it for some large memory area which we can then micro-manage with our allocator \(which presumably has some specific goals\).
 
+If we want to get lower than that we can emulate what `malloc` is doing and use OS-based system calls \(most likely `mmap` on UNIX-based systems, [VirtualAlloc](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc) on Windows or something else on WebAssembly\). For example you can see how `wee_alloc` [does it ](https://github.com/rustwasm/wee_alloc/blob/f26c431df6fb6c7df0d6f8e0675471b9c56d8787/wee_alloc/src/imp_unix.rs#L11)on UNIX with `mmap`.
 
-## TODO
+Finally, if we don't have any OS at all and are running on some bare-metal embedded device, we can just use a statically allocated larged array to manage:
 
-* overview of popular Rust allocators
-* overview \(or at least links\) to poular algorithms
+```rust
+static mut HEAP: [u8; 8192] = [0; 8192];
+```
+
+## Summary
+
+This post is already getting rather long, so I think I need to wrap up, even though we've just scratched the surface of the allocators and didn't even start to implement one. 
+
+However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging.
+
+There seem to be a ton of interesting algorithms and decisions to be made when implementing an allocator. Also, the staggering amount of different approaches suggests that there is no silver bullet and it's impossible to write an allocator which will scale well and satisfy all the possible needs, so we need to specialise.
+
+If you want to read more about virtual memory and operating systems in general I highly recommend a [free book](http://pages.cs.wisc.edu/~remzi/OSTEP/) "Operating Systems: Three Easy Pieces". It's an amazing textbook which is quite entertaining to read just for fun. Some of the relevant chapters are ["Address Translation"](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-mechanism.pdf), ["Free-Space Management"](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-mechanism.pdf) and ["Paging: Introduction"](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf).
+
+If you want to see more Rust code examples and some actual implementations of educational allocators you can read those two pages from the wonderful blog "Writing OS in Rust" by Philipp Oppermann: ["Heap Allocation"](https://os.phil-opp.com/heap-allocation/) and ["Allocator Designs"](https://os.phil-opp.com/allocator-designs/), it's very very good.
+
+If you want to take a look at some popular real-world allocators written in Rust, you can start with the following:
+
+* [wee\_alloc](https://github.com/rustwasm/wee_alloc) - "The **W**asm-**E**nabled, **E**lfin Allocator". 333 ⭐. This allocator specialises for WASM, trying to be simple \(so that the generated WASM size will be smaller\). It can also be run on UNIX, Windows or just with static array as a heap.
+* [bumpalo](https://github.com/fitzgen/bumpalo) - "A fast bump allocation arena for Rust". 339 ⭐. Bump allocation is a good place to start, since this is one of the simplest allocation strategies you can implement, while still being useful. Also the code is very well commented.
+
+That's it, I hope you've learnt something useful. If you want to comment: you can just create an issue on Gihub. Or if you want to send me some pull request with any changes or errors you've found, I'd be extremely grateful.
 
