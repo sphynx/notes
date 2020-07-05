@@ -227,7 +227,9 @@ On the second level, programs normally request memory in chunks of _variable_ si
 
  If it's abstacted away, then we need some API to work with it.`malloc` and `free` from C is an example of such API, `allocate` and `deallocate` from `std::alloc` in Rust we are looking at is another. 
 
-Now it should make some sense that  `malloc` is not an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get some clever allocator for free.
+Now it should make some sense that  `malloc` is not an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get a clever allocator for free.
+
+
 
 
 
