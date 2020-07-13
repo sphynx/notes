@@ -59,7 +59,7 @@ fn main() {}
 
 Several comments along the way:
 
-`Layout` specifies size and alignment of the memory you want to get. I.e. you can say: "I want 16 bytes with alignment of 2". This means that you'll get 16 bytes at an address divisible by 2. Or you can use "turbofish" and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`. 
+`Layout` specifies size and alignment of the memory you want to get. I.e. you can say: "I want 16 bytes with alignment of 2". This means that you'll get 16 bytes at an address divisible by 2. Or you can use "turbofish" and say `Layout::new::<u32>()` which means just give me memory which is good enough to store `u32`.
 
 Note that we also have `layout` as a parameter for **de**allocation, not only a pointer \(as is the case with `free(ptr)` function in C\).
 
@@ -110,10 +110,9 @@ static A: Counter = Counter;
 fn main() {
     println!("allocated bytes before main: {}", ALLOCATED.load(SeqCst));
 }
-
 ```
 
-Here we use atomics, recently there was [a post](https://www.nickwilcox.com/blog/arm_vs_x86_memory_model/) in "This Week in Rust" about atomics, memory model and different implementation on ARM and x86 processors, you may want to check it out. But for now, we just need to know that atomics represent shared memory for threads to communicate. And `Ordering::SeqCst` represent the highest barrier between those threads, so that they definitely see the previous value before updating it and everything  works well for our example.
+Here we use atomics, recently there was [a post](https://www.nickwilcox.com/blog/arm_vs_x86_memory_model/) in "This Week in Rust" about atomics, memory model and different implementation on ARM and x86 processors, you may want to check it out. But for now, we just need to know that atomics represent shared memory for threads to communicate. And `Ordering::SeqCst` represent the highest barrier between those threads, so that they definitely see the previous value before updating it and everything works well for our example.
 
 Also note that we use `std::alloc::System` which is a system allocator. What's that, say, on macOS? In the libstd [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/sys/unix/alloc.rs#L14) we can see that it basically amounts to calling `malloc` library function from `libc` on UNIX systems \(including macOS\).
 
@@ -170,9 +169,9 @@ fn print(args: std::fmt::Arguments<'_>) {
 // ...
 ```
 
-This code uses `format_args!` and still it doesn't allocate. Both `print!` and `eprint!` also use `format_args!` 
+This code uses `format_args!` and still it doesn't allocate. Both `print!` and `eprint!` also use `format_args!`
 
-Apparently, both `print!` and `eprint!` \(and their `-ln` variants\) allocate when they create their local versions of stderr/stdout: judging from the [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/io/stdio.rs#L16) there is a `Box` there and it alone allocates eight bytes. If we just use `std::io::stderr()` directly, this doesn't happen. 
+Apparently, both `print!` and `eprint!` \(and their `-ln` variants\) allocate when they create their local versions of stderr/stdout: judging from the [source code](https://github.com/rust-lang/rust/blob/f844ea1e561475e6023282ef167e76bc973773ef/src/libstd/io/stdio.rs#L16) there is a `Box` there and it alone allocates eight bytes. If we just use `std::io::stderr()` directly, this doesn't happen.
 
 Note also that using `stderr` \(as opposed to `stdout`\) is also important, because using `std::io::stdout()` also allocates!
 
@@ -185,9 +184,9 @@ fn main() {
         "allocated bytes before main: {}\n",
         before_main
     ));
-    
+
     std::io::stderr().write(b"hello").unwrap();
-    
+
     print(format_args!(
         "allocated bytes for the construct: {}\n",
         ALLOCATED.load(SeqCst) - before_main
@@ -213,7 +212,7 @@ Now we also know that one more benefit is that it can be used in `alloc`along wi
 
 ## Using custom allocators for standard collections
 
-Of course it's entirely optional to register allocator with `#[global_allocator]`, you can continue using the standard allocator and only use custom allocators for specific goals by directly calling their `alloc` and `dealloc`methods. 
+Of course it's entirely optional to register allocator with `#[global_allocator]`, you can continue using the standard allocator and only use custom allocators for specific goals by directly calling their `alloc` and `dealloc`methods.
 
 This raises an interesting question: if you want to allocate a Box, Vec or HashMap using a custom allocator, how would you do this? I was surprised to discover that there is no such API in `Vec`, even on nightly. However, the work and discussion on this are ongoing, I think the latest relevant places to check is the [repository](https://github.com/rust-lang/wg-allocators) of "Rust Allocators Working Group". It looks like the proposed version of API adds `new_in` [function](https://timdiekmann.github.io/alloc-wg/alloc_wg/vec/struct.Vec.html#method.new_in) which will receive an allocator \(i.e. something implementing `AllocRef`, another allocator trait\) as a parameter, so you can have `Vec::new_in(my_allocator)` or `Box::new_in(2, my_allocator)`.
 
@@ -228,15 +227,15 @@ As you probably know, memory management conceptually happens on two levels.
 1. Operating system manages physical memory of the whole machine giving it to processes and using it for its own purposes. 
 2. Programs manage their dynamic memory for their own purposes \(for example to create dynamic data structures\).
 
-We can manage memory in fixed size chunks or in variable size chunks. 
+We can manage memory in fixed size chunks or in variable size chunks.
 
 On the first level, operating systems normally use _fixed_ size approach called _paging:_ memory is given out to processes in fixed size pages, usually 4k in size \(you can run `pagesize` on macOS to check the page size\). OS and relevant hardware also has to manage for each process the mapping between virtual _pages_ \(which are fixed size parts of the process virtual address space\) and physical _page frames_ which are parts of actual physical memory. The mapping itself may be rather large, so in order to resolve lookups efficiently OS uses help of the hardware which basically caches part of the pages mapping in Memory Management Unit of the CPU. Without hardware support, paging would be prohibitively slow due to extra indirections involved in the address translation.
 
 On the second level, programs normally request memory in chunks of _variable_ sizes, which makes it harder to manage than using _fixed_ size chunks. Variable size leads to _fragmentation_ and requires certain algorithms to handle it. This also entails additional performance costs associated with such algorithms. Hence, there is a need for an allocator library which provides API for allocating and deallocating memory of any size, so that the complexity can be abstracted away and hidden from programmers.
 
- If it's abstacted away, then we need some API to work with it.`malloc` and `free` from C is an example of such API, `allocate` and `deallocate` from `std::alloc` in Rust we are looking at is another. 
+If it's abstacted away, then we need some API to work with it.`malloc` and `free` from C is an example of such API, `allocate` and `deallocate` from `std::alloc` in Rust we are looking at is another.
 
-Now it should make some sense that  `malloc` is _not_ an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get a clever allocator for free.
+Now it should make some sense that `malloc` is _not_ an OS system call, but a library function. And allocators implementing `malloc` are part of C standard library \(i.e. [GNU libc](https://www.gnu.org/software/libc/manual/html_node/The-GNU-Allocator.html) or [musl libc](https://git.musl-libc.org/cgit/musl/tree/src/malloc/mallocng/malloc.c)\). When you link to that library, you get a clever allocator for free.
 
 ## \`malloc\` and getting new memory
 
@@ -275,7 +274,7 @@ We are basically asking OS to give us a zero-initialised chunk of memory with si
 
 I think the principal differences between `mmap` and `brk` are as follows:
 
-*  with `mmap` we can have many memory blocks \(for example one for each thread\), while with `brk` and program break - we maintain a large monolitic block of memory - the heap.
+* with `mmap` we can have many memory blocks \(for example one for each thread\), while with `brk` and program break - we maintain a large monolitic block of memory - the heap.
 * with `mmap` we can give back the memory of a particular block back to the OS \(with `munmap`\) when everything in that block has been freed. It's trickier to return memory with `sbrk` approach, since we can't return freed memory from the middle of the monolitic heap \(we can only decrease the program break when end of the monolitic block is freed\).
 
 ## Back to the "getting memory in our allocator" question
@@ -294,9 +293,9 @@ static mut HEAP: [u8; 8192] = [0; 8192];
 
 ## Summary
 
-This post is already getting rather long, so I think I need to wrap up, even though we've just scratched the surface of the allocators and didn't even start to implement one. 
+This post is already getting rather long, so I think I need to wrap up, even though we've just scratched the surface of the allocators and didn't even start to implement one.
 
-However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging. I hope this wetted your appetite to dive deeper into the allocators.
+However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging. I hope this whetted your appetite to dive deeper into the allocators.
 
 There seem to be a ton of interesting algorithms and decisions to be made when implementing an allocator. Also, the staggering amount of different approaches suggests that there is no silver bullet and it's impossible to write an allocator which will scale well and satisfy all the possible needs, so we need to specialise.
 
