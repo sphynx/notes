@@ -296,7 +296,7 @@ static mut HEAP: [u8; 8192] = [0; 8192];
 
 This post is already getting rather long, so I think I need to wrap up, even though we've just scratched the surface of the allocators and didn't even start to implement one. 
 
-However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging. I hope this wetted your appetite to dive deeper into the alocators.
+However, now we are equipped with important tools and ideas: we know the basics about virtual memory and paging, how to get memory from the OS, how to register our allocator within Rust and how to add tracing which should help with the debugging. I hope this wetted your appetite to dive deeper into the allocators.
 
 There seem to be a ton of interesting algorithms and decisions to be made when implementing an allocator. Also, the staggering amount of different approaches suggests that there is no silver bullet and it's impossible to write an allocator which will scale well and satisfy all the possible needs, so we need to specialise.
 
