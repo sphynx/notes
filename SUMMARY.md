@@ -8,11 +8,12 @@
   * [time\_it: a Case Study in Rust Macros](programming/time_it-a-case-study-in-rust-macros.md)
   * [Rust Closures: Returning \`impl Fn\` for \`move\` closures](programming/rust-closures-combining-move-and-fn.md)
   * [Allocation API, allocators and virtual memory](programming/allocation-api-and-allocators.md)
+  * [Checking status of Rust features](programming/rfc-process-in-rust.md)
+* [Miscellaneous](miscellaneous/README.md)
+  * [Technical newsletters](miscellaneous/newsletters.md)
 * [Travel](travel/README.md)
   * [Torres del Paine](travel/torres-del-paine.md)
   * [Tents](travel/tents.md)
-* [Miscellaneous](miscellaneous/README.md)
-  * [Technical newsletters](miscellaneous/newsletters.md)
 
 ## Bits and Pieces
 
