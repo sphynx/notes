@@ -192,7 +192,7 @@ Here we have a stability annotation that has a feature gate and refers to a trac
 
 I hope you've liked this post and can now navigate the labyrinths of RFCs and tracking issues more confidently.
 
-I am interested in ways of improving the clarity of this whole process. If you want to comment you can either discuss this post on Reddit, [create an issue](https://github.com/sphynx/notes/issues/new/choose) on Github or drop me an email. Also please send pull requests to this [repository](https://github.com/sphynx/notes) if you want to fix/improve something. Thank you!
+I am interested in ways of improving the clarity of this whole process. If you want to comment you can either [create an issue](https://github.com/sphynx/notes/issues/new/choose) on Github or drop me an email. Also please send pull requests to this [repository](https://github.com/sphynx/notes) if you want to improve something. Thank you!
 
 
 
