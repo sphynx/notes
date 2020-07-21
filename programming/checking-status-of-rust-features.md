@@ -87,6 +87,8 @@ Starting point: you want to know about some feature, for example "Unicode charac
 
 That's it. We will take a look at examples in the next section.
 
+**UPDATE:** As suggested by [u/moltonel](https://www.reddit.com/user/moltonel/) on Reddit, [caniuse.rs](https://caniuse.rs/) is another amazing starting point which might work better than googling for stable features in step 1. It provides stabilization date, Rust version on which it was stabilized, feature gate and the links to relevant PRs and tracking issues.
+
 There is another starting point: you just see unstable feature in the documentation, like this:
 
 ![](../.gitbook/assets/stdalloclayout-rust-2020-07-18-23-13-17.png)
