@@ -61,5 +61,5 @@ svgexport favicon.svg 32.png 32:32
 convert 16.png 24.png 32.png -colors 256 favicon.ico
 ```
 
-
+* Run a command every 5 seconds: `watch -n5 command`
 
