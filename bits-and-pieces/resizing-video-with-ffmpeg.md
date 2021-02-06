@@ -18,6 +18,8 @@ Use this:
 ffmpeg -i input.mov -vcodec libx264 -crf 28 -f mov -acodec copy output.mov
 ```
 
+CRF parameter - _constant rate factor_ - defines the quality \(the lower the number, the better quality\), it can take values from 0 to 53. For x264, sane values are between 18 and 28. Above I use 28, which is the lowest quality, which is still kinda acceptable.
+
 ## Details
 
 First I've looked at this answer:
