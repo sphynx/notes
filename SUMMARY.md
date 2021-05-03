@@ -22,5 +22,9 @@
 * [GMail backup](bits-and-pieces/gmail-backup.md)
 * [Git](bits-and-pieces/git.md)
 * [CSS](bits-and-pieces/css.md)
-* [Resizing video with ffmpeg](bits-and-pieces/resizing-video-with-ffmpeg.md)
+
+## Audio/video encoding tips
+
+* [Resizing video with ffmpeg](audio-video-encoding-tips/resizing-video-with-ffmpeg.md)
+* [Mono to stereo](audio-video-encoding-tips/mono-to-stereo.md)
 
