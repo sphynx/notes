@@ -62,4 +62,9 @@ convert 16.png 24.png 32.png -colors 256 favicon.ico
 ```
 
 * Run a command every 5 seconds: `watch -n5 command`
+* Convert GPS routes from .gpx to .kml without creating lots of points:
+
+  ```text
+  gpsbabel -i gpx -f input.gpx -o kml,points=0 -F output.kml
+  ```
 
