@@ -6,7 +6,7 @@ description: 7 days plan for creating a Snake game
 
 I was inspired by GMTK's video "How I learned Unity without following tutorials". His idea was to learn the very basics of Unity game engine (things like game objects, components, transforms, scene editor controls) and then create several simple game clones and learn the rest "on demand", when it's needed in the game. This resonated with me, so I decided to go with Snake which I liked a lot as a kid. I came up with a plan for 7 days to keep me focused and produce a finished game that I can publish it on itch.io and send it to friends or strangers to play.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>My take on the classic</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>My take on the classic</p></figcaption></figure>
 
 I've managed to stick to my plan, see [my published game on itch.io](https://dsphynx.itch.io/snake) and source code on [GitHub](https://github.com/sphynx/snake/). Some of those seven "days" were short (1-2 hours of work), some were longer (5-6 hours), but overall the planning was good, the process was fun, so I decided to share it along with some Unity/C# knowledge I've learnt (something for next posts).
 
@@ -36,6 +36,8 @@ It's not a proper Game Design Document of course, just a list of points that mus
 
 When working on the items from the list below, I kept a dev log, adding short notes about difficulties I had, resources used, things learnt, and rough amount of time I spent. It was useful and allows me to resurrect those experiences now.
 
+I also used version control system and committed the state of the project at the end of each day.
+
 #### Day 1
 
 * [ ] Come up with a data structure to represent a rectangular grid.
@@ -43,12 +45,18 @@ When working on the items from the list below, I kept a dev log, adding short no
 * [ ] Think about and choose a coordinate system to use to refer to your grid positions.
 * [ ] Display the grid and the snake (motionless for now) on the screen. Just use simple 2D square tiles: say white square for the snake, black square for empty space and gray square for the walls.
 
+My version at the end of day 1:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>After Day 1</p></figcaption></figure>
+
 #### Day 2
 
 * [ ] Implement the snake moving logic, i.e. what happens to your data structure after one step of the snake movement. You also need to save the current direction of movement somewhere.
 * [ ] Make the snake move on the screen.
 * [ ] Take input from the keyboard: just arrow keys for now. Make it affect the movement.
 * [ ] Add game controller support for extra challenge (and if you have one).
+
+<figure><img src="../.gitbook/assets/day2.gif" alt=""><figcaption><p>After Day 2</p></figcaption></figure>
 
 #### Day 3
 
@@ -63,12 +71,18 @@ When working on the items from the list below, I kept a dev log, adding short no
 * [ ] Add a hotkey to restart the game from GameOver screen (say, on pressing "R").
 * [ ] Preserve high score between games.
 
+My first version of Simple GameOver screen:
+
+![](../.gitbook/assets/image.png)
+
 #### Day 5
 
-* [ ] Find sprites for snake head, body, apples and walls. Use assets from itch.io, OpenGameArt, or other sources listed here: [https://www.freegameassets.com/](https://www.freegameassets.com/)
+* [ ] Find sprites for snake head, body, apples and walls. Use assets from itch.io, OpenGameArt, or other sources listed here: [https://www.freegameassets.com](https://www.freegameassets.com/)
 * [ ] Fugure out how to deal with spritesheets
 * [ ] Use the new sprites in the game
 * [ ] Orient them properly so that the head looks in the right direction
+
+<figure><img src="../.gitbook/assets/day5.gif" alt=""><figcaption><p>After Day 5</p></figcaption></figure>
 
 #### Day 6
 
@@ -84,6 +98,8 @@ When working on the items from the list below, I kept a dev log, adding short no
 * [ ] Fix remaining bugs
 * [ ] Figure out how to build the game for itch.io (WebGL-based build, playable in the browser)
 * [ ] Upload to itch.io, test and make sure it works in the browser
+
+<figure><img src="../.gitbook/assets/day7v3.gif" alt=""><figcaption><p>The final version played on itch.io [it looks somewhat laggy due to GIF recording]</p></figcaption></figure>
 
 ### Conclusion: now it's your turn!
 
