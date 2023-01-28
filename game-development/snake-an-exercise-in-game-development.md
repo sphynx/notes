@@ -16,7 +16,7 @@ I think it may be also useful for people who want a large but structured exercis
 
 Before implementing a game clone, I think it's very important to understand in advance what you want to implement: which features/power-ups of the original game to support. This will limit your scope and make possible to actually finish the project. It is also useful to set some time limits for things like game sprites or sounds: one may spend ages tinkering with the visuals and never attain perfection! As someone in the Internet said: "Your first game will be ugly", so there is no need to focus on that too much.
 
-Also, before coming up with a plan I went to itch.io and looked at existing Snake implementations  to get ideas and remind myself of the gameplay, see how people display scores, endgame screens and other stuff.
+Also, before coming up with a plan I went to itch.io and looked at existing Snake implementations to get ideas and remind myself of the gameplay, see how people display scores, endgame screens and other stuff.
 
 I ended up with this "design document":
 
@@ -30,11 +30,11 @@ I ended up with this "design document":
 >
 > There should be title game screen with some nice picture, the main "level" where gameplay is happening, and the end game screen displaying the score and high score when snake dies.
 
-It's not a proper Game Design Document of course, just a list of points that must be implemented to consider the game done.
+It's not a proper Game Design Document of course, just a list of points that must be implemented to consider the game done. To get a feel of real GDD, you can look at [this](https://www.cs.unc.edu/Courses/comp585-s15/DesignDocTemplate.pdf) template from a course in University of North Carolina.
 
 ### Plan
 
-When working on the items on those days below, I kept a dev log, adding short notes about difficulties I had, resources used, things learnt, and rough amount of time I spent. It was useful and allows me to resurrect those experiences now.
+When working on the items from the list below, I kept a dev log, adding short notes about difficulties I had, resources used, things learnt, and rough amount of time I spent. It was useful and allows me to resurrect those experiences now.
 
 #### Day 1
 
