@@ -30,7 +30,7 @@ I ended up with this "design document":
 >
 > There should be title game screen with some nice picture, the main "level" where gameplay is happening, and the end game screen displaying the score and high score when snake dies.
 
-It's not a proper Game Design Document of course, just a list of points that must be implemented to consider the game done. To get a feel of real GDD, you can look at [this](https://www.cs.unc.edu/Courses/comp585-s15/DesignDocTemplate.pdf) template from a course in University of North Carolina.
+It's not a proper Game Design Document of course, just a list of points that must be implemented to consider the game done. To get a feel of a real GDD, you can look at [this](https://www.cs.unc.edu/Courses/comp585-s15/DesignDocTemplate.pdf) template from a course in University of North Carolina.
 
 ### Plan
 
@@ -45,7 +45,7 @@ I also used version control system and committed the state of the project at the
 * [ ] Think about and choose a coordinate system to use to refer to your grid positions.
 * [ ] Display the grid and the snake (motionless for now) on the screen. Just use simple 2D square tiles: say white square for the snake, black square for empty space and gray square for the walls.
 
-My version at the end of day 1:
+My version at the end of Day 1:
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>After Day 1</p></figcaption></figure>
 
