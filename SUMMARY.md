@@ -9,6 +9,8 @@
   * [Rust Closures: Returning \`impl Fn\` for \`move\` closures](programming/rust-closures-combining-move-and-fn.md)
   * [Allocation API, allocators and virtual memory](programming/allocation-api-and-allocators.md)
   * [Checking status of Rust features](programming/checking-status-of-rust-features.md)
+* [Game Development](game-development/README.md)
+  * [🐍 Snake: an exercise in game development](game-development/snake-an-exercise-in-game-development.md)
 * [Miscellaneous](miscellaneous/README.md)
   * [Technical newsletters](miscellaneous/newsletters.md)
 * [Roguelikes](roguelikes.md)
