@@ -73,7 +73,7 @@ My version at the end of day 1:
 
 My first version of Simple GameOver screen:
 
-![](../.gitbook/assets/image.png)
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Game Over screen</p></figcaption></figure>
 
 #### Day 5
 
